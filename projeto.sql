@@ -2,7 +2,7 @@
 
 create table usuario(
     id serial primary key,
-    login varchar(50) not null,
+    login varchar(50) not null unique,
     senha varchar(30) not null,
     nome varchar(100) not null,
     apelido varchar(30) not null,
