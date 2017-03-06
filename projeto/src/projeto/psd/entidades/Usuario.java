@@ -141,6 +141,7 @@ public class Usuario {
         this.passatempos = passatempos;
     }
     
+    
     /*
     public ? getFotoPerfil(){
         return fotoPerfil;
