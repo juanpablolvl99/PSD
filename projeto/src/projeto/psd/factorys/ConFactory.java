@@ -1,5 +1,5 @@
 
-package projeto.psd.controle;
+package projeto.psd.factorys;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

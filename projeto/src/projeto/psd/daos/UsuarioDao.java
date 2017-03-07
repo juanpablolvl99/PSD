@@ -1,5 +1,6 @@
-package projeto.psd.controle;
+package projeto.psd.daos;
 
+import projeto.psd.factorys.ConFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +10,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import projeto.psd.entidades.Usuario;
-import projeto.psd.interfaces.UsuarioDaoIF;
+import projeto.psd.interfaces.UsuarioDaoIf;
 
-public class UsuarioDao implements UsuarioDaoIF {
+public class UsuarioDao implements UsuarioDaoIf {
 
     private String url;
     private String user;
@@ -21,7 +22,7 @@ public class UsuarioDao implements UsuarioDaoIF {
     public UsuarioDao() {
 
         try {
-            this.url = "jdbc:postgresql://localhost:5432/";
+            this.url = "jdbc:postgresql://localhost:5432/threadlove";
             this.user = "postgres";
             this.password = "123";
             this.con = ConFactory.getConnection(url, user, password);
@@ -36,8 +37,7 @@ public class UsuarioDao implements UsuarioDaoIF {
     @Override
     public void add(Usuario u) {
         
-        String sql = "INSERT INTO usuario VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-                + "?, ?, ?, ?, ?,)";
+        String sql = "INSERT INTO usuario VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement stmt;
         try {
             stmt = con.prepareStatement(sql);
@@ -82,8 +82,8 @@ public class UsuarioDao implements UsuarioDaoIF {
     @Override
     public void update(Usuario u) {
         
-        String sql = "UPDATE usuario SET id = ?, login = ?, senha = ?, nome = ?,"
-                + " apelido = ?, dataDeNascimento = ?, cidade = ?, email = ?, "
+        String sql = "UPDATE usuario SET id = ?, login = ?, senha = ?, nome = ?, "
+                + "apelido = ?, dataDeNascimento = ?, cidade = ?, email = ?, "
                 + "profissao = ?, descricao = ?, status = ?, altura = ?, peso = ?, "
                 + "corDoCabelo = ?, passaTempo = ? WHERE id = ?";
         PreparedStatement stmt;
@@ -124,7 +124,7 @@ public class UsuarioDao implements UsuarioDaoIF {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Usuario u = new Usuario();
-                u.setId(rs.getInt(1));
+//              u.setId(rs.getInt(1)); id setado automaticamente
                 u.setLogin(rs.getString(2));
                 u.setSenha(rs.getString(3));
                 u.setLogin(rs.getString(4));

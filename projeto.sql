@@ -1,7 +1,7 @@
 ﻿/*create database threadLove;*/
 
 create table usuario(
-    id serial primary key,
+    id int primary key,
     login varchar(50) not null unique,
     senha varchar(30) not null,
     nome varchar(100) not null,
@@ -16,12 +16,12 @@ create table usuario(
     peso real,
     corDoCabelo varchar(30),
     passatempos text not null,
-    fotoPerfil bytea
+    fotoPerfil varchar(30)
 );
 
 create table galeria(
     email varchar(50) references usuario(email),
-    foto bytea,
+    foto varchar(30),
     primary key(email, foto)
 );
 
@@ -37,3 +37,9 @@ create table amizade(
     amigo varchar(50),
     primary key(usuario, amigo)
 );
+
+create table pedidosAmizade(
+    usuario varchar(50) references usuario(email),
+    convite varchar(50),
+    primary key(usuario, convite)
+)

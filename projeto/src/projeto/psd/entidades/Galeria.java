@@ -5,7 +5,7 @@ import java.util.List;
 public class Galeria {
 
     private String userEmail;
-    //private List<?> galeria;
+    private List<String> galeria;
     
     public Galeria(){} // "padrão" - nascimento, cap
 
@@ -13,8 +13,12 @@ public class Galeria {
         return userEmail;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public List<String> getGaleria(){
+        return this.galeria;
     }
-     
+    
+    public boolean addImagem(int usuarioId, String imagem){
+        return this.galeria.add("/imagens/" + usuarioId + imagem);
+    }
+    
 }
