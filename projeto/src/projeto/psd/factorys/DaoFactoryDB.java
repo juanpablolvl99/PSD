@@ -1,10 +1,14 @@
 package projeto.psd.factorys;
 
 import java.sql.SQLException;
+import projeto.psd.daos.AmizadeDao;
 import projeto.psd.daos.MensagemDao;
+import projeto.psd.daos.PedidoDao;
 import projeto.psd.daos.UsuarioDao;
+import projeto.psd.interfaces.AmizadeDaoIf;
 import projeto.psd.interfaces.DaoFactoryIf;
 import projeto.psd.interfaces.MensagemDaoIf;
+import projeto.psd.interfaces.PedidoDaoIf;
 import projeto.psd.interfaces.UsuarioDaoIf;
 
 public class DaoFactoryDB implements DaoFactoryIf{
@@ -14,7 +18,7 @@ public class DaoFactoryDB implements DaoFactoryIf{
     private DaoFactoryDB(){};
     
     @Override
-    public UsuarioDaoIf criaDaoUsuario() {
+    public UsuarioDaoIf criaDaoUsuario() throws ClassNotFoundException, SQLException {
         return new UsuarioDao();
     }
 
@@ -23,7 +27,15 @@ public class DaoFactoryDB implements DaoFactoryIf{
         return new MensagemDao();
     }
     
-    //...
+    @Override
+    public PedidoDaoIf criaDaoPedido() throws SQLException, ClassNotFoundException{
+        return new PedidoDao();
+    }
+    
+    @Override
+    public AmizadeDaoIf criaDaoAmizade() throws SQLException, ClassNotFoundException{
+        return new AmizadeDao();
+    }
     
     public static synchronized DaoFactoryDB getInstance(){
         if(instance == null){
