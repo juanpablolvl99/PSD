@@ -8,6 +8,12 @@ public class Mensagem {
     
     public Mensagem(){} // "padrão" - nascimento, cap
     
+    public Mensagem(String deEmail, String paraEmail, String mensagem){
+        this.deEmail = deEmail;
+        this.paraEmail = paraEmail;
+        this.menssgem = mensagem;
+    }
+    
     public String getDeEmail(){
         return this.deEmail;
     }
