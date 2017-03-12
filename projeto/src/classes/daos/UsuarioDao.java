@@ -116,7 +116,7 @@ public class UsuarioDao implements UsuarioDaoIf {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Usuario u = new Usuario();
-//          u.setId(rs.getInt(1)); id setado automaticamente
+//              u.setId(rs.getInt(1)); id setado automaticamente
             u.setLogin(rs.getString(2));
             u.setSenha(rs.getString(3));
             u.setLogin(rs.getString(4));
