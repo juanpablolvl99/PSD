@@ -49,7 +49,7 @@ public class PedidoDao implements PedidoDaoIf{
     public List<Pedido> listAll() throws SQLException {
         String sql = "SELECT * FROM pedidosAmizade";
         PreparedStatement stmt = con.prepareStatement(sql);
-        List<Pedido> lista = new ArrayList<>();
+        List<Pedido> lista = new ArrayList<Pedido>();
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Pedido p = new Pedido();

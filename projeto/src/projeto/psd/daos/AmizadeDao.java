@@ -1,4 +1,3 @@
-
 package projeto.psd.daos;
 
 import java.sql.Connection;
@@ -49,7 +48,7 @@ public class AmizadeDao implements AmizadeDaoIf{
     public List<Amizade> listAll() throws SQLException{
         String sql = "SELECT * FROM amizade";
         PreparedStatement stmt = con.prepareStatement(sql);
-        List<Amizade> lista = new ArrayList<>();
+        List<Amizade> lista = new ArrayList<Amizade>();
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
             Amizade a = new Amizade();

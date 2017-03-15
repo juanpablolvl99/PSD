@@ -108,7 +108,7 @@ public class UsuarioDao implements UsuarioDaoIf {
 
         String sql = "SELECT * FROM usuario";
         PreparedStatement stmt;
-        List<Usuario> lista = new ArrayList<>();
+        List<Usuario> lista = new ArrayList<Usuario>();
 
         stmt = con.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
