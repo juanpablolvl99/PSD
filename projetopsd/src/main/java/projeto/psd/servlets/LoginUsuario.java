@@ -62,6 +62,10 @@ public class LoginUsuario extends HttpServlet{
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp){
         
     }
     
