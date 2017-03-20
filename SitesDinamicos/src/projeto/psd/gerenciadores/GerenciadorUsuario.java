@@ -12,13 +12,7 @@ public class GerenciadorUsuario{
 
     public GerenciadorUsuario(){};
     
-    public boolean add(String login, String senha, String nome, String apelido, String dataDeNascimento, String cidade, String email,
-        String profissao, String descricao, String status, double altura, double peso, String corDoCabelo, String passatempos, 
-        String fotoPerfil) throws ClassNotFoundException, SQLException{
-        
-        Usuario usu = new Usuario(login, senha, nome, apelido, dataDeNascimento, 
-                cidade, email, profissao, descricao, status, altura, peso, 
-                corDoCabelo, passatempos, fotoPerfil);
+    public boolean add(Usuario usu) throws ClassNotFoundException, SQLException{
         DaoFactory fabricaDao = new DaoFactory();
         DaoFactoryIf fabricaBd = fabricaDao.getDaoFactory();
         UsuarioDaoIf cad = fabricaBd.criaDaoUsuario();
@@ -26,13 +20,7 @@ public class GerenciadorUsuario{
         
     }
     
-    public boolean update(String login, String senha, String nome, String apelido, String dataDeNascimento, String cidade, String email,
-        String profissao, String descricao, String status, double altura, double peso, String corDoCabelo, String passatempos, 
-        String fotoPerfil) throws ClassNotFoundException, SQLException{
-        
-        Usuario usu = new Usuario(login, senha, nome, apelido, dataDeNascimento, 
-                cidade, email, profissao, descricao, status, altura, peso, 
-                corDoCabelo, passatempos, fotoPerfil);
+    public boolean update(Usuario usu) throws ClassNotFoundException, SQLException{
         DaoFactory fabricaDao = new DaoFactory();
         DaoFactoryIf fabricaBd = fabricaDao.getDaoFactory();
         UsuarioDaoIf cad = fabricaBd.criaDaoUsuario();

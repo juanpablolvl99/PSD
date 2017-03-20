@@ -6,7 +6,7 @@ public class Pedido {
     private String userEmail;
     private String userParaEmail;
     
-    public Pedido(){};
+    public Pedido(){}; // "padrão" - nascimento, cap
 
     public String getUserEmail() {
         return userEmail;
