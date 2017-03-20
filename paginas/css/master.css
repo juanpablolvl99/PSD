@@ -1,0 +1,63 @@
+*{
+  position: relative;
+  font-family: 'Varela Round';
+}
+body{
+  background: url('img/wallpaper.jpg');
+  background-position: center;
+  background-size: cover;
+}
+div, .logo > *{
+  display: inline-block;
+}
+.logo{
+  width: 100%;
+  margin-bottom: 25px;
+}
+.login{
+  margin-left: 35%;
+  margin-top: 5%;
+  padding: 20px 30px 0px 30px;
+  width: 370px;
+  height: 320px;
+  background-color: #F2EEEE;
+  border-top: 5px solid #E56F6F;
+}
+input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+#email, #senha{
+  padding-left: 10px;
+}
+.login, input{
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+input:active, input:focus {
+    border: 1px solid #F64A4A;
+}
+#submit{
+  background: #ff656c;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+input:not(#submit){
+  margin-bottom: 20px;
+}
+h1{
+  position: relative;
+  font-size: 30px;
+  text-align: center;
+  margin: 0px 0px 0px 30px;
+}
+
+p, a{
+  text-align: center;
+  text-decoration: none;
+}
