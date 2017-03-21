@@ -2,11 +2,11 @@
 # Created by https://www.gitignore.io/api/netbeans
 
 ### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+SitesDinamicos/nbproject/private/
+SitesDinamicos/build/
+SitesDinamicos/nbbuild/
+SitesDinamicos/dist/
+SitesDinamicos/nbdist/
+SitesDinamicos/.nb-gradle/
 
 # End of https://www.gitignore.io/api/netbeans
