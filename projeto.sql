@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-﻿create table usuario(
-    login varchar(50) not null unique primary key,
-=======
-﻿/*create database threadLove;*/
-
 create table usuario(
-    id int primary key,
-    login varchar(50) not null unique,
->>>>>>> 9b361ebaebbf39e0d1466946f8fbe01216c9efc3
+    login varchar(50) not null unique primary key,
     senha varchar(30) not null,
     nome varchar(100) not null,
     apelido varchar(30) not null,
