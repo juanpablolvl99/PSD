@@ -33,21 +33,20 @@ public class UsuarioDao implements UsuarioDaoIf {
         PreparedStatement stmt;
 
         stmt = con.prepareStatement(sql);
-        stmt.setInt(1, u.getId());
-        stmt.setString(2, u.getLogin());
-        stmt.setString(3, u.getSenha());
-        stmt.setString(4, u.getNome());
-        stmt.setString(5, u.getApelido());
-        stmt.setString(6, u.getDataDeNascimento());
-        stmt.setString(7, u.getCidade());
-        stmt.setString(8, u.getEmail());
-        stmt.setString(9, u.getProfissao());
-        stmt.setString(10, u.getDescricao());
-        stmt.setString(11, u.getStatus());
-        stmt.setDouble(12, u.getAltura());
-        stmt.setDouble(13, u.getPeso());
-        stmt.setString(14, u.getCorDoCabelo());
-        stmt.setString(15, u.getPassatempos());
+        stmt.setString(1, u.getLogin());
+        stmt.setString(2, u.getSenha());
+        stmt.setString(3, u.getNome());
+        stmt.setString(4, u.getApelido());
+        stmt.setString(5, u.getDataDeNascimento());
+        stmt.setString(6, u.getCidade());
+        stmt.setString(7, u.getEmail());
+        stmt.setString(8, u.getProfissao());
+        stmt.setString(9, u.getDescricao());
+        stmt.setString(10, u.getStatus());
+        stmt.setDouble(11, u.getAltura());
+        stmt.setDouble(12, u.getPeso());
+        stmt.setString(13, u.getCorDoCabelo());
+        stmt.setString(14, u.getPassatempos());
         stmt.executeUpdate();
         int vrf = stmt.executeUpdate();
         stmt.close();
@@ -73,29 +72,27 @@ public class UsuarioDao implements UsuarioDaoIf {
     @Override
     public boolean update(Usuario u) throws SQLException {
 
-        String sql = "UPDATE usuario SET id = ?, login = ?, senha = ?, nome = ?, "
+        String sql = "UPDATE usuario SET senha = ?, nome = ?, "
                 + "apelido = ?, dataDeNascimento = ?, cidade = ?, email = ?, "
                 + "profissao = ?, descricao = ?, status = ?, altura = ?, peso = ?, "
-                + "corDoCabelo = ?, passaTempo = ? WHERE id = ?";
+                + "corDoCabelo = ?, passaTempo = ? WHERE login = ?";
         PreparedStatement stmt;
 
         stmt = con.prepareStatement(sql);
-        stmt.setInt(1, u.getId());
-        stmt.setString(2, u.getLogin());
-        stmt.setString(3, u.getSenha());
-        stmt.setString(4, u.getNome());
-        stmt.setString(5, u.getApelido());
-        stmt.setString(6, u.getDataDeNascimento());
-        stmt.setString(7, u.getCidade());
-        stmt.setString(8, u.getEmail());
-        stmt.setString(9, u.getProfissao());
-        stmt.setString(10, u.getDescricao());
-        stmt.setString(11, u.getStatus());
-        stmt.setDouble(12, u.getAltura());
-        stmt.setDouble(13, u.getPeso());
-        stmt.setString(14, u.getCorDoCabelo());
-        stmt.setString(15, u.getPassatempos());
-        stmt.setInt(16, u.getId());
+        stmt.setString(1, u.getSenha());
+        stmt.setString(2, u.getNome());
+        stmt.setString(3, u.getApelido());
+        stmt.setString(4, u.getDataDeNascimento());
+        stmt.setString(5, u.getCidade());
+        stmt.setString(6, u.getEmail());
+        stmt.setString(7, u.getProfissao());
+        stmt.setString(8, u.getDescricao());
+        stmt.setString(9, u.getStatus());
+        stmt.setDouble(10, u.getAltura());
+        stmt.setDouble(11, u.getPeso());
+        stmt.setString(12, u.getCorDoCabelo());
+        stmt.setString(13, u.getPassatempos());
+        stmt.setString(14, u.getLogin());
         stmt.executeUpdate();
         int vrf = stmt.executeUpdate();
         stmt.close();
@@ -114,22 +111,21 @@ public class UsuarioDao implements UsuarioDaoIf {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Usuario u = new Usuario();
-//              u.setId(rs.getInt(1)); id setado automaticamente
-            u.setLogin(rs.getString(2));
-            u.setSenha(rs.getString(3));
-            u.setLogin(rs.getString(4));
-            u.setNome(rs.getString(5));
-            u.setApelido(rs.getString(6));
-            u.setDataDeNascimento(rs.getString(7));
-            u.setCidade(rs.getString(8));
-            u.setEmail(rs.getString(9));
-            u.setProfissao(rs.getString(10));
-            u.setDescricao(rs.getString(11));
-            u.setStatus(rs.getString(12));
-            u.setAltura(rs.getDouble(13));
-            u.setPeso(rs.getDouble(14));
-            u.setCorDoCabelo(rs.getString(15));
-            u.setPassatempos(rs.getString(16));
+            u.setLogin(rs.getString(1));
+            u.setSenha(rs.getString(2));
+            u.setLogin(rs.getString(3));
+            u.setNome(rs.getString(4));
+            u.setApelido(rs.getString(5));
+            u.setDataDeNascimento(rs.getString(6));
+            u.setCidade(rs.getString(7));
+            u.setEmail(rs.getString(8));
+            u.setProfissao(rs.getString(9));
+            u.setDescricao(rs.getString(10));
+            u.setStatus(rs.getString(11));
+            u.setAltura(rs.getDouble(12));
+            u.setPeso(rs.getDouble(13));
+            u.setCorDoCabelo(rs.getString(14));
+            u.setPassatempos(rs.getString(15));
             lista.add(u);
         }
         stmt.close();

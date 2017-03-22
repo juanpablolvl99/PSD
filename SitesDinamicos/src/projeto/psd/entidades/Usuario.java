@@ -2,8 +2,6 @@ package projeto.psd.entidades;
 
 public class Usuario {
     
-    private static int increment = 1;
-    private int id;
     private String login;
     private String senha;
     private String nome;
@@ -20,37 +18,7 @@ public class Usuario {
     private String passatempos;
     private String fotoPerfil;
     
-    
-    public Usuario(String login, String senha, String nome, String apelido, String dataDeNascimento, String cidade, String email,
-    String profissao, String descricao, String status, double altura, double peso, String corDoCabelo, String passatempos, 
-    String fotoPerfil){
-        this.id = increment;
-        increment++;
-        this.login = login;
-        this.senha = senha;
-        this.nome = nome;
-        this.apelido = apelido;
-        this.dataDeNascimento = dataDeNascimento;
-        this.cidade = cidade;
-        this.email = email;
-        this.profissao = profissao;
-        this.descricao = descricao;
-        this.status = status;
-        this.altura = altura;
-        this.peso = peso;
-        this.corDoCabelo = corDoCabelo;
-        this.passatempos = passatempos;
-        this.fotoPerfil = "/imagens/" + this.id + "/" + fotoPerfil;
-    }
-
-    public Usuario(){
-        this.id = increment;
-        increment++;
-    }
-    
-    public int getId() {
-        return id;
-    }
+    public Usuario(){} // "padrão" - nascimento, cap
 
     public String getLogin() {
         return login;
@@ -170,7 +138,7 @@ public class Usuario {
     }
     
     public void setFotoPerfil(String imagem){
-        this.fotoPerfil = "/imagens/" + this.id + "/" + imagem;
+        this.fotoPerfil = "/imagens/" + this.login + "/" + imagem;
     }
     
     
