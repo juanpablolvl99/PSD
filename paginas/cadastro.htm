@@ -16,6 +16,7 @@
           <h1>Thread <i>of</i> Love</h1>
         </div>
         <h3 id="centralizarTexto">Cadastro de Usuário</h3>
+<<<<<<< HEAD
         <form class="formLogin" action="cadastro" method="post" enctype="multipart/form-data">
           <h3>Dados para login</h3>
           <input type="text" name="login" value="" placeholder="Login" class="campo" required="required"><br>
@@ -29,12 +30,28 @@
           <input type="text" name="profissao" value="" placeholder="Profissão" class="campo"><br>
           <input type="text" name="descricao" value="" placeholder="Breve Descrição" class="campo"><br>
           <select name="status" class="selecionarStatus">
+=======
+        <form class="formLogin" action="cadastro" method="post">
+          <h3>Dados para login</h3>
+          <input type="text" name="login" value="" placeholder="Login" id="campo" required="required">
+          <input type="password" name="senha" value="" placeholder="Senha" id="campo" required="required">
+          <h3>Dados pessoais</h3>
+          <input type="text" name="nome" value="" placeholder="Seu nome" id="campo"> 
+          <input type="text" name="email" value="" placeholder="Seu Email" id="campo">
+          <input type="text" name="cidade" value="" placeholder="Cidade" id="campo">
+          <input type="date" name="dataDeNascimento" value="" placeholder="Data de Nascimento" id="campo">
+          <input type="text" name="apelido" value="" placeholder="Apelido" id="campo">
+          <input type="text" name="profissao" value="" placeholder="Profissão" id="campo">
+          <input type="text" name="descricao" value="" placeholder="Breve Descrição" id="campo">
+          <select name="status" id="selecionarStatus">
+>>>>>>> 37f9dbae7ff2aa0e229e4adc9366b6be73305eec
             <option>Solteiro (a)</option>
             <option>Namorando</option>
             <option>Casado (a)</option>
             <option>Viúvo (a)</option>
             <option>Divorciado (a)</option>
           </select><br><br>
+<<<<<<< HEAD
           <input type="number" min="0" max="3" step="0.01" name="altura" value="" placeholder="Sua Altura" class="campo"><br>
           <input type="number" min="0" max="200" step="0.1" name="peso" value="" placeholder="Seu Peso" class="campo"><br>
           <input type="text" name="corDoCabelo" value="" placeholder="Cor do Cabelo" class="campo"><br>
@@ -43,6 +60,16 @@
           <input type="file" name="fotoPerfil" id="uploadImagem" accept="image/*"><br>
           <input type="reset" value="Limpar Campos" class="submit"><hr>
           <input type="submit" name="" value="Cadastrar" class="submit">
+=======
+          <input type="number" min="0" max="3" step="0.01" name="altura" value="" placeholder="Sua Altura" id="campo">
+          <input type="number" min="0" max="200" step="0.1" name="peso" value="" placeholder="Seu Peso" id="campo">
+          <input type="text" name="corDoCabelo" value="" placeholder="Cor do Cabelo" id="campo">
+          <input type="text" name="passatempos" value="" placeholder="Passatempos" id="campo">
+          <p><strong>FOTO DO PERFIL</strong></p>
+          <input type="file" name="fotoPerfil" id="uploadImagem" accept="image/*">
+          <input type="reset" value="Limpar Campos" id="submit">
+          <input type="submit" name="" value="Cadastrar" id="submit">
+>>>>>>> 37f9dbae7ff2aa0e229e4adc9366b6be73305eec
         </form>
       </div>
    
