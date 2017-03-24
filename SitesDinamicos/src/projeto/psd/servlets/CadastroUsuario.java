@@ -1,23 +1,22 @@
 
 package projeto.psd.servlets;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import projeto.psd.entidades.Usuario;
-import projeto.psd.gerenciadores.GerenciadorUsuario;
 
-/**
- *
- * @author rodri
- */
-@WebServlet("/cadastro")
+@MultipartConfig
 public class CadastroUsuario extends HttpServlet{
     
     @Override
@@ -35,6 +34,8 @@ public class CadastroUsuario extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Usuario usu = new Usuario();
+        List<Part> lista = (List) req.getParts();
+
         usu.setLogin(req.getParameter("login"));
         usu.setSenha(req.getParameter("senha"));
         usu.setNome(req.getParameter("nome"));
@@ -45,32 +46,50 @@ public class CadastroUsuario extends HttpServlet{
         usu.setProfissao(req.getParameter("profissao"));
         usu.setDescricao(req.getParameter("descricao"));
         usu.setStatus(req.getParameter("status"));
-        usu.setAltura(Double.parseDouble(req.getParameter("altura")));
-        usu.setPeso(Double.parseDouble(req.getParameter("peso")));
         usu.setCorDoCabelo(req.getParameter("corCabelo"));
         usu.setPassatempos(req.getParameter("passatempos"));
-        // Tratamento da foto
-	// String fotoPerfil = req.getParameter("fotoPerfil");
-        GerenciadorUsuario ger = new GerenciadorUsuario();
-        try {
-            if (ger.add(usu)){
-                // Adicionado no BD, redirecionar para a pagina de login
-                RequestDispatcher despachante = req.getRequestDispatcher("WEB-INF/login.jsp");
-                despachante.forward(req, resp);
-            } else {
-                /* Definir como vai ser tratado caso nÃ£o consiga cadastrar usuario, 
-                se vai utilizar um sendError ou um novo despachante. */
+        
+        PrintWriter pw = resp.getWriter();
+        
+        for (Part p : lista) {
+            if(p.getName().equals("altura")){
+                usu.setAltura(Double.parseDouble(getValue(p)));
             }
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            if(p.getName().equals("peso")){
+                usu.setPeso(Double.parseDouble(getValue(p)));
+            }
+            if(p.getName().equals("fotoPerfil")){
+                usu.setFotoPerfil(p.getSubmittedFileName());
+            }
         }
+        
+//        GerenciadorUsuario ger = new GerenciadorUsuario();
+//        try {
+//            if (ger.add(usu)){
+//                // Adicionado no BD, redirecionar para a pagina de login
+//                RequestDispatcher despachante = req.getRequestDispatcher("login.htm");
+//                despachante.forward(req, resp);
+//            } else {
+//                /* Definir como vai ser tratado caso nÃ£o consiga cadastrar usuario, 
+//                se vai utilizar um sendError ou um novo despachante. */
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            ex.printStackTrace();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
     }
     
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp){
         
+    }
+    
+    private String getValue(Part part) throws IOException {
+        try (
+            BufferedReader buffer = new BufferedReader(new InputStreamReader(part.getInputStream()))) {
+            return buffer.lines().collect(Collectors.joining("\n"));
+        }
     }
     
 }

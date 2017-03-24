@@ -25,7 +25,7 @@ public class MensagemDao implements MensagemDaoIf{
 
     @Override
     public boolean add(String userDeEmail, String userParaEmail, String mensagem) throws SQLException{
-        PreparedStatement pstmt = conn.prepareStatement("insert into mensagem value(?,?,?)");
+        PreparedStatement pstmt = conn.prepareStatement("insert into mensagem(de, para, mensagem) value(?,?,?)");
         pstmt.setString(1, userDeEmail);
         pstmt.setString(2, userParaEmail);
         pstmt.setString(3, mensagem);

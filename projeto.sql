@@ -1,4 +1,4 @@
-create table usuario(
+﻿create table usuario(
     login varchar(50) not null unique primary key,
     senha varchar(30) not null,
     nome varchar(100) not null,
@@ -23,10 +23,11 @@ create table galeria(
 );
 
 create table mensagem(
+    id serial,
     de varchar(50) references usuario(email),
     para varchar(50),
-    mensagem text ,
-    primary key(de, para, mensagem)
+    mensagem text,
+    primary key(id, de, para)
 );
 
 create table amizade(

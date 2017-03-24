@@ -34,7 +34,7 @@ input{
   outline: none;
   font-size: 14px;
 }
-#campo{
+.campo{
   padding-left: 10px;
 }
 .login, input{
@@ -44,7 +44,7 @@ input{
 input:active, input:focus {
     border: 1px solid #F64A4A;
 }
-#submit{
+.submit{
   background: #ff656c;
   cursor: pointer;
   font-weight: bold;

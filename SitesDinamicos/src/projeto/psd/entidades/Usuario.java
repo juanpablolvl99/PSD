@@ -138,7 +138,7 @@ public class Usuario {
     }
     
     public void setFotoPerfil(String imagem){
-        this.fotoPerfil = "/imagens/" + this.login + "/" + imagem;
+        this.fotoPerfil = "imagens/" + this.login + "/" + imagem;
     }
     
     
