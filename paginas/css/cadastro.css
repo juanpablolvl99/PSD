@@ -6,10 +6,6 @@ body{
   background: url('img/wallpaper.jpg') center center no-repeat fixed;
   background-position: center;
   background-size: cover;
-/*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
 }
 div, .logo > *{
   display: inline-block;
@@ -17,15 +13,6 @@ div, .logo > *{
 .logo{
   width: 100%;
   margin-bottom: 25px;
-}
-.login{
-  margin-left: 35%;
-  margin-top: 5%;
-  padding: 20px 30px 0px 30px;
-  width: 370px;
-  height: 320px;
-  background-color: #F2EEEE;
-  border-top: 5px solid #E56F6F;
 }
 input{
   width: 100%;
@@ -64,4 +51,27 @@ h1{
 p, a{
   text-align: center;
   text-decoration: none;
+}
+.loginCadastro{
+  margin-left: 7%;
+  margin-top: 2%;
+  padding: 15px 20px 0px 25px;
+  width: 860px;
+  height: 1043px;
+  background-color: #F2EEEE;
+  border-top: 5px solid #E56F6F;
+}
+#selecionarStatus{
+  width: 242px;
+  height: 35px;
+  padding-left: 10px; 
+}
+#uploadImagem{
+  width: 242px;
+  height: 40px;
+  padding: 5px 50px;
+  font-size: 17px;
+}
+#centralizarTexto{
+  text-align: center;
 }
