@@ -91,5 +91,5 @@ public class CadastroUsuario extends HttpServlet{
             return buffer.lines().collect(Collectors.joining("\n"));
         }
     }
-    
-}
+
+}    
