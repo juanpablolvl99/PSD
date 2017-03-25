@@ -47,7 +47,7 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setDouble(12, u.getPeso());
         stmt.setString(13, u.getCorDoCabelo());
         stmt.setString(14, u.getPassatempos());
-        stmt.executeUpdate();
+        stmt.setString(15, u.getFotoPerfil());
         int vrf = stmt.executeUpdate();
         stmt.close();
 
@@ -62,7 +62,6 @@ public class UsuarioDao implements UsuarioDaoIf {
         PreparedStatement stmt;
 
         stmt = con.prepareStatement(sql);
-        stmt.executeUpdate();
         int vrf = stmt.executeUpdate();
         stmt.close();
         return vrf > 0;
@@ -75,7 +74,7 @@ public class UsuarioDao implements UsuarioDaoIf {
         String sql = "UPDATE usuario SET senha = ?, nome = ?, "
                 + "apelido = ?, dataDeNascimento = ?, cidade = ?, email = ?, "
                 + "profissao = ?, descricao = ?, status = ?, altura = ?, peso = ?, "
-                + "corDoCabelo = ?, passaTempo = ? WHERE login = ?";
+                + "cordocabelo = ?, passatempos = ?, fotoperfil = ? WHERE login = ?";
         PreparedStatement stmt;
 
         stmt = con.prepareStatement(sql);
@@ -93,7 +92,7 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setString(12, u.getCorDoCabelo());
         stmt.setString(13, u.getPassatempos());
         stmt.setString(14, u.getLogin());
-        stmt.executeUpdate();
+        stmt.setString(15, u.getFotoPerfil());
         int vrf = stmt.executeUpdate();
         stmt.close();
         return vrf > 0;
@@ -113,19 +112,19 @@ public class UsuarioDao implements UsuarioDaoIf {
             Usuario u = new Usuario();
             u.setLogin(rs.getString(1));
             u.setSenha(rs.getString(2));
-            u.setLogin(rs.getString(3));
-            u.setNome(rs.getString(4));
-            u.setApelido(rs.getString(5));
-            u.setDataDeNascimento(rs.getString(6));
-            u.setCidade(rs.getString(7));
-            u.setEmail(rs.getString(8));
-            u.setProfissao(rs.getString(9));
-            u.setDescricao(rs.getString(10));
-            u.setStatus(rs.getString(11));
-            u.setAltura(rs.getDouble(12));
-            u.setPeso(rs.getDouble(13));
-            u.setCorDoCabelo(rs.getString(14));
-            u.setPassatempos(rs.getString(15));
+            u.setNome(rs.getString(3));
+            u.setApelido(rs.getString(4));
+            u.setDataDeNascimento(rs.getString(5));
+            u.setCidade(rs.getString(6));
+            u.setEmail(rs.getString(7));
+            u.setProfissao(rs.getString(8));
+            u.setDescricao(rs.getString(9));
+            u.setStatus(rs.getString(10));
+            u.setAltura(rs.getDouble(11));
+            u.setPeso(rs.getDouble(12));
+            u.setCorDoCabelo(rs.getString(13));
+            u.setPassatempos(rs.getString(14));
+            u.setFotoPerfil(rs.getString(15));
             lista.add(u);
         }
         stmt.close();

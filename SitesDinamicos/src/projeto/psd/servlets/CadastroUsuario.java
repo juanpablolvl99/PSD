@@ -2,11 +2,14 @@
 package projeto.psd.servlets;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import projeto.psd.entidades.Usuario;
+import projeto.psd.gerenciadores.GerenciadorUsuario;
 
 @MultipartConfig
 public class CadastroUsuario extends HttpServlet{
@@ -40,16 +44,24 @@ public class CadastroUsuario extends HttpServlet{
         usu.setSenha(req.getParameter("senha"));
         usu.setNome(req.getParameter("nome"));
         usu.setApelido(req.getParameter("apelido"));
-        usu.setDataDeNascimento(req.getParameter("nascimento"));
+        usu.setDataDeNascimento(req.getParameter("dataDeNascimento"));
         usu.setCidade(req.getParameter("cidade"));
         usu.setEmail(req.getParameter("email"));
         usu.setProfissao(req.getParameter("profissao"));
         usu.setDescricao(req.getParameter("descricao"));
         usu.setStatus(req.getParameter("status"));
-        usu.setCorDoCabelo(req.getParameter("corCabelo"));
+        usu.setCorDoCabelo(req.getParameter("corDoCabelo"));
         usu.setPassatempos(req.getParameter("passatempos"));
         
         PrintWriter pw = resp.getWriter();
+        
+        String appPath = req.getServletContext().getRealPath("");
+        String uploadPath = appPath + "imagens" + File.separator + usu.getLogin();
+        
+        File uploadDirs = new File(uploadPath);
+        
+        if(!uploadDirs.exists())
+            uploadDirs.mkdirs();
         
         for (Part p : lista) {
             if(p.getName().equals("altura")){
@@ -60,24 +72,24 @@ public class CadastroUsuario extends HttpServlet{
             }
             if(p.getName().equals("fotoPerfil")){
                 usu.setFotoPerfil(p.getSubmittedFileName());
+                p.write(uploadPath + File.separator + p.getSubmittedFileName());
             }
         }
         
-//        GerenciadorUsuario ger = new GerenciadorUsuario();
-//        try {
-//            if (ger.add(usu)){
-//                // Adicionado no BD, redirecionar para a pagina de login
-//                RequestDispatcher despachante = req.getRequestDispatcher("login.htm");
-//                despachante.forward(req, resp);
-//            } else {
-//                /* Definir como vai ser tratado caso nÃ£o consiga cadastrar usuario, 
-//                se vai utilizar um sendError ou um novo despachante. */
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            ex.printStackTrace();
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
+        GerenciadorUsuario ger = new GerenciadorUsuario();
+        
+        try {
+            if (ger.add(usu)){
+                RequestDispatcher despachante = req.getRequestDispatcher("index.htm");
+                despachante.forward(req, resp);
+            } else {
+                pw.print("tendi");
+            }
+        } catch (ClassNotFoundException ex) {
+            pw.print(ex.getMessage());
+        } catch (SQLException ex) {
+            pw.print(ex.getMessage());
+        }
     }
     
     @Override

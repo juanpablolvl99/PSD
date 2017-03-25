@@ -1,6 +1,7 @@
 package projeto.psd.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class LoginUsuario extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         resp.setContentType("utf-8");
+        PrintWriter pw = resp.getWriter();
         
         String login = req.getParameter("login");
         String senha = req.getParameter("senha");
@@ -42,29 +44,30 @@ public class LoginUsuario extends HttpServlet{
         try {
             lista = ger.listAll();
             boolean condicao = false;
+            
             for (Usuario u: lista){
                 if(u.getLogin().equals(login) && u.getSenha().equals(senha)){
                     condicao = true;
                 }
             }
+            
             if (condicao){
                 synchronized(sessao){
                     sessao.setAttribute("loginUsuario", login);
                     sessao.setAttribute("senhaUsuario", senha);
                 }
-                
-                RequestDispatcher rd = req.getRequestDispatcher("inicial.jsp");
-                
+//                pagina inicial ainda n foi criada
+//                RequestDispatcher rd = req.getRequestDispatcher("inicial.jsp");
+//                rd.forward(req, resp);
+            
             } else {
-                RequestDispatcher rd = req.getRequestDispatcher(
-                    "index.htm"
-                );
+                RequestDispatcher rd = req.getRequestDispatcher("index.htm");
                 rd.forward(req, resp);
             }
         } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
+            pw.print(ex.getMessage());
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            pw.print(ex.getMessage());
         }
     }
     

@@ -3,7 +3,7 @@
     senha varchar(30) not null,
     nome varchar(100) not null,
     apelido varchar(30) not null,
-    dataNascimento date not null,
+    dataNascimento varchar(11) not null,
     cidade varchar(50),
     email varchar(50) not null unique,
     profissao varchar(100),
@@ -13,7 +13,7 @@
     peso real,
     corDoCabelo varchar(30),
     passatempos text not null,
-    fotoPerfil varchar(30)
+    fotoPerfil text
 );
 
 create table galeria(
