@@ -1,4 +1,3 @@
-
 package projeto.psd.servlets;
 
 import java.io.BufferedReader;
@@ -7,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.RequestDispatcher;
@@ -21,8 +21,8 @@ import projeto.psd.entidades.Usuario;
 import projeto.psd.gerenciadores.GerenciadorUsuario;
 
 @MultipartConfig
-public class CadastroUsuario extends HttpServlet{
-    
+public class CadastroUsuario extends HttpServlet {
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -39,8 +39,9 @@ public class CadastroUsuario extends HttpServlet{
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Usuario usu = new Usuario();
         List<Part> lista = (List) req.getParts();
-
-        usu.setLogin(req.getParameter("login"));
+        // Sera usado para verificar se possui outro usuario com esse msm login
+        String login = req.getParameter("login");
+        usu.setLogin(login);
         usu.setSenha(req.getParameter("senha"));
         usu.setNome(req.getParameter("nome"));
         usu.setApelido(req.getParameter("apelido"));
@@ -52,56 +53,72 @@ public class CadastroUsuario extends HttpServlet{
         usu.setStatus(req.getParameter("status"));
         usu.setCorDoCabelo(req.getParameter("corDoCabelo"));
         usu.setPassatempos(req.getParameter("passatempos"));
-        
+
         PrintWriter pw = resp.getWriter();
-        
+
         String appPath = req.getServletContext().getRealPath("");
         String uploadPath = appPath + "imagens" + File.separator + usu.getLogin();
-        
+
         File uploadDirs = new File(uploadPath);
-        
-        if(!uploadDirs.exists())
+
+        if (!uploadDirs.exists()) {
             uploadDirs.mkdirs();
-        
+        }
+
         for (Part p : lista) {
-            if(p.getName().equals("altura")){
+            if (p.getName().equals("altura")) {
                 usu.setAltura(Double.parseDouble(getValue(p)));
             }
-            if(p.getName().equals("peso")){
+            if (p.getName().equals("peso")) {
                 usu.setPeso(Double.parseDouble(getValue(p)));
             }
-            if(p.getName().equals("fotoPerfil")){
+            if (p.getName().equals("fotoPerfil")) {
                 usu.setFotoPerfil(p.getSubmittedFileName());
                 p.write(uploadPath + File.separator + p.getSubmittedFileName());
             }
         }
-        
+
         GerenciadorUsuario ger = new GerenciadorUsuario();
-        
+
         try {
-            if (ger.add(usu)){
-                RequestDispatcher despachante = req.getRequestDispatcher("index.htm");
-                despachante.forward(req, resp);
-            } else {
-                pw.print("tendi");
+            List<Usuario> listaUsu = ger.listAll();
+            boolean verificaUsu = true;
+            if (!listaUsu.isEmpty()) {
+                for (Usuario auxiliar : listaUsu) {
+                    if (auxiliar.getLogin().equals(login)) {
+                        verificaUsu = false;
+                        break;
+                    }
+                }
             }
+            if (verificaUsu) {
+                if (ger.add(usu)) {
+                    RequestDispatcher despachante = req.getRequestDispatcher("index.htm");
+                    despachante.forward(req, resp);
+                } else {
+                    pw.print("tendi");
+                }
+            } else {
+                // Tratar caso o login do Usuario ja exista
+            }
+
         } catch (ClassNotFoundException ex) {
             pw.print(ex.getMessage());
         } catch (SQLException ex) {
             pw.print(ex.getMessage());
         }
     }
-    
+
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp){
-        
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) {
+
     }
-    
+
     private String getValue(Part part) throws IOException {
         try (
-            BufferedReader buffer = new BufferedReader(new InputStreamReader(part.getInputStream()))) {
+                BufferedReader buffer = new BufferedReader(new InputStreamReader(part.getInputStream()))) {
             return buffer.lines().collect(Collectors.joining("\n"));
         }
     }
 
-}    
+}
