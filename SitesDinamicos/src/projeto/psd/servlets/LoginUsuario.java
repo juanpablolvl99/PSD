@@ -31,7 +31,8 @@ public class LoginUsuario extends HttpServlet{
     
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        resp.setContentType("utf-8");
+        resp.setContentType("text/html; charset=UTF-8");
+        
         PrintWriter pw = resp.getWriter();
         
         String login = req.getParameter("login");
@@ -61,8 +62,7 @@ public class LoginUsuario extends HttpServlet{
 //                rd.forward(req, resp);
             
             } else {
-                RequestDispatcher rd = req.getRequestDispatcher("index.htm");
-                rd.forward(req, resp);
+                resp.sendRedirect("index.htm");
             }
         } catch (ClassNotFoundException ex) {
             pw.print(ex.getMessage());

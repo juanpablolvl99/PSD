@@ -1,6 +1,8 @@
 package projeto.psd.entidades;
 
-public class Amizade {
+import java.io.Serializable;
+
+public class Amizade implements Serializable{
  
     private String userEmail;
     private String amigoEmail;

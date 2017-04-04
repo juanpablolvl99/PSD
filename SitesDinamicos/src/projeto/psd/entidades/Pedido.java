@@ -1,7 +1,9 @@
 
 package projeto.psd.entidades;
 
-public class Pedido {
+import java.io.Serializable;
+
+public class Pedido implements Serializable{
     
     private String userEmail;
     private String userParaEmail;

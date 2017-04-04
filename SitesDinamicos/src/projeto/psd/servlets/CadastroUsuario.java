@@ -6,10 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -37,6 +35,8 @@ public class CadastroUsuario extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html; charset=UTF-8");
+        
         Usuario usu = new Usuario();
         List<Part> lista = (List) req.getParts();
         // Sera usado para verificar se possui outro usuario com esse msm login
@@ -79,7 +79,7 @@ public class CadastroUsuario extends HttpServlet {
         }
 
         GerenciadorUsuario ger = new GerenciadorUsuario();
-
+        
         try {
             List<Usuario> listaUsu = ger.listAll();
             boolean verificaUsu = true;
@@ -93,13 +93,10 @@ public class CadastroUsuario extends HttpServlet {
             }
             if (verificaUsu) {
                 if (ger.add(usu)) {
-                    RequestDispatcher despachante = req.getRequestDispatcher("index.htm");
-                    despachante.forward(req, resp);
-                } else {
-                    pw.print("tendi");
+                    resp.sendRedirect("index.htm");
                 }
             } else {
-                // Tratar caso o login do Usuario ja exista
+                resp.sendRedirect("cadastro.htm");
             }
 
         } catch (ClassNotFoundException ex) {
@@ -116,7 +113,7 @@ public class CadastroUsuario extends HttpServlet {
 
     private String getValue(Part part) throws IOException {
         try (
-                BufferedReader buffer = new BufferedReader(new InputStreamReader(part.getInputStream()))) {
+            BufferedReader buffer = new BufferedReader(new InputStreamReader(part.getInputStream()))) {
             return buffer.lines().collect(Collectors.joining("\n"));
         }
     }

@@ -1,8 +1,9 @@
 package projeto.psd.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Galeria {
+public class Galeria implements Serializable{
 
     private String userEmail;
     private List<String> galeria;
