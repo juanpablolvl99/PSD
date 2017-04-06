@@ -65,3 +65,6 @@ p, a{
   text-align: center;
   text-decoration: none;
 }
+li{
+  margin-left: 15px;
+}
