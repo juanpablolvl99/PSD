@@ -1,0 +1,26 @@
+*{
+	position: relative;
+	font-family: 'Varela Round';
+}
+
+.nav{
+	height: 8%;
+	width: 90%;
+	margin-left: 5%;
+	box-sizing: border-box;
+	background-color: #ea7575;
+}
+.list{
+	list-style-type: none;
+	width: 7.5%;
+	margin: 0px;
+	padding: 1% 0% 1% 2%;
+}
+.list > *{
+	font-size: 22px;
+	color: #fff;
+	border-right: 1px solid white;
+}
+.list, form{
+	display: inline-block;
+}

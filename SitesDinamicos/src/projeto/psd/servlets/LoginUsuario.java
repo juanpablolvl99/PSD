@@ -57,10 +57,10 @@ public class LoginUsuario extends HttpServlet{
                     sessao.setAttribute("loginUsuario", login);
                     sessao.setAttribute("senhaUsuario", senha);
                 }
-//                pagina inicial ainda n foi criada
-//                RequestDispatcher rd = req.getRequestDispatcher("inicial.jsp");
-//                rd.forward(req, resp);
-            
+                
+                String url = resp.encodeRedirectURL("inicial.jsp");
+                resp.sendRedirect(url);
+                
             } else {
                 resp.sendRedirect("index.htm");
             }
