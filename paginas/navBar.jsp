@@ -1,3 +1,5 @@
+<%@page contentType="text/html"%>
+
 <style type="text/css">
 	*{
 	  position: relative;
@@ -61,7 +63,7 @@
             <a href="">User Profile</a>
         </li>
         <li>
-            <a href="contato.php">Contacts</a>
+            <a href="">Contacts</a>
         </li>
         <form>
 	        <input type="text" class="search" placeholder="Busque amigos..." required>
