@@ -74,7 +74,7 @@ public class CadastroUsuario extends HttpServlet {
                 usu.setPeso(Double.parseDouble(getValue(p)));
             }
             if (p.getName().equals("fotoPerfil")) {
-                usu.setFotoPerfil(p.getSubmittedFileName());
+                usu.setFotoPerfil("imagens/" + usu.getLogin() + "/" + p.getSubmittedFileName());
                 p.write(uploadPath + File.separator + p.getSubmittedFileName());
             }
         }

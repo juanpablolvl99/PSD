@@ -13,6 +13,7 @@ public class GerenciadorUsuario{
     public GerenciadorUsuario(){};
     
     public boolean add(Usuario usu) throws ClassNotFoundException, SQLException{
+        
         DaoFactory fabricaDao = new DaoFactory();
         DaoFactoryIf fabricaBd = fabricaDao.getDaoFactory();
         UsuarioDaoIf cad = fabricaBd.criaDaoUsuario();
@@ -21,10 +22,20 @@ public class GerenciadorUsuario{
     }
     
     public boolean update(Usuario usu) throws ClassNotFoundException, SQLException{
+        
         DaoFactory fabricaDao = new DaoFactory();
         DaoFactoryIf fabricaBd = fabricaDao.getDaoFactory();
         UsuarioDaoIf cad = fabricaBd.criaDaoUsuario();
         return cad.update(usu);
+        
+    }
+    
+    public List<Usuario> read(String nome) throws ClassNotFoundException, SQLException{
+        
+        DaoFactory fabricaDao = new DaoFactory();
+        DaoFactoryIf fabricabd = fabricaDao.getDaoFactory();
+        UsuarioDaoIf cad = fabricabd.criaDaoUsuario();
+        return cad.read(nome);
         
     }
     

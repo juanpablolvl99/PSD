@@ -139,9 +139,8 @@ public class Usuario implements Serializable{
         return fotoPerfil;
     }
     
-    public void setFotoPerfil(String imagem){
-        this.fotoPerfil = "imagens/" + this.login + "/" + imagem;
+    public void setFotoPerfil(String path){
+        this.fotoPerfil = path;
     }
-
 
 }
