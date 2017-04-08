@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Profile page</title>
-		<link rel="stylesheet" href="css/navbar.css">
-		<link rel="stylesheet" href="css/profile.css">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/navbar.css" rel="stylesheet">
+		<link href="css/profile.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	</head>
 	<body>

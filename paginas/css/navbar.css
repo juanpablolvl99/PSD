@@ -1,27 +1,28 @@
 *{
-  position: relative;
-  font-family: 'Varela Round';
-  color: white;
+    position: relative;
+    font-family: 'Varela Round';
+    color: white;
 }
 body{
-	background-position: center;
-	background-size: cover;
+    background: url('img/wallpaper.jpg') center center no-repeat fixed;
+    background-position: center;
+    background-size: cover;
 }
 li{
-	margin-left: 40px;
-	margin-top: 7px;
+    margin-left: 40px;
+    margin-top: 7px;
 }
 #active{
-	background-color: #363636;
-	border-radius: 6px;
+    background-color: #363636;
+    border-radius: 6px;
 }
 #menu{
-	background-color: #1C1C1C;
-	background-image:linear-gradient(to bottom, transparent 1px, rgba(0,0,0,.1) 1px);
-	margin: 20px;
+    background-color: #1C1C1C;
+    background-image:linear-gradient(to bottom, transparent 1px, rgba(0,0,0,.1) 1px);
+    margin: 20px;
 }
 form {
-    margin-left: 80%;
+    margin-left: 640px;
     margin-top: 11px;
 }
 .search {
@@ -34,8 +35,8 @@ form {
     position: relative;
     padding: 8px 15px;
     left: -8px;
+    border: 2px solid #FF6EB4;
     border-radius: 5px;
-	border: 2px solid #DB7093;
     background-color: #DB7093;
     color: #fafafa;
 }

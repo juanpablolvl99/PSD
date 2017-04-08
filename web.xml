@@ -33,5 +33,14 @@
 		<servlet-name>CadastroUsuario</servlet-name>
 		<url-pattern>/cadastro</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Buscador</servlet-name>
+		<servlet-class>projeto.psd.servlets.Buscador</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Buscador</servlet-name>
+		<url-pattern>/buscador</url-pattern>
+	</servlet-mapping>
 
 </web-app>
