@@ -23,7 +23,7 @@
 				<p><strong>Nome:</strong> <%= usu.getNome() %></p>
 				<p><strong>Apelido:</strong> <%= usu.getApelido() %></p>
 				<p><strong>Breve Descricao:</strong> <%= usu.getDescricao() %></p>
-				<p><strong>Data de Nascimento</strong> <%= usu.getDataDeNascimento() %></p>
+				<p><strong>Data de Nascimento: </strong> <%= usu.getDataDeNascimento() %></p>
 				<p><strong>Mora em:</strong> <%= usu.getCidade() %></p>
 				<p><strong>Profissao:</strong> <%= usu.getProfissao() %></p>
 				<p><strong>Status de Relacionamento:</strong> <%= usu.getStatus() %></p>
