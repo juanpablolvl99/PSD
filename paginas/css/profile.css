@@ -2,8 +2,14 @@ body{
   background: url('img/wallpaper.jpg') center center no-repeat fixed;
   background-position: center;
   background-size: cover;
-/*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
+}
+.container{
+	background-color: #F2EEEE;
+	border-top: 5px solid #E56F6F;
+	border-bottom: 5px solid #E56F6F;
+	border-radius: 5px;
+}
+p, strong{
+	color: #000000; 
+	text-align: justify;
 }

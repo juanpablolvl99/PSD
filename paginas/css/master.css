@@ -6,10 +6,6 @@ body{
   background: url('img/wallpaper.jpg') center center no-repeat fixed;
   background-position: center;
   background-size: cover;
-/*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
 }
 div, .logo > *{
   display: inline-block;

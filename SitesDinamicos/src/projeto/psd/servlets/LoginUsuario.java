@@ -38,7 +38,7 @@ public class LoginUsuario extends HttpServlet{
         String senha = req.getParameter("senha");
         GerenciadorUsuario ger = new GerenciadorUsuario();
         List<Usuario> lista = new ArrayList<>();
-        
+        Usuario auxiliar = new Usuario();
         HttpSession sessao = req.getSession(true);
         
         try {
@@ -47,19 +47,31 @@ public class LoginUsuario extends HttpServlet{
             
             for (Usuario u: lista){
                 if(u.getLogin().equals(login) && u.getSenha().equals(senha)){
+                    auxiliar.setNome(u.getNome());
+                    auxiliar.setApelido(u.getApelido());
+                    auxiliar.setDataDeNascimento(u.getDataDeNascimento());
+                    auxiliar.setCidade(u.getCidade());
+                    auxiliar.setEmail(u.getEmail());
+                    auxiliar.setProfissao(u.getProfissao());
+                    auxiliar.setDescricao(u.getDescricao());
+                    auxiliar.setStatus(u.getStatus());
+                    auxiliar.setAltura(u.getAltura());
+                    auxiliar.setPeso(u.getPeso());
+                    auxiliar.setCorDoCabelo(u.getCorDoCabelo());
+                    auxiliar.setPassatempos(u.getPassatempos());
+                    auxiliar.setFotoPerfil(u.getFotoPerfil());
                     condicao = true;
+                    break;
                 }
             }
-            
             if (condicao){
                 synchronized(sessao){
                     sessao.setAttribute("loginUsuario", login);
                     sessao.setAttribute("senhaUsuario", senha);
+                    sessao.setAttribute("dadosUsu", auxiliar);
                 }
-                
                 String url = resp.encodeRedirectURL("inicial.jsp");
                 resp.sendRedirect(url);
-                
             } else {
                 resp.sendRedirect("index.htm");
             }

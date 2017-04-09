@@ -31,7 +31,6 @@ public class GerenciadorUsuario{
     }
     
     public List<Usuario> read(String nome) throws ClassNotFoundException, SQLException{
-        
         DaoFactory fabricaDao = new DaoFactory();
         DaoFactoryIf fabricabd = fabricaDao.getDaoFactory();
         UsuarioDaoIf cad = fabricabd.criaDaoUsuario();
