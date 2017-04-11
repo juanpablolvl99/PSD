@@ -1,3 +1,6 @@
+*{
+	position: relative;
+}
 body{
   background: url('img/wallpaper.jpg') center center no-repeat fixed;
   background-position: center;
@@ -12,4 +15,15 @@ body{
 p, strong{
 	color: #000000; 
 	text-align: justify;
+}
+
+#profile{
+	margin-top:60px; 
+	margin-left:90px;
+}
+
+h4{
+	color:black !important;
+	margin-left:90px;
+	width:50%;
 }
