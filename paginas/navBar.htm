@@ -12,10 +12,13 @@
         <li>
             <a href="#">Contatos</a>
         </li>
+        <form method="post" action="buscador">
+            <input type="text" name="busca" class="search" placeholder="Busque amigos..." required/>
+            <input type="submit" class="button" value="&#128270;"/>
+        </form>
+        <form action="EncerrarSessao" method="POST">
+            <input type="submit" class="button" value="Sair"/>
+        </form>
     </ul>
-	<form method="post" action="buscador">
-	    <input type="text" name="busca" class="search" placeholder="Busque amigos..." required/>
-	    <input type="submit" class="button" value="&#128270;"/>
-	</form>
 </nav>
 

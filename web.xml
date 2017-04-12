@@ -51,4 +51,13 @@
 		<servlet-name>AdicionarFoto</servlet-name>
 		<url-pattern>/AdicionarFoto</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EncerrarSessao</servlet-name>
+		<servlet-class>projeto.psd.servlets.EncerrarSessao</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EncerrarSessao</servlet-name>
+		<url-pattern>/EncerrarSessao</url-pattern>
+	</servlet-mapping>
 </web-app>

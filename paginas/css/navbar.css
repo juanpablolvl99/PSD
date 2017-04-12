@@ -20,10 +20,12 @@ li{
     background-image:linear-gradient(to bottom, transparent 1px, rgba(0,0,0,.1) 1px);
     margin: 20px;
 }
-form {
-    margin-left: 640px;
-    margin-top: 11px;
+form{
+    display: inline-flex;
+    margin-top: 12px;
+    margin-left: 70px;
 }
+
 .search {
     padding: 8px 15px;
     background: rgba(55, 55, 55, 0.8);
@@ -39,7 +41,7 @@ form {
     background-color: #DB7093;
     color: #fafafa;
 }
-.button:hover  {
+.button:hover {
     background-color: #fafafa;
     color: #FF6EB4;
 }
