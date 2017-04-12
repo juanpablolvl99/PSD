@@ -1,5 +1,6 @@
 <%@ page contentType="text/html"%>
 <%@ page import="projeto.psd.entidades.Usuario" %>
+<%@ page import="projeto.psd.gerenciadores.GerenciadorGaleria"%>
 
 <html>
 	<head>
@@ -17,11 +18,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-					<img id="profile" src="<jsp:getProperty name="dadosUsu" property="fotoPerfil"/>" width="250px" height="250px"/>
+					<img id="profile" src="<jsp:getProperty name='dadosUsu' property='fotoPerfil'/>" width="250px" height="250px"/>
 					<div width="45%" style="display:inline-block">
 						<a href="#"><h4>Amigos</h4></a>
 						<a href="#"><h4>Mensagens</h4></a>
-						<a href="#"><h4>galeria</h4></a>
+						<a href="Galeria.jsp"><h4>Galeria</h4></a>
 					</div>
 					<div style="display:inline-block; margin-left:25%">
 						<p><span class="badge">100</span></p>

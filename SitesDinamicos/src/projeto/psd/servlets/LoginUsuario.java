@@ -66,6 +66,7 @@ public class LoginUsuario extends HttpServlet{
             }
             if (condicao){
                 synchronized(sessao){
+                    sessao.setAttribute("emailUsuario", auxiliar.getEmail());
                     sessao.setAttribute("loginUsuario", login);
                     sessao.setAttribute("senhaUsuario", senha);
                     sessao.setAttribute("dadosUsu", auxiliar);

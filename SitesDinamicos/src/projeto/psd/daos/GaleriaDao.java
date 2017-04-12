@@ -19,7 +19,7 @@ public class GaleriaDao implements GaleriaDaoIf{
     public GaleriaDao() throws ClassNotFoundException, SQLException{
         this.user = "postgres";
         this.password = "123";
-        this.url = "jdb:postgresql://127.0.0.1:5432/threadlove";
+        this.url = "jdbc:postgresql://127.0.0.1:5432/threadlove";
         this.conn = ConFactory.getConnection(url, user, password);
     }
 
@@ -49,8 +49,10 @@ public class GaleriaDao implements GaleriaDaoIf{
 
     @Override
     public List<String> listar(String userEmail) throws SQLException {
-        PreparedStatement pstmt = conn.prepareCall("select foto from galeria where email = " + userEmail);
+        PreparedStatement pstmt = conn.prepareStatement("select foto from galeria where email = ?");
         List<String> lista = new ArrayList();
+        
+        pstmt.setString(1, userEmail);
         
         ResultSet rs = pstmt.executeQuery();
         

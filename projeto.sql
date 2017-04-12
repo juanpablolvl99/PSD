@@ -18,7 +18,7 @@
 
 create table galeria(
     email varchar(50) references usuario(email),
-    foto varchar(30),
+    foto text,
     primary key(email, foto)
 );
 

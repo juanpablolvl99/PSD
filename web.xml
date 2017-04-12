@@ -43,4 +43,12 @@
 		<url-pattern>/buscador</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>AdicionarFoto</servlet-name>
+		<servlet-class>projeto.psd.servlets.AdicionaFoto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdicionarFoto</servlet-name>
+		<url-pattern>/AdicionarFoto</url-pattern>
+	</servlet-mapping>
 </web-app>
