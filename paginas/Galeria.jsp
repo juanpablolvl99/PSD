@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
     <style>
-        body,h1,h2,h3,h4,h5,h6,p {background: none !important; font-family: "Karma", sans-serif; color: black !important;}
+        body,h1,h2,h3,h4,h5,h6,p {background:url('img/wallpaper.jpg') center center no-repeat fixed; font-family: "Karma", sans-serif; color: black !important;}
         .w3-bar-block .w3-bar-item {padding:20px}
     </style>
     <body>

@@ -36,12 +36,13 @@ public class LoginUsuario extends HttpServlet{
         
         String login = req.getParameter("login");
         String senha = req.getParameter("senha");
-        GerenciadorUsuario ger = new GerenciadorUsuario();
-        List<Usuario> lista = new ArrayList<>();
+        GerenciadorUsuario ger;
+        List<Usuario> lista;
         Usuario auxiliar = new Usuario();
         HttpSession sessao = req.getSession(true);
         
         try {
+            ger = new GerenciadorUsuario();
             lista = ger.listAll();
             boolean condicao = false;
             

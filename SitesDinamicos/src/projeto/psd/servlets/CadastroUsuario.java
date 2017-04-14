@@ -79,9 +79,10 @@ public class CadastroUsuario extends HttpServlet {
             }
         }
 
-        GerenciadorUsuario ger = new GerenciadorUsuario();
+        GerenciadorUsuario ger;
         
         try {
+            ger = new GerenciadorUsuario();
             List<Usuario> listaUsu = ger.listAll();
             boolean verificaUsu = true;
             if (!listaUsu.isEmpty()) {
