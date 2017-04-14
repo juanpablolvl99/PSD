@@ -3,6 +3,10 @@ package projeto.psd.servlets;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,18 +23,23 @@ public class Buscador extends HttpServlet {
         List<Usuario> lista = null;
 
         GerenciadorUsuario gu = new GerenciadorUsuario();
-        HttpSession session = req.getSession(false);
 
         try {
 
             lista = gu.read(nome);
 
-            synchronized (session) {
-                session.setAttribute("encontrados", lista);
+            req.setAttribute("encontrados", gu.read(nome));
+            
+            RequestDispatcher desp = req.getRequestDispatcher("Busca.jsp");
+            try {
+                desp.forward(req, resp);
+            } catch (ServletException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
-
-            //String url = resp.encodeRedirectURL("");
-            //resp.sendRedirect(url);
+            
+            
 
         } catch (ClassNotFoundException ex) {
             //redirecionar para pagina de erro
