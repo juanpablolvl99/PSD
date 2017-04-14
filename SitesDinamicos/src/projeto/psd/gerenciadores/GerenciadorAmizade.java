@@ -7,25 +7,30 @@ import projeto.psd.factorys.DaoFactory;
 import projeto.psd.interfaces.AmizadeDaoIf;
 
 public class GerenciadorAmizade {
-    
+
     private DaoFactory fabricaDao;
-    private AmizadeDaoIf cad;
-    
-    public GerenciadorAmizade() throws SQLException, ClassNotFoundException{
+    private AmizadeDaoIf ifc;
+
+    public GerenciadorAmizade() throws SQLException, ClassNotFoundException {
         this.fabricaDao = new DaoFactory();
-        this.cad = this.fabricaDao.getDaoFactory().criaDaoAmizade();
+        this.ifc = this.fabricaDao.getDaoFactory().criaDaoAmizade();
+    }
+
+    public boolean add(String userEmail, String amigoEmail) throws SQLException {
+    
+        return this.ifc.add(userEmail, amigoEmail);
     }
     
-    public boolean add(String userEmail, String amigoEmail) throws SQLException{
-        return this.cad.add(userEmail, amigoEmail);
+
+    public boolean remove(String userEmail, String amigoEmail) throws SQLException {
+    
+        return this.ifc.remove(userEmail, amigoEmail);
     }
     
-    public boolean remove(String userEmail, String amigoEmail) throws SQLException{
-        return this.cad.remove(userEmail, amigoEmail);
-    }
+
+    public List<Amizade> listAll() throws SQLException {
     
-    public List<Amizade> listAll() throws SQLException{
-        return this.cad.listAll();
+        return this.ifc.listAll();
     }
     
 }

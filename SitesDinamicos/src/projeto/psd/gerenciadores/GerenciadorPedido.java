@@ -9,24 +9,28 @@ import projeto.psd.interfaces.PedidoDaoIf;
 public class GerenciadorPedido {
 
     private DaoFactory fabricaDao;
-    private PedidoDaoIf cad;
-    
-    public GerenciadorPedido() throws SQLException, ClassNotFoundException{
+    private PedidoDaoIf ifc;
+
+    public GerenciadorPedido() throws SQLException, ClassNotFoundException {
         this.fabricaDao = new DaoFactory();
-        this.cad = this.fabricaDao.getDaoFactory().criaDaoPedido();   
+        this.ifc = this.fabricaDao.getDaoFactory().criaDaoPedido();
     }
+
+    public boolean add(String userEmail, String userParaEmail) throws SQLException {
     
-    public boolean add(String userEmail, String userParaEmail) throws SQLException{
-        return this.cad.add(userEmail, userParaEmail);
+        return this.ifc.add(userEmail, userParaEmail);
+
+    }
+
+    public boolean remove(String userEmail, String userParaEmail) throws SQLException {
+        
+        return this.ifc.remove(userEmail, userParaEmail);
     
     }
+
+    public List<Pedido> listAll() throws SQLException {
     
-    public boolean remove(String userEmail, String userParaEmail) throws SQLException{
-        return this.cad.remove(userEmail, userParaEmail);
-    }
-    
-    public List<Pedido> listAll() throws SQLException{
-        return this.cad.listAll();
+        return this.ifc.listAll();
     }
     
 }

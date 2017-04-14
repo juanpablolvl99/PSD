@@ -27,7 +27,7 @@ create table mensagem(
     de varchar(50) references usuario(email),
     para varchar(50),
     mensagem text,
-    primary key(id, de, para)
+    primary key(id)
 );
 
 create table amizade(
