@@ -3,6 +3,7 @@ package ApplicationControllers;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,8 +14,9 @@ import projeto.psd.interfaces.Command;
 public class LoginController implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ClassNotFoundException, IOException
-    {
+    public void execute(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException, IOException, 
+    ServletException{
+        
         String login = req.getParameter("login");
         String senha = req.getParameter("senha");
         GerenciadorUsuario ger;
@@ -52,10 +54,10 @@ public class LoginController implements Command {
                 sessao.setAttribute("senhaUsuario", senha);
                 sessao.setAttribute("dadosUsu", auxiliar);
             }
-            String url = resp.encodeRedirectURL("inicial.jsp");
-            resp.sendRedirect(url);
+            String url = res.encodeRedirectURL("inicial.jsp");
+            res.sendRedirect(url);
         } else {
-            resp.sendRedirect("index.htm");
+            res.sendRedirect("index.htm");
         }
     }
 
