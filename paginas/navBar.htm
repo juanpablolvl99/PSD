@@ -1,8 +1,67 @@
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
+<style type="text/css">
+    *{
+    position: relative;
+    font-family: 'Varela Round';
+    color: white;
+    }
+    body{
+        background-position: center;
+        background-size: cover;
+    }
+    li{
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+    #active{
+        background-color: #363636;
+        border-radius: 6px;
+    }
+    #menu{
+        background-color: #1C1C1C;
+        background-image:linear-gradient(to bottom, transparent 1px, rgba(0,0,0,.1) 1px);
+        margin: 20px;
+    }
+    form{
+        display: inline-flex;
+        margin-top: 14px;
+        margin-left: 11px;
+    }
+    .search {
+        padding: 8px 15px;
+        background: rgba(55, 55, 55, 0.8);
+        border: 0px solid #dbdbdb;
+        color: #FF6EB4;
+    }
+    .button {
+        position: relative;
+        padding: 8px 15px;
+        left: -8px;
+        border: 2px solid #FF6EB4;
+        border-radius: 5px;
+        background-color: #DB7093;
+        color: #fafafa;
+    }
+    .button:hover {
+        background-color: #fafafa;
+        color: #FF6EB4;
+    }
+    #formBusca{
+        width: 255px;
+        height: 40px;
+    }
+    #formSair{
+        width: 60px;
+        height: 40px;
+    }
+    #nav{
+        width: 840px;
+        height: 75px;
+    }
+</style>
 <nav class="navbar navbar-inverse" id="menu">
-	<ul class="nav navbar-nav">
+    <ul class="nav navbar-nav" id="nav">
 		<li id="active">
             <a><i> <img src="css/img/icon.svg" width="15px" height="15px"> Thread of Love</i></a>
         </li>
@@ -12,13 +71,14 @@
         <li>
             <a href="#">Contatos</a>
         </li>
-        <form method="post" action="buscador">
+        <form method="post" action="buscador" id="formBusca">
             <input type="text" name="busca" class="search" placeholder="Busque amigos..." required/>
             <input type="submit" class="button" value="&#128270;"/>
         </form>
-        <form action="EncerrarSessao" method="POST">
+        <form action="EncerrarSessao" method="POST" id="formSair">
             <input type="submit" class="button" value="Sair"/>
         </form>
     </ul>
+    
 </nav>
 
