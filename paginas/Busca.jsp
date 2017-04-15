@@ -38,7 +38,7 @@
 		        			<input class="button" type="submit" value="Visualizar Perfil">
 		        		</form>
 		        		<c:if test="${busca.email != dadosUsu.email}">
-			        		<form id="formulario" method="POST">
+			        		<form id="formulario" method="POST" style="margin-left:40px">
 			        			<input class="button" type="submit" value="Adicionar">
 			        		</form>
 		        		</c:if>

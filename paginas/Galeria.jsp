@@ -16,14 +16,15 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
     <style>
-        body,h1,h2,h3,h4,h5,h6,p {background: none !important; font-family: "Karma", sans-serif; color: black !important;}
+        body,h1,h2,h3,h4,h5,h6,p {background: url('css/img/wallpaper.jpg') center center no-repeat fixed; font-family: "Karma", sans-serif; color: black !important;}
         .w3-bar-block .w3-bar-item {padding:20px}
+		.addFoto{background-color: rgba(0,0,0,0) !important}
     </style>
     <body>
 
         <jsp:include page="navBar.htm"/>
 
-        <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+        <div class="w3-white w3-xlarge addFoto" style="max-width:1200px;margin:auto;">
             <form action="AdicionarFoto" method="post" enctype="multipart/form-data"> 
                 <input type="file" name="foto" class="w3-right w3-button w3-black" style="font-size:18px; left:55px; border-radius:5px"></input>
                 <input type="submit" class="w3-right w3-button w3-black" style="font-size:18px; left:55px; border-radius:5px" value="adicionar foto"></input>
@@ -31,7 +32,7 @@
         </div>
 
 
-        <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
 
             <div class="w3-row-padding w3-padding-16 w3-center" id="food">
                 <c:forEach var="imp" items="${list}">

@@ -1,4 +1,4 @@
-package ApplicationControllers;
+package projeto.psd.appcontroller;
 
 import java.io.File;
 import java.io.IOException;

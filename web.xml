@@ -60,4 +60,13 @@
 		<servlet-name>EncerrarSessao</servlet-name>
 		<url-pattern>/EncerrarSessao</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>frontcontrol</servlet-name>
+		<servlet-class>projeto.psd.servlets.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>frontcontrol</servlet-name>
+		<url-pattern>/front.do</url-pattern>
+	</servlet-mapping>
 </web-app>

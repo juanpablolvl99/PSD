@@ -2,7 +2,7 @@
 # Created by https://www.gitignore.io/api/netbeans
 
 ### NetBeans ###
-SitesDinamicos/nbproject/private/
+SitesDinamicos/nbproject/private/private.xml
 SitesDinamicos/build/
 SitesDinamicos/nbbuild/
 SitesDinamicos/dist/

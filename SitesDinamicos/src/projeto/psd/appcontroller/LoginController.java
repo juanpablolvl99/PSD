@@ -1,4 +1,4 @@
-package ApplicationControllers;
+package projeto.psd.appcontroller;
 
 import java.io.IOException;
 import java.sql.SQLException;
