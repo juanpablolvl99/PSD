@@ -71,11 +71,13 @@
         <li>
             <a href="#">Contatos</a>
         </li>
-        <form method="post" action="buscador" id="formBusca">
+        <form method="post" action="front.do" id="formBusca">
             <input type="text" name="busca" class="search" placeholder="Busque amigos..." required/>
             <input type="submit" class="button" value="&#128270;"/>
+			<input type="hidden" name="action" value="Buscador"/>
         </form>
-        <form action="EncerrarSessao" method="POST" id="formSair">
+        <form action="front.do" method="POST" id="formSair">
+			<input type="hidden" name="action" value="EncerrarSessao"/>
             <input type="submit" class="button" value="Sair"/>
         </form>
     </ul>

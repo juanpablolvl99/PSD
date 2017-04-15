@@ -25,8 +25,9 @@
         <jsp:include page="navBar.htm"/>
 
         <div class="w3-white w3-xlarge addFoto" style="max-width:1200px;margin:auto;">
-            <form action="AdicionarFoto" method="post" enctype="multipart/form-data"> 
-                <input type="file" name="foto" class="w3-right w3-button w3-black" style="font-size:18px; left:55px; border-radius:5px"></input>
+            <form action="front.do" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" value="AdicionarFoto" name="action"/>
+				<input type="file" name="foto" class="w3-right w3-button w3-black" style="font-size:18px; left:55px; border-radius:5px"></input>
                 <input type="submit" class="w3-right w3-button w3-black" style="font-size:18px; left:55px; border-radius:5px" value="adicionar foto"></input>
             </form>
         </div>

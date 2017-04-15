@@ -10,7 +10,7 @@
   <body class="container">
       <div class="loginCadastro">
         <h1 id="centralizarTexto">Cadastro de Usuário</h1>
-        <form class="formLogin" action="cadastro" method="post" enctype="multipart/form-data">
+        <form class="formLogin" action="front.do" method="post" enctype="multipart/form-data">
           <div class="col-md-4">
             <h3 id="centralizarTexto">Dados para login</h3>
             <input type="text" name="login" value="" placeholder="Login" class="campo" required="required">
@@ -42,6 +42,7 @@
 			  <input type="text" name="corDoCabelo" value="" placeholder="Cor do Cabelo" class="campo">
 			  <input type="text" name="passatempos" value="" placeholder="Passatempos" class="campo">
 		    </div>
+			<input type="hidden" name="action" value="CadastroUsuario">
           </div>
           <input type="reset" value="Limpar Campos" class="submit imp" style="margin-left:30%;">
           <input type="submit" name="" value="Cadastrar" class="submit imp">
