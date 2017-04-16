@@ -1,4 +1,4 @@
-<%@ page contentType="text/html"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="projeto.psd.entidades.Usuario" %>
 
 <html>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-7">
                     <!-- O UTF-8 não esta funcionando -->
-                    <h1 style="color: black; text-align: center;">Sobre voce !</h1>
+                    <h1 style="color: black; text-align: center;">Sobre você...</h1>
                     <br>
                     <p><strong>Nome:</strong><jsp:getProperty name="dadosUsu" property="nome"/></p>
                     <p><strong>Apelido:</strong><jsp:getProperty name="dadosUsu" property="apelido"/></p>

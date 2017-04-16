@@ -1,0 +1,46 @@
+body{
+	background: url('img/wallpaper.jpg') center center no-repeat fixed;
+  	background-position: center;
+ 	background-size: cover;
+ 	
+}
+img{
+	border-radius: 100px;
+}
+.container{
+	background-color: #F2EEEE;
+	border-top: 5px solid #E56F6F;
+	border-bottom: 5px solid #E56F6F;
+	border-radius: 5px;
+}
+#textoCentral{
+	text-align: center;
+	color: black;
+}
+p, strong{
+	margin-left: 15px;
+	color: black;
+}
+#foto{
+	margin: 0 auto;
+}
+#formulario{
+	width: 100px;
+	height: 50px;
+	display: inline-grid;
+	margin-left: 25%;
+}
+.submit{
+  background: #ff656c;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+}
+.button:hover {
+    background-color: #fafafa;
+    color: #FF6EB4;
+}
+#dados{
+	margin-top: 4%;
+}

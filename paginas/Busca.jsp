@@ -32,13 +32,14 @@
 		        		<p><strong>Nome:</strong> ${busca.nome}</p>
 		        		<p><strong>Cidade:</strong> ${busca.cidade}</p>
 		        		<p><strong>Status:</strong> ${busca.status}</p>
-		        		<form id="formulario" method="POST">
-		        			<input type="text" value="${busca.nome}" style="display: none;">
-		        			<input type="text" value="${busca.email}" style="display: none;">
+		        		<form id="formulario" method="POST" action="front.do">
+		        			<input name="nomeUsuario" type="text" value="${busca.nome}" style="display: none;">
+		        			<input name="email" type="text" value="${busca.email}" style="display: none;">
+		        			<input type="hidden" name="action" value="BuscaUsu">
 		        			<input class="button" type="submit" value="Visualizar Perfil">
 		        		</form>
 		        		<c:if test="${busca.email != dadosUsu.email}">
-			        		<form id="formulario" method="POST" style="margin-left:40px">
+			        		<form id="formulario" method="POST" style="margin-left:40px" action="front.do">
 			        			<input class="button" type="submit" value="Adicionar">
 			        		</form>
 		        		</c:if>

@@ -45,5 +45,11 @@ public class GerenciadorUsuario {
         return this.ifc.listAll();
 
     }
+    
+    public Usuario readEmail(String email) throws SQLException{
+        
+        return this.ifc.readEmail(email);
+        
+    }
 
 }
