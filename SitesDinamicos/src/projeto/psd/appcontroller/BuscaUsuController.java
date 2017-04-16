@@ -20,9 +20,9 @@ public class BuscaUsuController implements Command{
         
         GerenciadorUsuario ger;
         ger = new GerenciadorUsuario();
-        Usuario aux = ger.readEmail(email);
+        Usuario user = ger.readEmail(email);
         
-        req.setAttribute("usuBus", aux);
+        req.setAttribute("user", user);
         
         RequestDispatcher despachante = req.getRequestDispatcher("InformUsu.jsp");
         despachante.forward(req, res);

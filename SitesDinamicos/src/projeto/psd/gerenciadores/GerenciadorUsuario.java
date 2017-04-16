@@ -30,7 +30,7 @@ public class GerenciadorUsuario {
 
     public List<Usuario> read(String nome) throws ClassNotFoundException, SQLException {
 
-        return this.ifc.read(nome);
+        return this.ifc.readByNome(nome);
 
     }
 
@@ -48,7 +48,7 @@ public class GerenciadorUsuario {
     
     public Usuario readEmail(String email) throws SQLException{
         
-        return this.ifc.readEmail(email);
+        return this.ifc.readByEmail(email);
         
     }
 

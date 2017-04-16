@@ -55,7 +55,7 @@ public class UsuarioDao implements UsuarioDaoIf {
     }
 
     @Override
-    public List<Usuario> read(String nome) throws SQLException {
+    public List<Usuario> readByNome(String nome) throws SQLException {
         String sql = "SELECT * FROM usuario where nome = ?";
 
         PreparedStatement stmt = con.prepareStatement(sql);
@@ -66,25 +66,13 @@ public class UsuarioDao implements UsuarioDaoIf {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Usuario u = new Usuario();
-            u.setLogin(rs.getString(1));
-            u.setSenha(rs.getString(2));
-            u.setNome(rs.getString(3));
-            u.setApelido(rs.getString(4));
-            u.setDataDeNascimento(rs.getString(5));
-            u.setCidade(rs.getString(6));
-            u.setEmail(rs.getString(7));
-            u.setProfissao(rs.getString(8));
-            u.setDescricao(rs.getString(9));
-            u.setStatus(rs.getString(10));
-            u.setAltura(rs.getDouble(11));
-            u.setPeso(rs.getDouble(12));
-            u.setCorDoCabelo(rs.getString(13));
-            u.setPassatempos(rs.getString(14));
-            u.setFotoPerfil(rs.getString(15));
+            populaUser(u, rs);
             lista.add(u);
         }
+        
         stmt.close();
         rs.close();
+        
         return lista;
     }
 
@@ -93,11 +81,11 @@ public class UsuarioDao implements UsuarioDaoIf {
 
         String sql = "DELETE FROM usuario WHERE login = '" + login
                 + "' AND senha = '" + senha + "'";
-        PreparedStatement stmt;
-
-        stmt = con.prepareStatement(sql);
+        PreparedStatement stmt = con.prepareStatement(sql);
+        
         int vrf = stmt.executeUpdate();
         stmt.close();
+        
         return vrf > 0;
 
     }
@@ -127,8 +115,11 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setString(13, u.getPassatempos());
         stmt.setString(14, u.getLogin());
         stmt.setString(15, u.getFotoPerfil());
+        
         int vrf = stmt.executeUpdate();
+        
         stmt.close();
+        
         return vrf > 0;
 
     }
@@ -137,61 +128,60 @@ public class UsuarioDao implements UsuarioDaoIf {
     public List<Usuario> listAll() throws SQLException {
 
         String sql = "SELECT * FROM usuario";
-        PreparedStatement stmt;
+        PreparedStatement stmt = con.prepareStatement(sql);
+
         List<Usuario> lista = new ArrayList<Usuario>();
 
-        stmt = con.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Usuario u = new Usuario();
-            u.setLogin(rs.getString(1));
-            u.setSenha(rs.getString(2));
-            u.setNome(rs.getString(3));
-            u.setApelido(rs.getString(4));
-            u.setDataDeNascimento(rs.getString(5));
-            u.setCidade(rs.getString(6));
-            u.setEmail(rs.getString(7));
-            u.setProfissao(rs.getString(8));
-            u.setDescricao(rs.getString(9));
-            u.setStatus(rs.getString(10));
-            u.setAltura(rs.getDouble(11));
-            u.setPeso(rs.getDouble(12));
-            u.setCorDoCabelo(rs.getString(13));
-            u.setPassatempos(rs.getString(14));
-            u.setFotoPerfil(rs.getString(15));
+            populaUser(u, rs);
             lista.add(u);
         }
+        
         stmt.close();
         rs.close();
+        
         return lista;
 
     }
 
     @Override
-    public Usuario readEmail(String email) throws SQLException {
+    public Usuario readByEmail(String email) throws SQLException {
+
         String sql = "SELECT * FROM usuario WHERE email = ?";
         PreparedStatement stmt = con.prepareStatement(sql);
+
         stmt.setString(1, email);
+
         ResultSet rs = stmt.executeQuery();
+    
         Usuario u = new Usuario();
+        
         if (rs.next()) {
-            u.setLogin(rs.getString(1));
-            u.setSenha(rs.getString(2));
-            u.setNome(rs.getString(3));
-            u.setApelido(rs.getString(4));
-            u.setDataDeNascimento(rs.getString(5));
-            u.setCidade(rs.getString(6));
-            u.setEmail(rs.getString(7));
-            u.setProfissao(rs.getString(8));
-            u.setDescricao(rs.getString(9));
-            u.setStatus(rs.getString(10));
-            u.setAltura(rs.getDouble(11));
-            u.setPeso(rs.getDouble(12));
-            u.setCorDoCabelo(rs.getString(13));
-            u.setPassatempos(rs.getString(14));
-            u.setFotoPerfil(rs.getString(15));
+            populaUser(u, rs);
         }
+        
         return u;
+    
+    }
+
+    public void populaUser(Usuario u, ResultSet rs) throws SQLException {
+        u.setLogin(rs.getString(1));
+        u.setSenha(rs.getString(2));
+        u.setNome(rs.getString(3));
+        u.setApelido(rs.getString(4));
+        u.setDataDeNascimento(rs.getString(5));
+        u.setCidade(rs.getString(6));
+        u.setEmail(rs.getString(7));
+        u.setProfissao(rs.getString(8));
+        u.setDescricao(rs.getString(9));
+        u.setStatus(rs.getString(10));
+        u.setAltura(rs.getDouble(11));
+        u.setPeso(rs.getDouble(12));
+        u.setCorDoCabelo(rs.getString(13));
+        u.setPassatempos(rs.getString(14));
+        u.setFotoPerfil(rs.getString(15));
     }
 
 }

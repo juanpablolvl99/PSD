@@ -8,7 +8,7 @@ public interface UsuarioDaoIf {
 
     public boolean add(Usuario u) throws SQLException;
 
-    public List<Usuario> read(String nome) throws SQLException;
+    public List<Usuario> readByNome(String nome) throws SQLException;
 
     public boolean remove(String login, String senha) throws SQLException;
 
@@ -16,6 +16,6 @@ public interface UsuarioDaoIf {
 
     public List<Usuario> listAll() throws SQLException;
     
-    public Usuario readEmail(String email) throws SQLException;
+    public Usuario readByEmail(String email) throws SQLException;
 
 }
