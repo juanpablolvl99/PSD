@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <img id="profile" src="<jsp:getProperty name='dadosUsu' property='fotoPerfil'/>" width="250px" height="250px"/>
+                    <img id="profile" src="${dadosUsu.fotoPerfil}" width="250px" height="250px"/>
                     <div width="45%" style="display:inline-block">
                         <a href="#"><h4>Amigos</h4></a>
                         <a href="#"><h4>Mensagens</h4></a>
@@ -32,17 +32,17 @@
                     <!-- O UTF-8 não esta funcionando -->
                     <h1 style="color: black; text-align: center;">Sobre você...</h1>
                     <br>
-                    <p><strong>Nome:</strong><jsp:getProperty name="dadosUsu" property="nome"/></p>
-                    <p><strong>Apelido:</strong><jsp:getProperty name="dadosUsu" property="apelido"/></p>
-                    <p><strong>Breve Descricao:</strong><jsp:getProperty name="dadosUsu" property="descricao"/></p>
-                    <p><strong>Data de Nascimento: </strong><jsp:getProperty name="dadosUsu" property="dataDeNascimento"/></p>
-                    <p><strong>Mora em:</strong><jsp:getProperty name="dadosUsu" property="cidade"/></p>
-                    <p><strong>Profissao:</strong><jsp:getProperty name="dadosUsu" property="profissao"/></p>
-                    <p><strong>Status de Relacionamento:</strong><jsp:getProperty name="dadosUsu" property="status"/></p>
-                    <p><strong>Altura:</strong><jsp:getProperty name="dadosUsu" property="altura"/></p>
-                    <p><strong>Peso:</strong><jsp:getProperty name="dadosUsu" property="peso"/></p>
-                    <p><strong>Cor do Cabelo:</strong><jsp:getProperty name="dadosUsu" property="corDoCabelo"/></p>
-                    <p><strong>Principais Passatempos:</strong><jsp:getProperty name="dadosUsu" property="passatempos"/></p>
+                    <p><strong>Nome: </strong>${dadosUsu.nome}</p>
+                    <p><strong>Apelido: </strong>${dadosUsu.apelido}</p>
+                    <p><strong>Breve Descricao: </strong>${dadosUsu.descricao}</p>
+                    <p><strong>Data de Nascimento: </strong>${dadosUsu.dataDeNascimento}</p>
+                    <p><strong>Mora em: </strong>${dadosUsu.cidade}</p>
+                    <p><strong>Profissao: </strong>${dadosUsu.profissao}</p>
+                    <p><strong>Status de Relacionamento: </strong>${dadosUsu.status}</p>
+                    <p><strong>Altura: </strong>${dadosUsu.altura}</p>
+                    <p><strong>Peso: </strong>${dadosUsu.peso}</p>
+                    <p><strong>Cor do Cabelo: </strong>${dadosUsu.corDoCabelo}</p>
+                    <p><strong>Principais Passatempos: </strong>${dadosUsu.passatempos}</p>
                     <br>
                 </div>
             </div>	
