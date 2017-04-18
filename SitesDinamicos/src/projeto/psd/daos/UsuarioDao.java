@@ -55,33 +55,12 @@ public class UsuarioDao implements UsuarioDaoIf {
     }
 
     @Override
-    public List<Usuario> readByNome(String nome) throws SQLException {
-        String sql = "SELECT * FROM usuario where nome = ?";
-
-        PreparedStatement stmt = con.prepareStatement(sql);
-        stmt.setString(1, nome);
-
-        List<Usuario> lista = new ArrayList<Usuario>();
-
-        ResultSet rs = stmt.executeQuery();
-        while (rs.next()) {
-            Usuario u = new Usuario();
-            populaUser(u, rs);
-            lista.add(u);
-        }
-        
-        stmt.close();
-        rs.close();
-        
-        return lista;
-    }
-
-    @Override
     public boolean remove(String login, String senha) throws SQLException {
-
-        String sql = "DELETE FROM usuario WHERE login = '" + login
+        
+        String sqlMain = "DELETE FROM usuario WHERE login = '" + login
                 + "' AND senha = '" + senha + "'";
-        PreparedStatement stmt = con.prepareStatement(sql);
+        
+        PreparedStatement stmt = con.prepareStatement(sqlMain);
         
         int vrf = stmt.executeUpdate();
         stmt.close();
@@ -94,7 +73,7 @@ public class UsuarioDao implements UsuarioDaoIf {
     public boolean update(Usuario u) throws SQLException {
 
         String sql = "UPDATE usuario SET senha = ?, nome = ?, "
-                + "apelido = ?, dataDeNascimento = ?, cidade = ?, email = ?, "
+                + "apelido = ?, dataNascimento = ?, cidade = ?, email = ?, "
                 + "profissao = ?, descricao = ?, status = ?, altura = ?, peso = ?, "
                 + "cordocabelo = ?, passatempos = ?, fotoperfil = ? WHERE login = ?";
         PreparedStatement stmt;
@@ -113,8 +92,8 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setDouble(11, u.getPeso());
         stmt.setString(12, u.getCorDoCabelo());
         stmt.setString(13, u.getPassatempos());
-        stmt.setString(14, u.getLogin());
-        stmt.setString(15, u.getFotoPerfil());
+        stmt.setString(15, u.getLogin());
+        stmt.setString(14, u.getFotoPerfil());
         
         int vrf = stmt.executeUpdate();
         
@@ -163,9 +142,30 @@ public class UsuarioDao implements UsuarioDaoIf {
         }
         
         return u;
-    
     }
+    
+    @Override
+    public List<Usuario> readByNome(String nome) throws SQLException {
+        String sql = "SELECT * FROM usuario where nome = ?";
 
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, nome);
+
+        List<Usuario> lista = new ArrayList<Usuario>();
+
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Usuario u = new Usuario();
+            populaUser(u, rs);
+            lista.add(u);
+        }
+        
+        stmt.close();
+        rs.close();
+        
+        return lista;
+    }
+    
     public void populaUser(Usuario u, ResultSet rs) throws SQLException {
         u.setLogin(rs.getString(1));
         u.setSenha(rs.getString(2));

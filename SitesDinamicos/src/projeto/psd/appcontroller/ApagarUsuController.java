@@ -1,5 +1,6 @@
 package projeto.psd.appcontroller;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -13,19 +14,33 @@ public class ApagarUsuController implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException, IOException, ServletException {
 
-        String login = req.getParameter("login");
+        String login = (String) req.getSession(false).getAttribute("loginUsuario");
         String senha = req.getParameter("senha");
 
         GerenciadorUsuario ger;
         ger = new GerenciadorUsuario();
 
-        if (ger.remove(login, senha)) {
-            String url = res.encodeRedirectURL("index.htm");
+        if (ger.remove(login, senha)){
+            File file =  new File(req.getServletContext().getRealPath("") + "imagens/" + login);
+            limparPasta(file);
+            file.delete();
+            String url = "index.htm";
             res.sendRedirect(url);
         } else {
             // Tratar o erro
         }
 
     }
+    
+    public void limparPasta(File file){
+        if(file.isDirectory()){
+            File[] files = file.listFiles();
+            for (File f : files) {
+                limparPasta(f);
+            }
+        }else{
+            file.delete();
+        }
+    };
 
 }

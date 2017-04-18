@@ -17,27 +17,27 @@
 );
 
 create table galeria(
-    email varchar(50) references usuario(email),
+    email varchar(50) references usuario(email) on delete cascade on update cascade,
     foto text,
     primary key(email, foto)
 );
 
 create table mensagem(
     id serial,
-    de varchar(50) references usuario(email),
+    de varchar(50) references usuario(email) on delete cascade on update cascade,
     para varchar(50),
     mensagem text,
     primary key(id)
 );
 
 create table amizade(
-    usuario varchar(50) references usuario(email),
+    usuario varchar(50) references usuario(email) on delete cascade on update cascade,
     amigo varchar(50),
     primary key(usuario, amigo)
 );
 
 create table pedidosAmizade(
-    usuario varchar(50) references usuario(email),
+    usuario varchar(50) references usuario(email) on delete cascade on update cascade,
     convite varchar(50),
     primary key(usuario, convite)
 )

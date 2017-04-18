@@ -24,11 +24,11 @@ public class BuscadorController implements Command {
 
         gu = new GerenciadorUsuario();
 
-        lista = gu.read(nome);
+        lista = gu.readByName(nome);
 
         req.setAttribute("encontrados", lista);
 
-        RequestDispatcher desp = req.getRequestDispatcher("Busca.jsp");
+        RequestDispatcher desp = req.getRequestDispatcher("busca.jsp");
         desp.forward(req, res);
 
     }
