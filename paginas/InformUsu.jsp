@@ -17,22 +17,22 @@
         <%@include file="navBar.htm"%>
         <div class="container">
         	<div class="col-md-12">
-	        	<c:if test="${usuBus.email eq emailUsuario}">
+	        	<c:if test="${user.email eq emailUsuario}">
 	        		<jsp:forward page="inicial.jsp"/>
 	        	</c:if>
 	        	<h1 id="textoCentral">Informações sobre o usuário</h1>
 	        	<hr>
         		<div class="col-md-7">
-        			<img src="${usuBus.fotoPerfil}" width="400px" height="330px">
+        			<img src="${user.fotoPerfil}" width="400px" height="330px">
         			<br><br><br><br>
         		</div>
         		<div class="col-md-5" id="dados">
-        			<p><strong>Nome:</strong> ${usuBus.nome}</p>
-                    <p><strong>Data de Nascimento: </strong> ${usuBus.dataDeNascimento}</p>
-                    <p><strong>Mora em:</strong> ${usuBus.cidade}</p>
-                    <p><strong>Profissao:</strong> ${usuBus.profissao}</p>
-                    <p><strong>Status de Relacionamento:</strong> ${usuBus.status}</p>
-                    <p><strong>Breve Descricao:</strong> ${usuBus.descricao}</p>
+        			<p><strong>Nome:</strong> ${user.nome}</p>
+                    <p><strong>Data de Nascimento: </strong> ${user.dataDeNascimento}</p>
+                    <p><strong>Mora em:</strong> ${user.cidade}</p>
+                    <p><strong>Profissao:</strong> ${user.profissao}</p>
+                    <p><strong>Status de Relacionamento:</strong> ${user.status}</p>
+                    <p><strong>Breve Descricao:</strong> ${user.descricao}</p>
                     <form id="formulario" method="POST" action="front.do">
 	        			<input type="hidden" name="action" value="">
 	        			<input class="button" type="submit" value="Mandar Convite">

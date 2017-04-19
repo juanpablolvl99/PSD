@@ -33,7 +33,6 @@
 		        		<p><strong>Cidade:</strong> ${busca.cidade}</p>
 		        		<p><strong>Status:</strong> ${busca.status}</p>
 		        		<form id="formulario" method="POST" action="front.do">
-		        			<input name="nomeUsuario" type="text" value="${busca.nome}" style="display: none;">
 		        			<input name="email" type="text" value="${busca.email}" style="display: none;">
 		        			<input type="hidden" name="action" value="BuscaUsu">
 		        			<input class="button" type="submit" value="Visualizar Perfil">

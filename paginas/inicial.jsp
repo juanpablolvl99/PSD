@@ -8,6 +8,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/profile.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+		<!--<style type="text/css">a{text-decoration:none !important}</style>-->
     </head>
     <body>
         <%@include file="navBar.htm"%>
@@ -17,15 +18,12 @@
             <div class="row">
                 <div class="col-md-5">
                     <img id="profile" src="${dadosUsu.fotoPerfil}" width="250px" height="250px"/>
-                    <div width="45%" style="display:inline-block">
-                        <a href="#"><h4>Amigos</h4></a>
-                        <a href="#"><h4>Mensagens</h4></a>
-                        <a href="Galeria.jsp"><h4>Galeria</h4></a>
-                    </div>
-                    <div style="display:inline-block; margin-left:25%">
-                        <p><span class="badge">100</span></p>
-                        <p><span class="badge">100</span></p>
-                        <p><span class="badge">100</span></p>
+                    <div width="" style="display:inline">
+                        <a href="#"><h4>Amigos <span class="badge">0</span></h4></a>
+                        <a href="#"><h4>Mensagens <span class="badge">0</span></h4></a>
+                        <a href="galeria.jsp"><h4>Galeria <span class="badge">0</span></h4></a>
+						<h4 data-toggle="modal" data-target="#myModal" style="cursor:pointer;">Apagar Conta</h4>
+						<a href="atualizarDados.jsp"><h4 style="cursor:pointer">Atualizar dados</h4></a>
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -45,9 +43,33 @@
                     <p><strong>Principais Passatempos: </strong>${dadosUsu.passatempos}</p>
                     <br>
                 </div>
-            </div>	
+            </div>
         </div>
         <br>
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Confirme sua senha para apagar esta conta</h4>
+			  </div>
+			  <form action="front.do" method="post">
+				  <div class="modal-body">
+					<input type="text" class="form-control" name="senha" placeholder="senha">
+					<input type="hidden" name="action" value="ApagarUsu">
+				  </div>
+				  <div class="modal-footer">
+					<input type="submit" class="btn btn-default">				  
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				  </div>
+			  </form>
+			</div>
+
+		  </div>
+		</div>
     </body>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
