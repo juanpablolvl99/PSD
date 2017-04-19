@@ -19,7 +19,7 @@ public class EncerrarSessaoController implements Command {
             sessao.invalidate();
         }
     
-        res.sendRedirect("index.htm");
+        res.sendRedirect("Index.htm");
         
     }
 

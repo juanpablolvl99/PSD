@@ -28,7 +28,7 @@ public class BuscadorController implements Command {
 
         req.setAttribute("encontrados", lista);
 
-        RequestDispatcher desp = req.getRequestDispatcher("busca.jsp");
+        RequestDispatcher desp = req.getRequestDispatcher("Busca.jsp");
         desp.forward(req, res);
 
     }

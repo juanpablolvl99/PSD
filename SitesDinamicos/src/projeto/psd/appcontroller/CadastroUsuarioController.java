@@ -77,10 +77,10 @@ public class CadastroUsuarioController implements Command {
         }
         if (verificaUsu) {
             if (ger.add(usu)) {
-                res.sendRedirect("index.htm");
+                res.sendRedirect("Index.htm");
             }
         } else {
-            res.sendRedirect("cadastro.htm");
+            res.sendRedirect("Cadastro.htm");
         }
 
     }

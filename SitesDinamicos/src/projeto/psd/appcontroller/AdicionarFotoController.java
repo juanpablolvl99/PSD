@@ -46,11 +46,8 @@ public class AdicionarFotoController implements Command {
         } else {
             //decidir oq sera feito;
         }
-
-        List<String> fotos = gg.listAll(email);
-        req.setAttribute("list", fotos);
-
-        RequestDispatcher rd = req.getRequestDispatcher("galeria.jsp");
+        
+        RequestDispatcher rd = req.getRequestDispatcher("Galeria.jsp");
         rd.forward(req, res);
     }
 

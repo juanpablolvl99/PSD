@@ -24,7 +24,7 @@ public class ApagarUsuController implements Command {
             File file =  new File(req.getServletContext().getRealPath("") + "imagens/" + login);
             limparPasta(file);
             file.delete();
-            String url = "index.htm";
+            String url = "Index.htm";
             res.sendRedirect(url);
         } else {
             // Tratar o erro

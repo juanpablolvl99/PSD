@@ -61,9 +61,9 @@ public class AtualizarController implements Command {
                 session.setAttribute("dadosUsu", user);
             }
             
-            res.sendRedirect(res.encodeRedirectURL("inicial.jsp"));
+            res.sendRedirect(res.encodeRedirectURL("Inicial.jsp"));
         }else{
-            res.sendRedirect("atualizarDados.jsp");
+            res.sendRedirect("AtualizarDados.jsp");
         }
 
     }
