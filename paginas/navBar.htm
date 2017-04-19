@@ -4,14 +4,13 @@
     *{
     position: relative;
     font-family: 'Varela Round';
-    color: white;
     }
     body{
         background-position: center;
         background-size: cover;
     }
-    li{
-        margin-left: 40px;
+    .menuitem{
+        margin-left: 30px;
         margin-top: 10px;
     }
     #active{
@@ -62,13 +61,13 @@
 </style>
 <nav class="navbar navbar-inverse" id="menu">
     <ul class="nav navbar-nav" id="nav">
-		<li id="active">
+		<li id="active" class="menuitem">
             <a><i> <img src="css/img/icon.svg" width="15px" height="15px"> Thread of Love</i></a>
         </li>
-        <li>
-            <a href="inicial.jsp">Perfil do Usuario</a>
+        <li class="menuitem">
+            <a href="Inicial.jsp">Perfil do Usuario</a>
         </li>
-        <li>
+        <li class="menuitem">
             <a href="#">Contatos</a>
         </li>
         <form method="post" action="front.do" id="formBusca">
@@ -81,6 +80,5 @@
             <input type="submit" class="button" value="Sair"/>
         </form>
     </ul>
-    
 </nav>
 

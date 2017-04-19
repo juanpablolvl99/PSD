@@ -1,9 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="projeto.psd.gerenciadores.GerenciadorGaleria"%>
-
-<% GerenciadorGaleria gg = new GerenciadorGaleria();
-   request.setAttribute("list", gg.listAll((String)session.getAttribute("emailUsuario")));%>
+<%@page import="projeto.psd.gerenciadores.GerenciadorGaleria"%>
+<%@taglib prefix="gf" uri="CarregaFotos"%>
 
 <html>
     <title>Galeria</title>
@@ -21,8 +19,8 @@
 		.addFoto{background-color: rgba(0,0,0,0) !important}
     </style>
     <body>
-
-        <jsp:include page="navBar.htm"/>
+		<gf:carregaFotos/>
+        <jsp:include page="NavBar.htm"/>
 
         <div class="w3-white w3-xlarge addFoto" style="max-width:1200px;margin:auto;">
             <form action="front.do" method="post" enctype="multipart/form-data"> 

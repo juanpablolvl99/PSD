@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     </head>
     <body>
-        <%@include file="navBar.htm"%>
+        <%@include file="NavBar.htm"%>
         <div class="container">
         	<h1 id="textoCentral">Resultado da Busca</h1>
         	<hr>

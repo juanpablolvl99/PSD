@@ -1,6 +1,7 @@
 package projeto.psd.daos;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,10 +25,11 @@ public class GaleriaDao implements GaleriaDaoIf{
     }
 
     @Override
-    public boolean add(String userEmail, String imagem) throws SQLException {
-        PreparedStatement pstmt = conn.prepareStatement("insert into galeria values(?, ?)");
+    public boolean add(String userEmail, String imagem, Date data) throws SQLException {
+        PreparedStatement pstmt = conn.prepareStatement("insert into galeria values(?, ?, ?)");
         pstmt.setString(1, userEmail);
         pstmt.setString(2, imagem);
+        pstmt.setDate(3, data);
         
         int vrf = pstmt.executeUpdate();
         

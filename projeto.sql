@@ -19,6 +19,7 @@
 create table galeria(
     email varchar(50) references usuario(email) on delete cascade on update cascade,
     foto text,
+	datadepublicacao date,
     primary key(email, foto)
 );
 

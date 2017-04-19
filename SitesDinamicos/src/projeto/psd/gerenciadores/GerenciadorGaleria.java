@@ -1,5 +1,6 @@
 package projeto.psd.gerenciadores;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import projeto.psd.factorys.DaoFactory;
@@ -15,9 +16,9 @@ public class GerenciadorGaleria {
         this.ifc = fabricaDao.getDaoFactory().criaDaoGaleria();
     }
 
-    public boolean add(String user, String imagem) throws SQLException, ClassNotFoundException {
+    public boolean add(String user, String imagem, Date data) throws SQLException, ClassNotFoundException {
 
-        return this.ifc.add(user, imagem);
+        return this.ifc.add(user, imagem, data);
 
     }
 

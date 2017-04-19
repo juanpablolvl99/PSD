@@ -2,8 +2,9 @@ package projeto.psd.appcontroller;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ public class AdicionarFotoController implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException, IOException,
             ServletException {
-        
+
         Part part = req.getPart("foto");
 
         GerenciadorGaleria gg = new GerenciadorGaleria(); // ..gg gigante
@@ -40,13 +41,16 @@ public class AdicionarFotoController implements Command {
 
         File file = new File(filePath);
 
+        Calendar c = Calendar.getInstance();
+        Date d = new Date(c.getTime().getTime());
+        
         if (!file.exists()) {
-            gg.add(email, AltFilePath);
+            gg.add(email, AltFilePath, d);
             part.write(filePath);
         } else {
             //decidir oq sera feito;
         }
-        
+
         RequestDispatcher rd = req.getRequestDispatcher("Galeria.jsp");
         rd.forward(req, res);
     }

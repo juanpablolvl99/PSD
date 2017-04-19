@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     </head>
     <body>
-        <%@include file="navBar.htm"%>
+        <%@include file="NavBar.htm"%>
         <div class="container">
         	<div class="col-md-12">
 	        	<c:if test="${user.email eq emailUsuario}">

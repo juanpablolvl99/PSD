@@ -1,16 +1,14 @@
 *{
     position: relative;
     font-family: 'Varela Round';
-    color: white;
 }
 body{
     background-position: center;
     background-size: cover;
 }
 li{
-    margin-left: 40px;
-    margin-top: 7px;
 }
+
 #active{
     background-color: #363636;
     border-radius: 6px;
