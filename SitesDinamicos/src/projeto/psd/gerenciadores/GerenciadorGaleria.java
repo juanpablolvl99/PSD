@@ -33,5 +33,11 @@ public class GerenciadorGaleria {
         return this.ifc.listar(user);
 
     }
+    
+    public List<String> getDatas(String user) throws SQLException {
+        
+        return this.ifc.getDatas(user);
+        
+    }
 
 }

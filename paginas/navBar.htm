@@ -10,7 +10,7 @@
         background-size: cover;
     }
     .menuitem{
-        margin-left: 30px;
+        margin-left: 20px;
         margin-top: 10px;
     }
     #active{
@@ -20,9 +20,8 @@
     #menu{
         background-color: #1C1C1C;
         background-image:linear-gradient(to bottom, transparent 1px, rgba(0,0,0,.1) 1px);
-        margin: 20px;
     }
-    form{
+    .formpadrao{
         display: inline-flex;
         margin-top: 14px;
         margin-left: 11px;
@@ -49,14 +48,15 @@
     #formBusca{
         width: 255px;
         height: 40px;
+		margin-left: 7%;
     }
     #formSair{
         width: 60px;
         height: 40px;
     }
     #nav{
-        width: 840px;
-        height: 75px;
+        width: 90%;
+        height: 10%;
     }
 </style>
 <nav class="navbar navbar-inverse" id="menu">
@@ -68,17 +68,22 @@
             <a href="Inicial.jsp">Perfil do Usuario</a>
         </li>
         <li class="menuitem">
-            <a href="#">Contatos</a>
+            <a href="#">Convites <span class="badge">0</span></a>
         </li>
-        <form method="post" action="front.do" id="formBusca">
+        <li class="menuitem"><a href="#">Amigos <span class="badge">0</span></a></li>
+        <li class="menuitem"><a href="#">Mensagens <span class="badge">0</span></a></li>
+        <li class="menuitem"><a href="Galeria.jsp">Galeria</a></li>
+        <form method="post" action="front.do" id="formBusca" class="formpadrao">
             <input type="text" name="busca" class="search" placeholder="Busque amigos..." required/>
             <input type="submit" class="button" value="&#128270;"/>
 			<input type="hidden" name="action" value="Buscador"/>
         </form>
-        <form action="front.do" method="POST" id="formSair">
+    </ul>
+	<ul class="nav navbar-nav navbar-right" style="margin-right:20px">
+        <form action="front.do" method="POST" id="formSair" class="formpadrao">
 			<input type="hidden" name="action" value="EncerrarSessao"/>
             <input type="submit" class="button" value="Sair"/>
         </form>
-    </ul>
+	</ul>
 </nav>
 

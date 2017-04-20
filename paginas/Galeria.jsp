@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="projeto.psd.gerenciadores.GerenciadorGaleria"%>
-<%@taglib prefix="gf" uri="CarregaFotos"%>
+<%@taglib prefix="cf" uri="CarregaFotos"%>
 
 <html>
     <title>Galeria</title>
@@ -19,24 +19,15 @@
 		.addFoto{background-color: rgba(0,0,0,0) !important}
     </style>
     <body>
-		<gf:carregaFotos/>
+		<cf:carregaFotos email="${emailUsuario}"/>
         <jsp:include page="NavBar.htm"/>
-
-        <div class="w3-white w3-xlarge addFoto" style="max-width:1200px;margin:auto;">
-            <form action="front.do" method="post" enctype="multipart/form-data"> 
-                <input type="hidden" value="AdicionarFoto" name="action"/>
-				<input type="file" name="foto" class="w3-right w3-button w3-black" style="font-size:18px; left:55px; border-radius:5px"></input>
-                <input type="submit" class="w3-right w3-button w3-black" style="font-size:18px; left:55px; border-radius:5px" value="adicionar foto"></input>
-            </form>
-        </div>
-
 
         <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
 
             <div class="w3-row-padding w3-padding-16 w3-center" id="food">
                 <c:forEach var="imp" items="${list}">
                     <div class="w3-third w3-container w3-margin-bottom">
-                        <img src="${imp}" alt="Norway" style="width:100%; height:300px" class="w3-hover-opacity">
+                        <img src="${imp}" alt="Norway" style="width:100%; height:300px">
                     </div>  
                 </c:forEach>
             </div>

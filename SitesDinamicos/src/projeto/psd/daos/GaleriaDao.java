@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import projeto.psd.factorys.ConFactory;
@@ -52,6 +53,7 @@ public class GaleriaDao implements GaleriaDaoIf{
     @Override
     public List<String> listar(String userEmail) throws SQLException {
         PreparedStatement pstmt = conn.prepareStatement("select foto from galeria where email = ?");
+        
         List<String> lista = new ArrayList();
         
         pstmt.setString(1, userEmail);
@@ -66,6 +68,26 @@ public class GaleriaDao implements GaleriaDaoIf{
         rs.close();
         
         return lista;
+    }
+    
+    @Override
+    public List<String> getDatas(String userEmail) throws SQLException{
+        List<String> datas = new ArrayList<>();
+        
+        PreparedStatement pstmt = conn.prepareStatement("select datavalue from galeria where email = ?");
+        pstmt.setString(1, userEmail);
+        
+        ResultSet rs = pstmt.executeQuery();
+        
+        String data;
+        DateFormat df = DateFormat.getDateInstance();
+        
+        while(rs.next()){
+            data = df.format(rs.getDate(1));
+            datas.add(data);
+        }
+        
+        return datas;
     }
     
 }

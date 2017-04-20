@@ -51,7 +51,7 @@ public class AdicionarFotoController implements Command {
             //decidir oq sera feito;
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("Galeria.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("Inicial.jsp");
         rd.forward(req, res);
     }
 

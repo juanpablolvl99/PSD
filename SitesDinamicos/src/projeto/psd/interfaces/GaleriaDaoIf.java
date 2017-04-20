@@ -11,4 +11,6 @@ public interface GaleriaDaoIf {
     public boolean delete(String userEmail, String imagem) throws SQLException;
 
     public List<String> listar(String userEmail) throws SQLException;
+    
+    public List<String> getDatas(String userEmail) throws SQLException;
 }

@@ -29,7 +29,7 @@ public class AtualizarController implements Command {
         user.setNome(req.getParameter("nome"));
         user.setApelido(req.getParameter("apelido"));
         user.setCidade(req.getParameter("cidade"));
-        user.setCorDoCabelo("corDoCabelo");
+        user.setCorDoCabelo(req.getParameter("corDoCabelo"));
         user.setDataDeNascimento(req.getParameter("dataDeNascimento"));
         user.setDescricao(req.getParameter("descricao"));
         user.setEmail(req.getParameter("email"));
