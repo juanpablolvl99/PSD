@@ -10,7 +10,6 @@
         <meta charset="UTF-8">
         <title>Pagina de Busca</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/navbar.css" rel="stylesheet">
         <link href="css/inform.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     </head>

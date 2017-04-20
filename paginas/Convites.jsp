@@ -15,7 +15,6 @@
         <meta charset="UTF-8">
         <title>Convites</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/navbar.css" rel="stylesheet">
         <link href="css/search.css" rel="stylesheet">
         <link href="css/w3.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">

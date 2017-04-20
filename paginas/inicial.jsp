@@ -93,7 +93,7 @@
                         </div>
                     </ul>
                 </div>
-                <div class="col-md-2" style="margin-left:-1%">
+                <div class="col-md-2" style="margin-right: ">
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             Configurações <img src="css/img/cog.png" width="25px" style="margin-left:5%"/></button>
@@ -101,6 +101,14 @@
                             <li><a data-toggle="modal" data-target="#myModal" style="cursor:pointer;">Apagar conta</a></li>
                             <li><a href="AtualizarDados.jsp">Atualizar dados</a></li>
                         </ul>
+                    </div>
+                    <div style="margin-top: 6%">
+                    	<a href="#"><button class="btn btn-primary dropdown-toggle" type="button" 
+                    	style="padding: 4% 19.2% 4% 19.2%">Mensagens</button></a>
+                    </div>
+                    <div style="margin-top: 6%">
+                    	<a href="#"><button class="btn btn-primary dropdown-toggle" type="button" 
+                    	style="padding: 4% 26% 4% 26%">Amigos</button></a>	
                     </div>
                 </div>
 				<div class="col-md-4 main" style="padding: 0em">
@@ -115,7 +123,7 @@
 					<form action="front.do" method="post" enctype="multipart/form-data">
 					    <div class="input-file-container" style="display:inline-block">  
 						    <input class="input-file" id="my-file" name="foto" type="file"/>
-						    <label tabindex="0" for="my-file" class="input-file-trigger" style="padding-left:22%">publique uma foto</label>
+						    <label tabindex="0" for="my-file" class="input-file-trigger" style="padding-left:22%">Publique uma foto</label>
 					    </div>
 						<input type="hidden" name="action" value="AdicionarFoto"/>
 						<input type="submit" class="btn btn-primary" value="&#8593;" style="font-size:18px; width:15%"/>
