@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="projeto.psd.entidades.Usuario"%>
+<%@taglib prefix="myTags" uri="VerificaPedido"%>
 
 <jsp:useBean id="usuBus" class="projeto.psd.entidades.Usuario" scope="request"/>
 
@@ -18,7 +19,7 @@
         <div class="container">
         	<div class="col-md-12">
 	        	<c:if test="${user.email eq emailUsuario}">
-	        		<jsp:forward page="inicial.jsp"/>
+	        		<jsp:forward page="Inicial.jsp"/>
 	        	</c:if>
 	        	<h1 id="textoCentral">Informações sobre o usuário</h1>
 	        	<hr>
@@ -33,10 +34,15 @@
                     <p><strong>Profissao:</strong> ${user.profissao}</p>
                     <p><strong>Status de Relacionamento:</strong> ${user.status}</p>
                     <p><strong>Breve Descricao:</strong> ${user.descricao}</p>
-                    <form id="formulario" method="POST" action="front.do">
-	        			<input type="hidden" name="action" value="">
-	        			<input class="button" type="submit" value="Mandar Convite">
-	        		</form>
+                    <myTags:verificaPedido deEmail="${dadosUsu.email}" paraEmail="${user.email}"/>
+                        <c:if test="${cond}">
+                            <form id="formulario" method="POST" style="margin-left:25%" action="front.do">
+                                <input type="hidden" name="deUsuario" value="${dadosUsu.email}">
+                                <input type="hidden" name="paraUsuario" value="${user.email}">
+                                <input type="hidden" name="action" value="Convite">
+                                <input class="button" type="submit" value="Mandar Convite">
+                            </form>
+                        </c:if>
         		</div>
         	</div>
         </div>

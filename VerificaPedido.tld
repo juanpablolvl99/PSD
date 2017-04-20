@@ -1,0 +1,23 @@
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">	
+	<tlib-version></tlib-version>
+	<uri>VerificaPedido</uri>
+	<tag>
+		<description></description>
+		<name>verificaPedido</name>
+		<tag-class>projeto.psd.tags.VerificarPedido</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>deEmail</name>
+			<type>String</type>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>paraEmail</name>
+			<type>String</type>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

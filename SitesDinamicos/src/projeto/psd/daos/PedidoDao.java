@@ -1,4 +1,3 @@
-
 package projeto.psd.daos;
 
 import java.sql.Connection;
@@ -11,18 +10,18 @@ import projeto.psd.entidades.Pedido;
 import projeto.psd.factorys.ConFactory;
 import projeto.psd.interfaces.PedidoDaoIf;
 
-public class PedidoDao implements PedidoDaoIf{
-    
-    private String username; 
+public class PedidoDao implements PedidoDaoIf {
+
+    private String username;
     private String url;
     private String password;
     private Connection con;
-    
-    public PedidoDao() throws ClassNotFoundException, SQLException{
-        this.username = "postgres"; 
+
+    public PedidoDao() throws ClassNotFoundException, SQLException {
+        this.username = "postgres";
         this.password = "123";
         this.url = "jdbc:postgresql://127.0.0.1:5432/threadlove";
-        this.con = ConFactory.getConnection(url, username, password); 
+        this.con = ConFactory.getConnection(url, username, password);
     }
 
     @Override
@@ -38,7 +37,7 @@ public class PedidoDao implements PedidoDaoIf{
 
     @Override
     public boolean remove(String userEmail, String userParaEmail) throws SQLException {
-        String sql = "DELETE FROM pedidosAmizade WHERE usuario = '"+userEmail+"' AND convite = '"+userParaEmail+"'";
+        String sql = "DELETE FROM pedidosAmizade WHERE userEmail = '" + userEmail + "' AND userParaEmail = '" + userParaEmail + "'";
         PreparedStatement stmt = con.prepareStatement(sql);
         int vrf = stmt.executeUpdate();
         stmt.close();
@@ -49,9 +48,9 @@ public class PedidoDao implements PedidoDaoIf{
     public List<Pedido> listAll() throws SQLException {
         String sql = "SELECT * FROM pedidosAmizade";
         PreparedStatement stmt = con.prepareStatement(sql);
-        List<Pedido> lista = new ArrayList<Pedido>();
+        List<Pedido> lista = new ArrayList<>();
         ResultSet rs = stmt.executeQuery();
-        while (rs.next()){
+        while (rs.next()) {
             Pedido p = new Pedido();
             p.setUserEmail(rs.getString(1));
             p.setUserParaEmail(rs.getString(2));
@@ -61,7 +60,5 @@ public class PedidoDao implements PedidoDaoIf{
         rs.close();
         return lista;
     }
-    
-    
-    
+
 }

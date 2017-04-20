@@ -38,6 +38,7 @@ p, strong{
   font-weight: bold;
   color: white;
   border-radius: 10px;
+  text-align: center;
 }
 .button:hover {
     background-color: #fafafa;
@@ -46,4 +47,7 @@ p, strong{
 #separador{
 	border: 0.1px solid #FFC0CB;
 	margin: 0 auto;
+}
+#centralizar{
+	text-align: center;
 }
