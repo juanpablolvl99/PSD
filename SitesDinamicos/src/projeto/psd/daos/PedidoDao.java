@@ -38,7 +38,7 @@ public class PedidoDao implements PedidoDaoIf{
 
     @Override
     public boolean remove(String userEmail, String userParaEmail) throws SQLException {
-        String sql = "DELETE FROM pedidosAmizade WHERE usuario = '"+userEmail+"' AND convite = '"+userParaEmail+"'";
+        String sql = "DELETE FROM pedidosAmizade WHERE userEmail = '"+userEmail+"' AND userParaEmail = '"+userParaEmail+"'";
         PreparedStatement stmt = con.prepareStatement(sql);
         int vrf = stmt.executeUpdate();
         stmt.close();

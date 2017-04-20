@@ -38,7 +38,7 @@ create table amizade(
 );
 
 create table pedidosAmizade(
-    usuario varchar(50) references usuario(email) on delete cascade on update cascade,
-    convite varchar(50),
-    primary key(usuario, convite)
+    userEmail varchar(50) references usuario(email) on delete cascade on update cascade,
+    userParaEmail varchar(50) references usuario(email) on delete cascade on update cascade,
+    primary key(userEmail, userParaEmail)
 )
