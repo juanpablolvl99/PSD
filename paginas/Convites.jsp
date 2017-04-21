@@ -31,7 +31,7 @@
 									<div class="w3-half w3-container">
 									  <div class="w3-topbar w3-border-amber">
 									    <img src="${emailConvite.fotoPerfil}" style="width:100%">
-									    <form action="front.do" method="POST">
+									    <form action="front.do" method="POST" style="margin: 4% 11%">
 									    	<input type="hidden" name="action" value="ExcluirPedido">
 						        			<input type="hidden" name="deEmail" value="${emailUsuario}">
 						        			<input type="hidden" name="paraEmail" value="${i.userParaEmail}">

@@ -21,16 +21,15 @@ p, strong{
 	color: black;
 }
 #foto{
-	width: 300px;
-	height: 220px;
-	margin: 25px 80px;
-	border-radius: 15px;
+	width: 200px;
+	height: 260px;
+	margin: 25px 10px;
+	border-radius: 10px;
 }
 #formulario{
-	width: 100px;
+	width: 150px;
 	height: 50px;
 	display: inline-grid;
-	
 }
 .submit{
   background: #ff656c;
