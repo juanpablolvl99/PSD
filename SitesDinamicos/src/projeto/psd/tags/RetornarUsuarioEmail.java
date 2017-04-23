@@ -24,6 +24,8 @@ public class RetornarUsuarioEmail extends SimpleTagSupport{
             GerenciadorUsuario ger = new GerenciadorUsuario();
             Usuario auxiliar = ger.readByEmail(email);
             getJspContext().setAttribute("emailConvite", auxiliar);
+            
+            ger.closeConexao();
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }

@@ -17,20 +17,26 @@ public class GerenciadorAmizade {
     }
 
     public boolean add(String userEmail, String amigoEmail) throws SQLException {
-    
+
         return this.ifc.add(userEmail, amigoEmail);
     }
-    
 
     public boolean remove(String userEmail, String amigoEmail) throws SQLException {
-    
+
         return this.ifc.remove(userEmail, amigoEmail);
     }
-    
+
+    public List<Amizade> listAll(String email) throws SQLException {
+
+        return this.ifc.listAll(email);
+    }
 
     public List<Amizade> listAll() throws SQLException {
-    
+
         return this.ifc.listAll();
     }
-    
+
+    public void closeConexao() throws SQLException {
+        this.ifc.closeConexao();
+    }
 }

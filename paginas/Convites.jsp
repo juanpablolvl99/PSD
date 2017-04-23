@@ -4,11 +4,9 @@
 <%@page import="projeto.psd.gerenciadores.GerenciadorPedido"%>
 <%@page import="projeto.psd.gerenciadores.GerenciadorUsuario"%>
 <%@page import="projeto.psd.entidades.Usuario"%>
+<%@taglib prefix="myTgs" uri="CarregaPedidos"%>
 
-<% 
-	GerenciadorPedido ger = new GerenciadorPedido();
-	pageContext.setAttribute("convites", ger.listAll()); 
-%>
+<myTgs:carPedidos/>
 
 <html>
     <head>
@@ -19,7 +17,7 @@
         <link href="css/w3.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <body>
-        <%@include file="NavBar.htm"%>
+        <%@include file="NavBar2.jsp"%>
         <div class="container">
         	<div class="col-md-12">
 	        	<div class="col-md-6">
@@ -61,8 +59,9 @@
 									    <img src="${emailConvite.fotoPerfil}" style="width:100%">
 									    <div class="w3-half w3-container">
 									    <form id="formulario" action="front.do" method="POST" style="margin:20% -15%">
+			        						<input type="hidden" name="action" value="AceitarAmizade">
 			        						<input type="hidden" name="deEmail" value="${emailUsuario}">
-			        						<input type="hidden" name="paraEmail" value="${i.userParaEmail}">
+			        						<input type="hidden" name="paraEmail" value="${emailConvite.email}">
 			        						<input class="button" type="submit" value="Aceitar" style="width: 80px; height: 40px;">
 			        					</form>
 			        					</div>

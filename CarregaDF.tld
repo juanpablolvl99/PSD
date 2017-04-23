@@ -1,0 +1,20 @@
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">	
+	<tlib-version/>
+	<uri>CarregaDF</uri>
+	<tag>
+		<description>recupera em uma lista as datas das fotos ou as fotos adicionadas</description>
+		<name>carregaDF</name>
+		<body-content>scriptless</body-content>
+		<tag-class>projeto.psd.tags.CarregaDF</tag-class>
+		<attribute>
+			<name>email</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>retorna</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>	

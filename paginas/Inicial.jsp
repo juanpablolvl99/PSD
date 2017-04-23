@@ -1,8 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="projeto.psd.entidades.Usuario"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="cf" uri="CarregaFotos"%> 
-<%@taglib prefix="cd" uri="CarregaDatas"%> 
+<%@taglib prefix="df" uri="CarregaDF"%>
 
 <html>
     <head>
@@ -61,9 +60,9 @@
 		</style>
     </head>
     <body>
-		<cf:carregaFotos email="${emailUsuario}"/>
-		<cd:carregaDatas email="${emailUsuario}"/>
-        <%@include file="NavBar.htm"%>
+		<df:carregaDF email="${emailUsuario}" retorna="fotos"/>
+		<df:carregaDF email="${emailUsuario}" retorna="datas"/>
+        <%@include file="NavBar2.jsp"%>
         <div class="container" style="width:97%">
             <div class="row">
                 <div class="col-md-3" style="margin-right:-1%">
@@ -107,13 +106,13 @@
                     	style="padding: 4% 19.2% 4% 19.2%">Mensagens</button></a>
                     </div>
                     <div style="margin-top: 6%">
-                    	<a href="#"><button class="btn btn-primary dropdown-toggle" type="button" 
+                    	<a href="Amigos.jsp"><button class="btn btn-primary dropdown-toggle" type="button" 
                     	style="padding: 4% 26% 4% 26%">Amigos</button></a>	
                     </div>
                 </div>
 				<div class="col-md-4 main" style="padding: 0em">
 					<ul class="list-group" style="margin: 0em;">
-						<c:forEach var="item" items="${list}" varStatus="status">
+						<c:forEach var="item" items="${fotos}" varStatus="status">
 							<li class="list-group-item active">${datas[status.index]}</li>
 							<li class="list-group-item"><img src="${item}" width="100%"/></li>
 						</c:forEach>	

@@ -18,6 +18,7 @@ public class MensagemController implements Command{
         String mensagem = req.getParameter("mensagem");
         String emailDe = req.getParameter("emailDe");
         String emailPara = req.getParameter("emailPara");
+        String paginaPai = req.getParameter("pagina");
         
         Mensagem msg = new Mensagem();
         msg.setDeEmail(emailDe);
@@ -27,6 +28,13 @@ public class MensagemController implements Command{
         GerenciadorMensagem gm = new GerenciadorMensagem();
         gm.add(msg);
         
+        gm.closeConexao();
+        
+        if(paginaPai.equals("amigos"))
+            res.sendRedirect("Amigos.jsp");
+        else{
+            res.sendRedirect("Mensagem.jsp");
+        }
     }
     
 }

@@ -25,7 +25,8 @@ public class BuscadorController implements Command {
         gu = new GerenciadorUsuario();
 
         lista = gu.readByName(nome);
-
+        
+        gu.closeConexao();
         req.setAttribute("encontrados", lista);
 
         RequestDispatcher desp = req.getRequestDispatcher("Busca.jsp");

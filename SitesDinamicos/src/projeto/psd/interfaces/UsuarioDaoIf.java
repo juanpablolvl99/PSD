@@ -15,7 +15,8 @@ public interface UsuarioDaoIf {
     public boolean update(Usuario u) throws SQLException;
 
     public List<Usuario> listAll() throws SQLException;
-    
+
     public Usuario readByEmail(String email) throws SQLException;
 
+    public void closeConexao() throws SQLException;
 }

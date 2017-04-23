@@ -19,8 +19,10 @@ public class ConviteController implements Command{
         GerenciadorPedido ger = new GerenciadorPedido();
         
         if(ger.add(deUsu, paraUsu)){
+            ger.closeConexao();
             res.sendRedirect("Convites.jsp");
         } else {
+            ger.closeConexao();
             // Tratar erro
         }
         

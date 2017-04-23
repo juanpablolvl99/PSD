@@ -10,55 +10,60 @@ import projeto.psd.entidades.Mensagem;
 import projeto.psd.factorys.ConFactory;
 import projeto.psd.interfaces.MensagemDaoIf;
 
-public class MensagemDao implements MensagemDaoIf{
+public class MensagemDao implements MensagemDaoIf {
 
     private String username;
-    private String password; 
+    private String password;
     private String url;
     private Connection conn;
 
     public MensagemDao() throws ClassNotFoundException, SQLException {
-        this.username = "postgres"; 
+        this.username = "postgres";
         this.password = "123";
         this.url = "jdbc:postgresql://127.0.0.1:5432/threadlove";
-        this.conn = ConFactory.getConnection(url, username, password);      
+        this.conn = ConFactory.getConnection(url, username, password);
     }
 
     @Override
-    public boolean add(Mensagem msg) throws SQLException{
-        PreparedStatement pstmt = conn.prepareStatement("insert into mensagem(de, para, mensagem) value(?,?,?)");
+    public boolean add(Mensagem msg) throws SQLException {
+        PreparedStatement pstmt = conn.prepareStatement("insert into mensagem(de, para, mensagem) values(?,?,?)");
         pstmt.setString(1, msg.getDeEmail());
         pstmt.setString(2, msg.getParaEmail());
         pstmt.setString(3, msg.getMensagem());
-        
+
         int vrf = pstmt.executeUpdate();
-        
+
         pstmt.close();
         
         return vrf > 0;
     }
-    
+
     @Override
-    public List<Mensagem> listar(String userDeEmail, String userParaEmail) throws SQLException{
-        
-        PreparedStatement pstmt = conn.prepareStatement("select * from mensagem where de = " + userDeEmail + " para = " +
-        userParaEmail);
-        
+    public List<Mensagem> listar(String userDeEmail, String userParaEmail) throws SQLException {
+
+        PreparedStatement pstmt = conn.prepareStatement("select * from mensagem where de = " + userDeEmail + " para = "
+                + userParaEmail);
+
         List<Mensagem> mensagens = new ArrayList();
-        
+
         ResultSet rs = pstmt.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             Mensagem msg = new Mensagem();
             msg.setDeEmail(rs.getString(2));
             msg.setParaEmail(rs.getString(3));
             msg.setMensagem(rs.getString(4));
             mensagens.add(msg);
         }
-        
+
         pstmt.close();
         rs.close();
-        
+
         return mensagens;
+    }
+
+    @Override
+    public void closeConexao() throws SQLException {
+        conn.close();
     }
 
 }

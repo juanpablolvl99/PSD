@@ -32,6 +32,7 @@ public class PedidoDao implements PedidoDaoIf {
         stmt.setString(2, userParaEmail);
         int vrf = stmt.executeUpdate();
         stmt.close();
+
         return vrf > 0;
     }
 
@@ -41,6 +42,7 @@ public class PedidoDao implements PedidoDaoIf {
         PreparedStatement stmt = con.prepareStatement(sql);
         int vrf = stmt.executeUpdate();
         stmt.close();
+
         return vrf > 0;
     }
 
@@ -58,6 +60,30 @@ public class PedidoDao implements PedidoDaoIf {
         }
         stmt.close();
         rs.close();
+
+        return lista;
+    }
+
+    @Override
+    public void closeConexao() throws SQLException {
+        con.close();
+    }
+
+    @Override
+    public List<Pedido> listAll(String email) throws SQLException {
+            String sql = "SELECT * FROM pedidosAmizade where userParaEmail='"+email+"'";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        List<Pedido> lista = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Pedido p = new Pedido();
+            p.setUserEmail(rs.getString(1));
+            p.setUserParaEmail(rs.getString(2));
+            lista.add(p);
+        }
+        stmt.close();
+        rs.close();
+
         return lista;
     }
 

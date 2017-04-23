@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="projeto.psd.gerenciadores.GerenciadorGaleria"%>
-<%@taglib prefix="cf" uri="CarregaFotos"%>
+<%@taglib prefix="df" uri="CarregaDF"%>
 
 <html>
     <title>Galeria</title>
@@ -18,13 +18,13 @@
 		.addFoto{background-color: rgba(0,0,0,0) !important}
     </style>
     <body>
-		<cf:carregaFotos email="${emailUsuario}"/>
-        <jsp:include page="NavBar.htm"/>
+		<df:carregaFotos email="${emailUsuario}" retorna="fotos"/>
+        <%@include file="NavBar2.jsp"%>
 
         <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
 
             <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-                <c:forEach var="imp" items="${list}">
+                <c:forEach var="imp" items="${fotos}">
                     <div class="w3-third w3-container w3-margin-bottom">
                         <img src="${imp}" alt="Norway" style="width:100%; height:300px">
                     </div>  

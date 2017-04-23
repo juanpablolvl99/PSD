@@ -15,7 +15,11 @@ public class GerenciadorMensagem {
         this.fabricaDao = new DaoFactory();
         this.ifc = fabricaDao.getDaoFactory().criaDaoMensagem();
     }
-    
+
+    public void closeConexao() throws SQLException {
+        this.ifc.closeConexao();
+    }
+
     public boolean add(Mensagem msg) throws SQLException, ClassNotFoundException {
 
         return this.ifc.add(msg);

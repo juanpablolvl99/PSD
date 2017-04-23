@@ -24,6 +24,7 @@ public class BuscaUsuController implements Command{
         
         req.setAttribute("user", user);
         
+        ger.closeConexao();
         RequestDispatcher despachante = req.getRequestDispatcher("InformUsu.jsp");
         despachante.forward(req, res);
         

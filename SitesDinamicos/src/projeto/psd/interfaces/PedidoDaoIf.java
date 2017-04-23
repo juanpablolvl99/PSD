@@ -12,4 +12,7 @@ public interface PedidoDaoIf {
 
     public List<Pedido> listAll() throws SQLException;
 
+    public List<Pedido> listAll(String email) throws SQLException;
+
+    public void closeConexao() throws SQLException;
 }

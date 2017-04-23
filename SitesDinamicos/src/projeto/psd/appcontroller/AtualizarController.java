@@ -60,9 +60,10 @@ public class AtualizarController implements Command {
             synchronized(session){
                 session.setAttribute("dadosUsu", user);
             }
-            
+            ger.closeConexao();
             res.sendRedirect(res.encodeRedirectURL("Inicial.jsp"));
         }else{
+            ger.closeConexao();
             res.sendRedirect("AtualizarDados.jsp");
         }
 

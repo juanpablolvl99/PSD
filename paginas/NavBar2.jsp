@@ -1,3 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="num" uri="NumPedidos"%>
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
@@ -59,6 +62,7 @@
         height: 10%;
     }
 </style>
+<num:numPedidos email="${emailUsuario}"/>
 <nav class="navbar navbar-inverse" id="menu">
     <ul class="nav navbar-nav" id="nav">
 		<li id="active" class="menuitem">
@@ -68,7 +72,7 @@
             <a href="Inicial.jsp">Perfil do Usuario</a>
         </li>
         <li class="menuitem">
-            <a href="Convites.jsp">Convites <span class="badge">0</span></a>
+            <a href="Convites.jsp">Convites <span class="badge">${numConv}</span></a>
         </li>
         <li class="menuitem"><a href="Galeria.jsp">Galeria</a></li>
         <form method="post" action="front.do" id="formBusca" class="formpadrao">

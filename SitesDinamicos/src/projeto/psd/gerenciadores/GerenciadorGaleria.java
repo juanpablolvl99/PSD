@@ -16,6 +16,10 @@ public class GerenciadorGaleria {
         this.ifc = fabricaDao.getDaoFactory().criaDaoGaleria();
     }
 
+    public void closeConexao() throws SQLException {
+        this.ifc.closeConexao();
+    }
+
     public boolean add(String user, String imagem, Date data) throws SQLException, ClassNotFoundException {
 
         return this.ifc.add(user, imagem, data);
@@ -33,11 +37,11 @@ public class GerenciadorGaleria {
         return this.ifc.listar(user);
 
     }
-    
+
     public List<String> getDatas(String user) throws SQLException {
-        
+
         return this.ifc.getDatas(user);
-        
+
     }
 
 }

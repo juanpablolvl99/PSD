@@ -25,8 +25,10 @@ public class ApagarUsuController implements Command {
             limparPasta(file);
             file.delete();
             String url = "Index.htm";
+            ger.closeConexao();
             res.sendRedirect(url);
         } else {
+            ger.closeConexao();
             // Tratar o erro
         }
 

@@ -15,7 +15,11 @@ public class GerenciadorUsuario {
         this.fabricaDao = new DaoFactory();
         this.ifc = fabricaDao.getDaoFactory().criaDaoUsuario();
     }
-    
+
+    public void closeConexao() throws SQLException {
+        this.ifc.closeConexao();
+    }
+
     public boolean add(Usuario usu) throws ClassNotFoundException, SQLException {
 
         return this.ifc.add(usu);
@@ -45,11 +49,11 @@ public class GerenciadorUsuario {
         return this.ifc.listAll();
 
     }
-    
-    public Usuario readByEmail(String email) throws SQLException{
-        
+
+    public Usuario readByEmail(String email) throws SQLException {
+
         return this.ifc.readByEmail(email);
-        
+
     }
 
 }

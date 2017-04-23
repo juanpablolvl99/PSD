@@ -42,9 +42,11 @@ public class LoginController implements Command {
                 sessao.setAttribute("senhaUsuario", senha);
                 sessao.setAttribute("dadosUsu", user);
             }
+            ger.closeConexao();
             String url = res.encodeRedirectURL("Inicial.jsp");
             res.sendRedirect(url);
         } else {
+            ger.closeConexao();
             res.sendRedirect("Index.htm");
         }
     }

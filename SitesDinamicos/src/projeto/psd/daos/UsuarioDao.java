@@ -50,7 +50,7 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setString(15, u.getFotoPerfil());
         int vrf = stmt.executeUpdate();
         stmt.close();
-
+        
         return vrf > 0;
     }
 
@@ -183,5 +183,11 @@ public class UsuarioDao implements UsuarioDaoIf {
         u.setPassatempos(rs.getString(14));
         u.setFotoPerfil(rs.getString(15));
     }
+
+    @Override
+    public void closeConexao() throws SQLException {
+        this.con.close();
+    }
+
 
 }

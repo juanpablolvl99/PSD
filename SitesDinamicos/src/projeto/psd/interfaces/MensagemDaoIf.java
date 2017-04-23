@@ -10,4 +10,5 @@ public interface MensagemDaoIf {
 
     public List<Mensagem> listar(String deEmail, String paraEmail) throws SQLException;
 
+    public void closeConexao() throws SQLException;
 }

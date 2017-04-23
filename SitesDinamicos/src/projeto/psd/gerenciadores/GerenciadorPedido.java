@@ -16,21 +16,30 @@ public class GerenciadorPedido {
         this.ifc = this.fabricaDao.getDaoFactory().criaDaoPedido();
     }
 
+    public void closeConexao() throws SQLException {
+        this.ifc.closeConexao();
+    }
+
     public boolean add(String userEmail, String userParaEmail) throws SQLException {
-    
+
         return this.ifc.add(userEmail, userParaEmail);
 
     }
 
     public boolean remove(String userEmail, String userParaEmail) throws SQLException {
-        
+
         return this.ifc.remove(userEmail, userParaEmail);
-    
+
     }
 
     public List<Pedido> listAll() throws SQLException {
-    
+
         return this.ifc.listAll();
     }
     
+    public List<Pedido> listAll(String email) throws SQLException {
+
+        return this.ifc.listAll(email);
+    }
+
 }
