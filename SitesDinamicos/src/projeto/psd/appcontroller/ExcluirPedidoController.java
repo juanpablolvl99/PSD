@@ -13,9 +13,11 @@ public class ExcluirPedidoController implements Command{
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException, IOException, ServletException {
+        
         String deEmail = req.getParameter("deEmail");
         String paraEmail = req.getParameter("paraEmail");
         GerenciadorPedido ger = new GerenciadorPedido();
+        
         if(ger.remove(deEmail, paraEmail)){
             res.sendRedirect("Inicial.jsp");
         } else {
