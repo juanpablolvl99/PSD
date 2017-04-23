@@ -63,7 +63,7 @@
     <body>
 		<cf:carregaFotos email="${emailUsuario}"/>
 		<cd:carregaDatas email="${emailUsuario}"/>
-        <%@include file="NavBar.htm"%>
+        <%@include file="NavBar2.jsp"%>
         <div class="container" style="width:97%">
             <div class="row">
                 <div class="col-md-3" style="margin-right:-1%">

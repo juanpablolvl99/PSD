@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     </head>
     <body>
-        <%@include file="NavBar.htm"%>
+        <%@include file="NavBar2.jsp"%>
         <div class="container">
         	<h1 id="textoCentral">Resultado da Busca</h1>
         	<hr>
@@ -41,12 +41,18 @@
 		        		<myTags:verificaPedido deEmail="${dadosUsu.email}" paraEmail="${busca.email}"/>
 		        		<c:if test="${busca.email != dadosUsu.email}">
 		        			<c:if test="${cond}">
+		        			<c:if test="${cond2}">
+		        			<c:if test="${cond3}">
+		        			<c:if test="${cond4}">
 				        		<form id="formulario" method="POST" style="margin-left: 10%" action="front.do">
 				        			<input type="hidden" name="deUsuario" value="${dadosUsu.email}">
 				        			<input type="hidden" name="paraUsuario" value="${busca.email}">
 				        			<input type="hidden" name="action" value="Convite">
 				        			<input class="button" type="submit" value="Mandar Convite">
 				        		</form>
+				        	</c:if>
+			        		</c:if>
+			        		</c:if>
 			        		</c:if>
 		        		</c:if>
 	        		</div>
