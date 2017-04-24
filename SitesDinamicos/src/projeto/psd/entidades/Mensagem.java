@@ -6,7 +6,7 @@ public class Mensagem implements Serializable{
     
     private String deEmail;
     private String paraEmail;
-    private String menssgem;
+    private String mensagem;
     
     public Mensagem(){} // "padrão" - nascimento, cap
     
@@ -27,11 +27,11 @@ public class Mensagem implements Serializable{
     }
     
     public String getMensagem(){
-        return this.menssgem;
+        return this.mensagem;
     }
     
     public void setMensagem(String mensagem){
-        this.menssgem = mensagem;
+        this.mensagem = mensagem;
     }
     
 }

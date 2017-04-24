@@ -1,0 +1,15 @@
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">	
+	<tlib-version/>
+	<uri>RetornaMensagens</uri>
+	<tag>
+		<description>recupera em uma lista as mensagens de um dado email</description>
+		<name>msgs</name>
+		<body-content>scriptless</body-content>
+		<tag-class>projeto.psd.tags.RetornaMensagens</tag-class>
+		<attribute>
+			<name>email</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>	

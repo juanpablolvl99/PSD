@@ -102,10 +102,6 @@
                         </ul>
                     </div>
                     <div style="margin-top: 6%">
-                    	<a href="#"><button class="btn btn-primary dropdown-toggle" type="button" 
-                    	style="padding: 4% 19.2% 4% 19.2%">Mensagens</button></a>
-                    </div>
-                    <div style="margin-top: 6%">
                     	<a href="Amigos.jsp"><button class="btn btn-primary dropdown-toggle" type="button" 
                     	style="padding: 4% 26% 4% 26%">Amigos</button></a>	
                     </div>

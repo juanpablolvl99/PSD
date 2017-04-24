@@ -26,9 +26,9 @@ public class GerenciadorMensagem {
 
     }
 
-    public List<Mensagem> listAll(String deEmail, String paraEmail) throws SQLException, ClassNotFoundException {
+    public List<Mensagem> listAll(String paraEmail) throws SQLException, ClassNotFoundException {
 
-        return this.ifc.listar(deEmail, paraEmail);
+        return this.ifc.listar(paraEmail);
 
     }
 

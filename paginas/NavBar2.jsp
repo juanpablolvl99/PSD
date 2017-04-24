@@ -74,6 +74,9 @@
         <li class="menuitem">
             <a href="Convites.jsp">Convites <span class="badge">${numConv}</span></a>
         </li>
+        <li class="menuitem">
+            <a href="Mensagens.jsp">Mensagens <span class="badge"></span></a>
+        </li>
         <li class="menuitem"><a href="Galeria.jsp">Galeria</a></li>
         <form method="post" action="front.do" id="formBusca" class="formpadrao">
             <input type="text" name="busca" class="search" placeholder="Busque amigos..." required/>

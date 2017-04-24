@@ -39,10 +39,10 @@ public class MensagemDao implements MensagemDaoIf {
     }
 
     @Override
-    public List<Mensagem> listar(String userDeEmail, String userParaEmail) throws SQLException {
+    public List<Mensagem> listar(String userParaEmail) throws SQLException {
 
-        PreparedStatement pstmt = conn.prepareStatement("select * from mensagem where de = " + userDeEmail + " para = "
-                + userParaEmail);
+        PreparedStatement pstmt = conn.prepareStatement("select * from mensagem where para = '"
+                + userParaEmail + "'");
 
         List<Mensagem> mensagens = new ArrayList();
 
