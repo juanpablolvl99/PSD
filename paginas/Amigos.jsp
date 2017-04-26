@@ -37,29 +37,6 @@
 		        			<input type="hidden" name="action" value="BuscaUsu">
 		        			<input style="margin-left: 8%" class="button" type="submit" value="Visualizar Perfil">
 		        		</form>
-		        		<button class="button" style="padding: 13.5px 5px 13.5px 5px" id="show">Mandar mensagem</button>
-		        		<form method="post" action="front.do" style="margin-left: 3%">
-		        			<input type="" name="mensagem" class="form-control" style="display: inline-block; width: 75%; display: none" id="mensagem">
-		        			<input type="hidden" name="action" value="Mensagem">
-		        			<input type="hidden" name="pagina" value="amigos">
-		        			<input type="hidden" name="emailDe" value="${emailUsuario}">
-		        			<input type="hidden" name="emailPara" value="${busca.email}">
-		        			<input type="submit" class="button" name="" style="margin-left: 2%; display: none" id="enviar">
-		        		</form>
-		        		<script type="text/javascript">
-		        			$(document).ready(function(){
-		        					$("#show").click(function(){
-		        						if($("#mensagem").css("display")=="none"){
-			        						$("#mensagem").css("display", "inline-block");
-			        						$("#enviar").css("display", "inline-block");
-			        					}else{		
-		        							$("#mensagem").css("display", "none");
-		        							$("#enviar").css("display", "none");
-		        						}
-		        					});
-		        				
-		        			});
-		        		</script>
 	        		</div>
 	        	</div>
         	</c:forEach>

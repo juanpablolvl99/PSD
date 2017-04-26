@@ -16,50 +16,9 @@
 		<welcome-file>Index.htm</welcome-file>
 	</welcome-file-list>
 	
-	<servlet>
-		<servlet-name>LoginUsuario</servlet-name>
-	    <servlet-class>projeto.psd.servlets.LoginUsuario</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoginUsuario</servlet-name>
-		<url-pattern>/login</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>CadastroUsuario</servlet-name>
-		<servlet-class>projeto.psd.servlets.CadastroUsuario</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CadastroUsuario</servlet-name>
-		<url-pattern>/cadastro</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>Buscador</servlet-name>
-		<servlet-class>projeto.psd.servlets.Buscador</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Buscador</servlet-name>
-		<url-pattern>/buscador</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>AdicionarFoto</servlet-name>
-		<servlet-class>projeto.psd.servlets.AdicionaFoto</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AdicionarFoto</servlet-name>
-		<url-pattern>/AdicionarFoto</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>EncerrarSessao</servlet-name>
-		<servlet-class>projeto.psd.servlets.EncerrarSessao</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>EncerrarSessao</servlet-name>
-		<url-pattern>/EncerrarSessao</url-pattern>
-	</servlet-mapping>
+	<session-config>
+		<session-timeout>25</session-timeout>
+	</session-config>
 	
 	<servlet>
 		<servlet-name>frontcontrol</servlet-name>

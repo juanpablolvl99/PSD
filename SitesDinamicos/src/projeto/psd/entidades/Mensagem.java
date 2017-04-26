@@ -7,6 +7,7 @@ public class Mensagem implements Serializable{
     private String deEmail;
     private String paraEmail;
     private String mensagem;
+    private int id;
     
     public Mensagem(){} // "padrão" - nascimento, cap
     
@@ -32,6 +33,14 @@ public class Mensagem implements Serializable{
     
     public void setMensagem(String mensagem){
         this.mensagem = mensagem;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 }

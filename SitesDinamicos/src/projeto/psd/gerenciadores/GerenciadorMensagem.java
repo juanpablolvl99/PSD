@@ -25,6 +25,10 @@ public class GerenciadorMensagem {
         return this.ifc.add(msg);
 
     }
+    
+    public boolean remove(int id) throws SQLException, ClassNotFoundException {
+        return this.ifc.remove(id);
+    }
 
     public List<Mensagem> listAll(String paraEmail) throws SQLException, ClassNotFoundException {
 

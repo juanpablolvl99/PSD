@@ -9,6 +9,8 @@ public interface MensagemDaoIf {
     public boolean add(Mensagem msg) throws SQLException;
 
     public List<Mensagem> listar(String paraEmail) throws SQLException;
+    
+    public boolean remove(int id) throws SQLException;
 
     public void closeConexao() throws SQLException;
 }

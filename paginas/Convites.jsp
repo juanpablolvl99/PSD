@@ -61,7 +61,7 @@
 									    <form id="formulario" action="front.do" method="POST" style="margin:20% -15%">
 			        						<input type="hidden" name="action" value="AceitarAmizade">
 			        						<input type="hidden" name="deEmail" value="${emailUsuario}">
-			        						<input type="hidden" name="paraEmail" value="${emailConvite.email}">
+			        						<input type="hidden" name="paraEmail" value="${i.userEmail}">
 			        						<input class="button" type="submit" value="Aceitar" style="width: 80px; height: 40px;">
 			        					</form>
 			        					</div>
@@ -87,7 +87,7 @@
 	        		</c:forEach>
 	        	</div>
         	</div>
-        	<c:if test="${convites eq '[]'}">
+        	<c:if test="${empty convites}">
         		<h2 style="color: black; text-align: center;">Nenhum Convite Feito</h2>
         	</c:if>
         </div>

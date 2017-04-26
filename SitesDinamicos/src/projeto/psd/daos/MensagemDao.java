@@ -49,6 +49,7 @@ public class MensagemDao implements MensagemDaoIf {
         ResultSet rs = pstmt.executeQuery();
         while (rs.next()) {
             Mensagem msg = new Mensagem();
+            msg.setId(rs.getInt(1));
             msg.setDeEmail(rs.getString(2));
             msg.setParaEmail(rs.getString(3));
             msg.setMensagem(rs.getString(4));
@@ -64,6 +65,15 @@ public class MensagemDao implements MensagemDaoIf {
     @Override
     public void closeConexao() throws SQLException {
         conn.close();
+    }
+
+    @Override
+    public boolean remove(int id) throws SQLException {
+        
+        PreparedStatement pstmt = conn.prepareStatement("delete from mensagem where id = '" + id + "'");
+        int vrf = pstmt.executeUpdate();
+        
+        return vrf > 0;
     }
 
 }

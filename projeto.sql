@@ -41,4 +41,11 @@ create table pedidosAmizade(
     userEmail varchar(50) references usuario(email) on delete cascade on update cascade,
     userParaEmail varchar(50) references usuario(email) on delete cascade on update cascade,
     primary key(userEmail, userParaEmail)
-)
+);
+
+create table recomendacao(
+	usuario varchar(50) references usuario(email) on delete cascade on update cascade,
+	amigo varchar(50) references usuario(email) on delete cascade on update cascade,
+	recomendarpara varchar(50) references usuario(email) on delete cascade on update cascade,
+	primary key(usuario, amigo, recomendarpara)
+);

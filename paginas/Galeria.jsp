@@ -18,7 +18,7 @@
 		.addFoto{background-color: rgba(0,0,0,0) !important}
     </style>
     <body>
-		<df:carregaFotos email="${emailUsuario}" retorna="fotos"/>
+		<df:carregaDF email="${emailUsuario}" retorna="fotos"/>
         <%@include file="NavBar2.jsp"%>
 
         <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">

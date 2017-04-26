@@ -1,7 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="projeto.psd.entidades.Usuario"%>
+<%@taglib prefix="f" uri="RetornaAmigos" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="df" uri="CarregaDF"%>
+
+<f:friends email="${emailUsuario}"/>
 
 <html>
     <head>
@@ -102,8 +104,14 @@
                         </ul>
                     </div>
                     <div style="margin-top: 6%">
-                    	<a href="Amigos.jsp"><button class="btn btn-primary dropdown-toggle" type="button" 
+                    	<a href="Amigos.jsp"><button class="btn btn-primary" type="button" 
                     	style="padding: 4% 26% 4% 26%">Amigos</button></a>	
+                    </div>
+                    <div style="margin-top: 6%">
+                    	<button data-toggle="modal" data-target="#mensagemModal" class="btn btn-primary" type="button" style="padding: 4% 8% 4% 8%">Enviar mensagem</button>	
+                    </div>
+                    <div style="margin-top: 6%">
+                    	<button data-toggle="modal" data-target="#recomendarModal" class="btn btn-primary" type="button" style="padding: 4% 4.7% 4% 4.7%">Recomendar amigo</button>	
                     </div>
                 </div>
 				<div class="col-md-4 main" style="padding: 0em">
@@ -135,7 +143,7 @@
                         </div>
                         <form action="front.do" method="post">
                             <div class="modal-body">
-                                <input type="text" class="form-control" name="senha" placeholder="senha">
+                                <input type="text" class="form-control" name="senha" placeholder="senha" required="required">
                                 <input type="hidden" name="action" value="ApagarUsu">
                             </div>
                             <div class="modal-footer">
@@ -146,6 +154,53 @@
                     </div>
                 </div>
             </div>
+            <div id="mensagemModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Confirme sua senha para apagar esta conta</h4>
+                        </div>
+                        <form action="front.do" method="post">
+                            <div class="modal-body">
+                            	<select class="form-control" name="emailPara" style="margin-bottom: 2%">
+                            		<c:forEach var="amigo" items="${amigos}">
+                            			<option>${amigo.email}</option>
+                            		</c:forEach>
+                            	</select>
+                                <input type="text" class="form-control" name="mensagem" placeholder="mensagem" required="required">
+                                <input type="hidden" name="emailDe" value="${emailUsuario}">
+                                <input type="hidden" name="action" value="Mensagem">
+                                <input type="hidden" name="pagina" value="Inicial.jsp">                                     
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-default">				  
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="recomendarModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Confirme sua senha para apagar esta conta</h4>
+                        </div>
+                        <form action="front.do" method="post">
+                            <div class="modal-body">
+                                <input type="text" class="form-control" name="senha" placeholder="senha" required="required">
+                                <input type="hidden" name="action" value="ApagarUsu">
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-default">				  
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>            
 		</div>	
     </body>
 	<script>

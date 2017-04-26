@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="f" uri="RetornaAmigos" %>
+
+<f:friends email="${emailUsuario}"/>
 <html>
   <head>
     <meta charset="utf-8">
@@ -20,7 +24,7 @@
           <div class="col-md-8">
 			<h3 id="centralizarTexto">Altere seus Dados pessoais</h3>
 			<div class="col-md-6">
-		  	  <input type="text" name="nome" placeholder="Seu nome" class="campo" value="${dadosUsu.nome}">
+		    <input type="text" name="nome" placeholder="Seu nome" class="campo" value="${dadosUsu.nome}">
 			  <input type="email" name="email" placeholder="Seu Email" class="campo" value="${dadosUsu.email}">
 			  <input type="text" name="cidade" placeholder="Cidade" class="campo" value="${dadosUsu.cidade}">
 			  <input type="date" name="dataDeNascimento" placeholder="Data de Nascimento" class="campo" value="${dadosUsu.dataDeNascimento}">
@@ -29,13 +33,22 @@
 			</div>
 			<div class="col-md-6">
 			  <input type="text" name="descricao" placeholder="Breve Descrição" class="campo" value="${dadosUsu.descricao}">
-			  <select name="status" id="selecionarStatus" value="${dadosUsu.status}">
-				<option>Solteiro (a)</option>
-				<option>Namorando</option>
-				<option>Casado (a)</option>
-				<option>Viúvo (a)</option>
-				<option>Divorciado (a)</option>
-			  </select><br><br>
+			  <select name="status" id="status" value="${dadosUsu.status}">
+				  <option>Solteiro (a)</option>
+				  <option>Namorando</option>
+				  <option>Casado (a)</option>
+				  <option>Viúvo (a)</option>
+				  <option>Divorciado (a)</option>
+			  </select>
+        <br>
+        <label for="relacionado" id="lb" style="display: none;">Com:</label>
+        <select name="relacionado" style="display: none" id="relacionado">
+          <option></option>
+          <c:forEach var="amigo" items="${amigos}">
+            <option>${amigo.nome}</option>
+          </c:forEach>
+        </select>
+        <br>
 			  <input type="number" min="0" max="3" step="0.01" name="altura" value="${dadosUsu.altura}" placeholder="Sua Altura" class="campo">
 			  <input type="number" min="0" max="200" step="0.1" name="peso" value="${dadosUsu.peso}" placeholder="Seu Peso" class="campo">
 			  <input type="text" name="corDoCabelo" value="${dadosUsu.corDoCabelo}" placeholder="Cor do Cabelo" class="campo">
@@ -50,5 +63,20 @@
       </div>
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $("#status").click(function(){
+            $("#status").mouseleave(function(){
+              if(($("#status").val() == "Namorando") || ($("#status").val() == "Casado (a)")){
+                $("#relacionado").css("display", "block");
+                $("#lb").css("display", "block");
+              }else{
+                $("#relacionado").css("display", "none");
+                $("#lb").css("display", "none");                
+              }
+            });
+          });
+        });
+      </script>
   </body>
 </html>

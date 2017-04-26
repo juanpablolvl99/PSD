@@ -1,8 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="myTags" uri="VerificaPedido"%>
-
-<jsp:useBean id="dadosUsu" class="projeto.psd.entidades.Usuario" scope="session"/>
 
 <html>
     <head>
@@ -17,7 +14,7 @@
         <div class="container">
         	<h1 id="textoCentral">Resultado da Busca</h1>
         	<hr>
-        	<c:if test="${encontrados eq '[]'}">
+        	<c:if test="${empty encontrados}">
         		<h1 id="textoCentral">Nenhum usuário cadastrado com esse nome</h1>
         	</c:if>
         	<c:forEach var="busca" items="${encontrados}">
