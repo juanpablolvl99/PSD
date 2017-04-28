@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import projeto.psd.factorys.ConFactory;
 import projeto.psd.interfaces.GaleriaDaoIf;
@@ -66,7 +67,9 @@ public class GaleriaDao implements GaleriaDaoIf {
 
         pstmt.close();
         rs.close();
-
+        
+        Collections.reverse(lista);
+        
         return lista;
     }
 
@@ -87,6 +90,8 @@ public class GaleriaDao implements GaleriaDaoIf {
             datas.add(data);
         }
 
+        Collections.reverse(datas);
+        
         return datas;
     }
 

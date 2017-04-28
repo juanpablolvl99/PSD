@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,18 +28,18 @@ public class CadastroUsuarioController implements Command {
         // Sera usado para verificar se possui outro usuario com esse msm login
         String login = req.getParameter("login");
 
-        usu.setLogin(login);
-        usu.setSenha(req.getParameter("senha"));
-        usu.setNome(req.getParameter("nome"));
-        usu.setApelido(req.getParameter("apelido"));
-        usu.setDataDeNascimento(req.getParameter("dataDeNascimento"));
-        usu.setCidade(req.getParameter("cidade"));
-        usu.setEmail(req.getParameter("email"));
-        usu.setProfissao(req.getParameter("profissao"));
-        usu.setDescricao(req.getParameter("descricao"));
-        usu.setStatus(req.getParameter("status"));
-        usu.setCorDoCabelo(req.getParameter("corDoCabelo"));
-        usu.setPassatempos(req.getParameter("passatempos"));
+        usu.setLogin(retornaComEncode(login));
+        usu.setSenha(retornaComEncode(req.getParameter("senha")));
+        usu.setNome(retornaComEncode(req.getParameter("nome")));
+        usu.setApelido(retornaComEncode(req.getParameter("apelido")));
+        usu.setDataDeNascimento(retornaComEncode(req.getParameter("dataDeNascimento")));
+        usu.setCidade(retornaComEncode(req.getParameter("cidade")));
+        usu.setEmail(retornaComEncode(req.getParameter("email")));
+        usu.setProfissao(retornaComEncode(req.getParameter("profissao")));
+        usu.setDescricao(retornaComEncode(req.getParameter("descricao")));
+        usu.setStatus(retornaComEncode(req.getParameter("status")));
+        usu.setCorDoCabelo(retornaComEncode(req.getParameter("corDoCabelo")));
+        usu.setPassatempos(retornaComEncode(req.getParameter("passatempos")));
 
         String appPath = req.getServletContext().getRealPath("");
         String uploadPath = appPath + "imagens" + File.separator + usu.getLogin();
@@ -93,4 +94,7 @@ public class CadastroUsuarioController implements Command {
         }
     }
 
+    private String retornaComEncode(String value) throws UnsupportedEncodingException{
+        return new String(value.getBytes(), "UTF-8");
+    }
 }

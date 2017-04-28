@@ -21,11 +21,12 @@ public class FrontController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) {
 
-        res.setCharacterEncoding("utf-8");
         PrintWriter pw = null;
 
         String action = req.getParameter("action");
         try {
+            req.setCharacterEncoding("UTF-8");
+            
             pw = res.getWriter();
 
             Command command = (Command) Class.forName("projeto.psd.appcontroller." + action + "Controller").newInstance();

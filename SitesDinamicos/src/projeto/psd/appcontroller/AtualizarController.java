@@ -3,6 +3,7 @@ package projeto.psd.appcontroller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,26 +23,31 @@ public class AtualizarController implements Command {
             ServletException {
 
         HttpSession session = req.getSession(false);
-        
+        String login = null;
+
+        synchronized (session) {
+            login = (String) session.getAttribute("loginUsuario");
+        }
+
         GerenciadorUsuario ger = new GerenciadorUsuario();
         Usuario user = new Usuario();
-        user.setLogin((String)session.getAttribute("loginUsuario"));
-        user.setNome(req.getParameter("nome"));
-        user.setApelido(req.getParameter("apelido"));
-        user.setCidade(req.getParameter("cidade"));
-        user.setCorDoCabelo(req.getParameter("corDoCabelo"));
-        user.setDataDeNascimento(req.getParameter("dataDeNascimento"));
-        user.setDescricao(req.getParameter("descricao"));
-        user.setEmail(req.getParameter("email"));
-        user.setPassatempos(req.getParameter("passatempos"));
-        user.setProfissao(req.getParameter("profissao"));
-        user.setStatus(req.getParameter("status"));
-        user.setSenha(req.getParameter("senha"));
+        user.setLogin(retornaComEncode(login));
+        user.setNome(retornaComEncode(req.getParameter("nome")));
+        user.setApelido(retornaComEncode(req.getParameter("apelido")));
+        user.setCidade(retornaComEncode(req.getParameter("cidade")));
+        user.setCorDoCabelo(retornaComEncode(req.getParameter("corDoCabelo")));
+        user.setDataDeNascimento(retornaComEncode(req.getParameter("dataDeNascimento")));
+        user.setDescricao(retornaComEncode(req.getParameter("descricao")));
+        user.setEmail(retornaComEncode(req.getParameter("email")));
+        user.setPassatempos(retornaComEncode(req.getParameter("passatempos")));
+        user.setProfissao(retornaComEncode(req.getParameter("profissao")));
+        user.setStatus(retornaComEncode(req.getParameter("status")));
+        user.setSenha(retornaComEncode(req.getParameter("senha")));
 
         String path = req.getServletContext().getRealPath("");
         List<Part> parts = (List) req.getParts();
         for (Part part : parts) {
-            switch(part.getName()){
+            switch (part.getName()) {
                 case "altura":
                     user.setAltura(Double.parseDouble(getValue(part)));
                     break;
@@ -55,24 +61,28 @@ public class AtualizarController implements Command {
                     break;
             }
         }
-        
-        if(ger.update(user)){
-            synchronized(session){
+
+        if (ger.update(user)) {
+            synchronized (session) {
                 session.setAttribute("dadosUsu", user);
             }
             ger.closeConexao();
             res.sendRedirect(res.encodeRedirectURL("Inicial.jsp"));
-        }else{
+        } else {
             ger.closeConexao();
             res.sendRedirect("AtualizarDados.jsp");
         }
 
     }
-    
+
     private String getValue(Part part) throws IOException {
         try (BufferedReader buffer = new BufferedReader(new InputStreamReader(part.getInputStream()))) {
             return buffer.lines().collect(Collectors.joining("\n"));
         }
+    }
+
+    private String retornaComEncode(String value) throws UnsupportedEncodingException {
+        return new String(value.getBytes(), "UTF-8");
     }
 
 }
