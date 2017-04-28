@@ -35,6 +35,12 @@ public class GerenciadorAmizade {
 
         return this.ifc.listAll();
     }
+    
+    public List<Amizade> vrfAmizade(String email, String paraEmail) throws SQLException{
+        
+        return this.ifc.vrfAmizade(email, paraEmail);
+        
+    }
 
     public void closeConexao() throws SQLException {
         this.ifc.closeConexao();

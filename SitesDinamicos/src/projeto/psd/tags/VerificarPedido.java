@@ -33,38 +33,46 @@ public class VerificarPedido extends SimpleTagSupport{
     @Override
     public void doTag(){
         try {
-            boolean condPedidoEnviado = true;
-            boolean condPedidoRecebido = true;
-            boolean amizade = true;
-            boolean amizade2 = true;
+//            boolean condPedidoEnviado = true;
+//            boolean condPedidoRecebido = true;
+//            boolean amizade = true;
+//            boolean amizade2 = true;
+            boolean condicaoPedido = true;
+            boolean condicaoAmizade = true;
             GerenciadorPedido ger = new GerenciadorPedido();
+            List<Pedido> pedidos = ger.vrfPedido(deEmail, paraEmail);
             GerenciadorAmizade ger2 = new GerenciadorAmizade();
-            List<Pedido> lista = ger.listAll();
-            List<Amizade> lista2 = ger2.listAll();
-            for(Pedido p: lista){
-                if(deEmail.equals(p.getUserEmail()) && paraEmail.equals(p.getUserParaEmail())){
-                    condPedidoEnviado = false;
-                }
-                if(paraEmail.equals(p.getUserEmail()) && deEmail.equals(p.getUserParaEmail())){
-                    condPedidoRecebido = false;
-                }
+            List<Amizade> amizades = ger2.vrfAmizade(deEmail, paraEmail);
+            if(!amizades.isEmpty()){
+                condicaoAmizade = false;
             }
-            for(Amizade a: lista2){
-                if(deEmail.equals(a.getUserEmail()) && paraEmail.equals(a.getAmigoEmail())){
-                    amizade = false;
-                }
-                if(paraEmail.equals(a.getUserEmail()) && deEmail.equals(a.getAmigoEmail())){
-                    amizade2 = false;
-                }
+            if(!pedidos.isEmpty()){
+                condicaoPedido = false;
             }
+            
+//            for(Pedido p: lista){
+//                if(deEmail.equals(p.getUserEmail()) && paraEmail.equals(p.getUserParaEmail())){
+//                    condPedidoEnviado = false;
+//                }
+//                if(paraEmail.equals(p.getUserEmail()) && deEmail.equals(p.getUserParaEmail())){
+//                    condPedidoRecebido = false;
+//                }
+//            }
+//            for(Amizade a: lista2){
+//                if(deEmail.equals(a.getUserEmail()) && paraEmail.equals(a.getAmigoEmail())){
+//                    amizade = false;
+//                }
+//                if(paraEmail.equals(a.getUserEmail()) && deEmail.equals(a.getAmigoEmail())){
+//                    amizade2 = false;
+//                }
+//            }
             
             ger.closeConexao();
             ger2.closeConexao();
             
-            getJspContext().setAttribute("cond", condPedidoEnviado);
-            getJspContext().setAttribute("cond2", condPedidoRecebido);
-            getJspContext().setAttribute("cond3", amizade);
-            getJspContext().setAttribute("cond4", amizade2);
+            getJspContext().setAttribute("condicaoPedido", condicaoPedido);
+            getJspContext().setAttribute("condicaoAmizade", condicaoAmizade);
+            
         } catch (SQLException | ClassNotFoundException ex) {
             ex.printStackTrace();
         }

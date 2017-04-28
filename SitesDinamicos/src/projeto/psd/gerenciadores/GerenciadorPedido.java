@@ -37,9 +37,16 @@ public class GerenciadorPedido {
         return this.ifc.listAll();
     }
     
-    public List<Pedido> listAll(String email) throws SQLException {
+    public List<Pedido> vrfPedido(String email, String paraEmail) throws SQLException {
 
+        return this.ifc.vrfPedido(email, paraEmail);
+        
+    }
+    
+    public List<Pedido> listAll(String email) throws SQLException{
+        
         return this.ifc.listAll(email);
+        
     }
 
 }

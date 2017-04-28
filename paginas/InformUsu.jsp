@@ -62,26 +62,24 @@
                     <div> 
                         <myTags:verificaPedido deEmail="${dadosUsu.email}" paraEmail="${otherUser.email}"/>
                         <!--style="padding: 4% 19.2% 4% 19.2%"-->
-                        <c:if test="${cond}">
-                        <c:if test="${cond2}">
-                        <c:if test="${cond3}">
-                        <c:if test="${cond4}">
-                        <form id="formulario" method="POST" style="margin-left:15%; margin-top: 2%" action="front.do">
-                            <input type="hidden" name="deUsuario" value="${dadosUsu.email}">
-                            <input type="hidden" name="paraUsuario" value="${otherUser.email}">
-                            <input type="hidden" name="action" value="Convite">
-                            <input class="btn btn-primary" type="submit" value="Mandar Convite">
-                        </form>
+                        <c:if test="${condicaoPedido}">
+                            <c:if test="${condicaoAmizade}">
+                            <form id="formulario" method="POST" style="margin-left:15%; margin-top: 2%" action="front.do">
+                                <input type="hidden" name="deUsuario" value="${dadosUsu.email}">
+                                <input type="hidden" name="paraUsuario" value="${otherUser.email}">
+                                <input type="hidden" name="action" value="Convite">
+                                <input class="btn btn-primary" type="submit" value="Mandar Convite">
+                            </form>
+                            </c:if>
                         </c:if>
-                        </c:if>
-                        </c:if>
-                        </c:if>
+                        <c:if test="${condicaoAmizade == 'false'}">
                         <form id="formulario" method="POST" style="margin-left:15%; margin-top: 2%" action="front.do">
                             <input type="hidden" name="userEmail" value="${dadosUsu.email}">
                             <input type="hidden" name="amigoEmail" value="${otherUser.email}">
                             <input type="hidden" name="action" value="ExcluirAmigo">
                             <input class="btn btn-primary" type="submit" value="Excluir">
-                        </form>                        
+                        </form>  
+                        </c:if>                    
                     </div>
                 </div>
                 <div class="col-md-4 main" style="padding: 0em">

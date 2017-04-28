@@ -85,6 +85,28 @@ public class AmizadeDao implements AmizadeDaoIf {
 
         return lista;
     }
+    
+    @Override
+    public List<Amizade> vrfAmizade(String email, String paraEmail) throws SQLException{
+        String sql = "SELECT * FROM amizade WHERE usuario = ? and amigo = ? or usuario = ? and amigo = ?";
+        PreparedStatement stmt;
+        stmt = con.prepareStatement(sql);
+        stmt.setString(1, email);
+        stmt.setString(2, paraEmail);
+        stmt.setString(3, paraEmail);
+        stmt.setString(4, email);
+        ResultSet rs = stmt.executeQuery();
+        List<Amizade> lista = new ArrayList<>();
+        while(rs.next()){
+            Amizade a = new Amizade();
+            a.setUserEmail(rs.getString(1));
+            a.setAmigoEmail(rs.getString(2));
+            lista.add(a);
+        }
+        stmt.close();
+        rs.close();
+        return lista;
+    }
 
     @Override
     public void closeConexao() throws SQLException {
