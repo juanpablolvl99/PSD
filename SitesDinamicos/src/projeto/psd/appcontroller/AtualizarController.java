@@ -35,9 +35,18 @@ public class AtualizarController implements Command {
         user.setEmail(req.getParameter("email"));
         user.setPassatempos(req.getParameter("passatempos"));
         user.setProfissao(req.getParameter("profissao"));
-        user.setStatus(req.getParameter("status"));
+        
         user.setSenha(req.getParameter("senha"));
-
+        
+        String relacionamentoCom = req.getParameter("relacionado");
+        String status = null;
+        if(relacionamentoCom.equals("")){
+            user.setStatus(req.getParameter("status"));
+        } else {
+            status = req.getParameter("status") + " com: " + relacionamentoCom;
+            user.setStatus(status);
+        }
+        
         String path = req.getServletContext().getRealPath("");
         List<Part> parts = (List) req.getParts();
         for (Part part : parts) {
