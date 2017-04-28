@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="num" uri="NumPedidos"%>
-<%@taglib prefix="cm" uri="NumMensagens"%>
+<%@taglib prefix="num" uri="NumDados"%>
 
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,8 +63,9 @@
         height: 10%;
     }
 </style>
-<cm:contMsg/>
-<num:numPedidos email="${emailUsuario}"/>
+<num:numDados retorno="mensagens"/>
+<num:numDados retorno="pedidos"/>
+
 <nav class="navbar navbar-inverse" id="menu">
     <ul class="nav navbar-nav" id="nav">
 		<li id="active" class="menuitem">

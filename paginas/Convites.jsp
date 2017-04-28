@@ -1,9 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="myTags" uri="RetornaUsuEmail"%>
-<%@page import="projeto.psd.gerenciadores.GerenciadorPedido"%>
-<%@page import="projeto.psd.gerenciadores.GerenciadorUsuario"%>
-<%@page import="projeto.psd.entidades.Usuario"%>
 <%@taglib prefix="myTgs" uri="CarregaPedidos"%>
 
 <myTgs:carPedidos/>
@@ -28,7 +25,7 @@
 					        		<myTags:retornaUsu email="${i.userParaEmail}"></myTags:retornaUsu>
 									<div class="w3-half w3-container">
 									  <div class="w3-topbar w3-border-amber">
-									    <img src="${emailConvite.fotoPerfil}" style="width:100%">
+									    <img src="${otherUser.fotoPerfil}" style="width:100%">
 									    <form action="front.do" method="POST" style="margin: 4% 11%">
 									    	<input type="hidden" name="action" value="ExcluirPedido">
 						        			<input type="hidden" name="deEmail" value="${emailUsuario}">
@@ -39,9 +36,9 @@
 									</div>
 									<div class="w3-half w3-container">
 									    <div id="centralizar">
-									    <h2>${emailConvite.nome}</h2>
-					        				<p><b>Status:</b> ${emailConvite.status}</p>
-					        				<p><b>Breve Descricao:</b> ${emailConvite.descricao}</p>
+									    <h2>${otherUser.nome}</h2>
+					        				<p><b>Status:</b> ${otherUser.status}</p>
+					        				<p><b>Breve Descricao:</b> ${otherUser.descricao}</p>
 					        			</div>
 									</div>
 			        			</div>
@@ -56,7 +53,7 @@
 					        		<myTags:retornaUsu email="${i.userEmail}"></myTags:retornaUsu>
 									<div class="w3-half w3-container">
 									  <div class="w3-topbar w3-border-amber">
-									    <img src="${emailConvite.fotoPerfil}" style="width:100%">
+									    <img src="${otherUser.fotoPerfil}" style="width:100%">
 									    <div class="w3-half w3-container">
 									    <form id="formulario" action="front.do" method="POST" style="margin:20% -15%">
 			        						<input type="hidden" name="action" value="AceitarAmizade">
@@ -77,9 +74,9 @@
 									</div>
 									<div class="w3-half w3-container">
 									    <div id="centralizar">
-									    <h2>${emailConvite.nome}</h2>
-					        				<p><b>Status:</b> ${emailConvite.status}</p>
-					        				<p><b>Breve Descricao:</b> ${emailConvite.descricao}</p>
+									    <h2>${otherUser.nome}</h2>
+					        				<p><b>Status:</b> ${otherUser.status}</p>
+					        				<p><b>Breve Descricao:</b> ${otherUser.descricao}</p>
 					        			</div>
 									</div>
 			        			</div>

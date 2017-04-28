@@ -61,12 +61,7 @@ public class MensagemDao implements MensagemDaoIf {
 
         return mensagens;
     }
-
-    @Override
-    public void closeConexao() throws SQLException {
-        conn.close();
-    }
-
+    
     @Override
     public boolean remove(int id) throws SQLException {
         
@@ -74,6 +69,11 @@ public class MensagemDao implements MensagemDaoIf {
         int vrf = pstmt.executeUpdate();
         
         return vrf > 0;
+    }
+
+    @Override
+    public void closeConexao() throws SQLException {
+        conn.close();
     }
 
 }

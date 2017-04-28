@@ -20,7 +20,7 @@ public class ConviteController implements Command{
         
         if(ger.add(deUsu, paraUsu)){
             ger.closeConexao();
-            res.sendRedirect("Convites.jsp");
+            res.sendRedirect("InformUsu.jsp?current="+paraUsu);
         } else {
             ger.closeConexao();
             // Tratar erro

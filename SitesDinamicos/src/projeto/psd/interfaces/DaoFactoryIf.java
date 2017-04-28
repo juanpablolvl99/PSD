@@ -13,4 +13,6 @@ public interface DaoFactoryIf {
     public AmizadeDaoIf criaDaoAmizade() throws SQLException, ClassNotFoundException;
 
     public GaleriaDaoIf criaDaoGaleria() throws SQLException, ClassNotFoundException;
+    
+    public RecomendacaoDaoIf criarDaoRecomendacao() throws SQLException, ClassNotFoundException;
 }

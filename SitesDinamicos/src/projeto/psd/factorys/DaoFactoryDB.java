@@ -5,12 +5,14 @@ import projeto.psd.daos.AmizadeDao;
 import projeto.psd.daos.GaleriaDao;
 import projeto.psd.daos.MensagemDao;
 import projeto.psd.daos.PedidoDao;
+import projeto.psd.daos.RecomendacaoDao;
 import projeto.psd.daos.UsuarioDao;
 import projeto.psd.interfaces.AmizadeDaoIf;
 import projeto.psd.interfaces.DaoFactoryIf;
 import projeto.psd.interfaces.GaleriaDaoIf;
 import projeto.psd.interfaces.MensagemDaoIf;
 import projeto.psd.interfaces.PedidoDaoIf;
+import projeto.psd.interfaces.RecomendacaoDaoIf;
 import projeto.psd.interfaces.UsuarioDaoIf;
 
 public class DaoFactoryDB implements DaoFactoryIf{
@@ -42,6 +44,11 @@ public class DaoFactoryDB implements DaoFactoryIf{
     @Override
     public GaleriaDaoIf criaDaoGaleria() throws SQLException, ClassNotFoundException{
         return new GaleriaDao();
+    }
+    
+    @Override
+    public RecomendacaoDaoIf criarDaoRecomendacao() throws SQLException, ClassNotFoundException{
+        return new RecomendacaoDao();
     }
     
     public static synchronized DaoFactoryDB getInstance(){

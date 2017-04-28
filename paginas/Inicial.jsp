@@ -2,8 +2,10 @@
 <%@taglib prefix="f" uri="RetornaAmigos" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="df" uri="CarregaDF"%>
+<%@taglib prefix="rc" uri="RetornaRecom"%>
 
 <f:friends email="${emailUsuario}"/>
+<rc:recom email="${emailUsuario}"/>
 
 <html>
     <head>
@@ -65,6 +67,7 @@
 		<df:carregaDF email="${emailUsuario}" retorna="fotos"/>
 		<df:carregaDF email="${emailUsuario}" retorna="datas"/>
         <%@include file="NavBar2.jsp"%>
+        <num:numDados retorno="recomendacoes"/>
         <div class="container" style="width:97%">
             <div class="row">
                 <div class="col-md-3" style="margin-right:-1%">
@@ -94,7 +97,7 @@
                         </div>
                     </ul>
                 </div>
-                <div class="col-md-2" style="margin-right: ">
+                <div class="col-md-2">
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             Configurações <img src="css/img/cog.png" width="25px" style="margin-left:5%"/></button>
@@ -132,6 +135,33 @@
 						<input type="submit" class="btn btn-primary" value="&#8593;" style="font-size:18px; width:15%"/>
 						<p class="file-return"></p>
 					</form>
+                    <ul class="list-group" style="margin: 0em;  width: 92%">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" href="#collapse2" style="text-decoration:none;">Recomendações para você <span class="badge"> ${contRecom}</span></a>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse">
+                                    <ul class="list-group">
+                                        <c:forEach var="rec" items="${recomendacoes}">
+                                            <li class="list-group-item">
+                                                <form style="margin: 0%; width: 47%; display: inline-block;" method="post" action="InformUsu.jsp">
+                                                    <input type="hidden" name="email" value="${rec.recomendadoEmail}">
+                                                    <input type="submit" class="btn btn-link" value="${rec.recomendadoEmail}" style="text-decoration: none;">
+                                                </form>
+                                                <form style="margin: 0%; width: 47%; display: inline-block;" method="post" action="front.do">
+                                                    <input type="hidden" name="recomendadoEmail" value="${rec.recomendadoEmail}">
+                                                    <input type="hidden" name="paraEmail" value="${rec.paraEmail}">
+                                                    <input type="hidden" name="action" value="ExcluirReco">
+                                                    <input type="submit" class="btn btn-link" value="Excluir" style="text-decoration: none; color: red; margin-left: 60%">
+                                                </form>
+                                            </li>   
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
 				</div>
             </div>
             <div id="myModal" class="modal fade" role="dialog">
@@ -159,7 +189,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Confirme sua senha para apagar esta conta</h4>
+                            <h4 class="modal-title">Envie uma mensagem para um amigo</h4>
                         </div>
                         <form action="front.do" method="post">
                             <div class="modal-body">
@@ -186,15 +216,24 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Confirme sua senha para apagar esta conta</h4>
+                            <h4 class="modal-title">Recomende um amigo seu para alguém</h4>
                         </div>
-                        <form action="front.do" method="post">
-                            <div class="modal-body">
-                                <input type="text" class="form-control" name="senha" placeholder="senha" required="required">
-                                <input type="hidden" name="action" value="ApagarUsu">
-                            </div>
+                        <form action="front.do" method="post" style="margin-left: 3%">
+                            <label for="rec">Recomende: </label>
+                            <select id="rec" class="form-control" name="emailRecomendado" style="margin-bottom: 2%; width: 50%">
+                                <c:forEach var="amigo" items="${amigos}">
+                                    <option>${amigo.email}</option>
+                                </c:forEach>
+                            </select>
+                            <label for="para">Para: </label>
+                            <select id="para" class="form-control" name="emailPara" style="margin-bottom: 2%; width: 50%">
+                                <c:forEach var="amigo" items="${amigos}">
+                                    <option>${amigo.email}</option>
+                                </c:forEach>
+                            </select>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-default">				  
+                                <input type="hidden" name="action" value="Recomendar">
+                                <input type="submit" class="btn btn-default" id="enviar" style="display: none">				  
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                             </div>
                         </form>
@@ -203,6 +242,8 @@
             </div>            
 		</div>	
     </body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<script>
 	document.querySelector("html").classList.add('js');
 	var fileInput  = document.querySelector( ".input-file" ),  
@@ -221,7 +262,19 @@
 		fileInput.addEventListener( "change", function( event ) {  
 			the_return.innerHTML = this.value;  
 		});
+        $("#rec").mouseleave(function(){
+            if($("#rec").val() == $("#para").val()){
+                $("#enviar").css("display", "none");
+            }else{
+                $("#enviar").css("display", ""); 
+            }
+        });
+        $("#para").mouseleave(function(){
+            if($("#rec").val() == $("#para").val()){
+                $("#enviar").css("display", "none");
+            }else{
+                $("#enviar").css("display", "");  
+            } 
+        });
 	</script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </html>

@@ -26,14 +26,14 @@ create table galeria(
 create table mensagem(
     id serial,
     de varchar(50) references usuario(email) on delete cascade on update cascade,
-    para varchar(50),
+    para varchar(50) references usuario(email) on delete cascade on update cascade,
     mensagem text,
     primary key(id)
 );
 
 create table amizade(
     usuario varchar(50) references usuario(email) on delete cascade on update cascade,
-    amigo varchar(50),
+    amigo varchar(50) references usuario(email) on delete cascade on update cascade,
     primary key(usuario, amigo)
 );
 

@@ -37,7 +37,8 @@ public class AmizadeDao implements AmizadeDaoIf {
 
     @Override
     public boolean remove(String userEmail, String amigoEmail) throws SQLException {
-        String sql = "DELETE FROM amizade WHERE usuario = '" + userEmail + "' AND amigo = '" + amigoEmail + "'";
+        String sql = "DELETE FROM amizade WHERE usuario = '" + userEmail + "' AND amigo = '" + amigoEmail + "' or"
+                + " usuario = '" + amigoEmail + "' AND amigo = '" + userEmail + "'";
         PreparedStatement stmt = con.prepareStatement(sql);
         int vrf = stmt.executeUpdate();
         stmt.close();

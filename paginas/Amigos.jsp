@@ -31,10 +31,8 @@
 		        		<p><strong>Nome:</strong> ${busca.nome}</p>
 		        		<p><strong>Cidade:</strong> ${busca.cidade}</p>
 		        		<p><strong>Status:</strong> ${busca.status}</p>
-		        		<form style="margin-left: 3%" id="formulario" method="POST" action="front.do">
-		        			<input name="nomeUsuario" type="hidden" value="${busca.nome}" >
+		        		<form style="margin-left: 3%" id="formulario" method="POST" action="InformUsu.jsp">
 		        			<input name="email" type="hidden" value="${busca.email}">
-		        			<input type="hidden" name="action" value="BuscaUsu">
 		        			<input style="margin-left: 8%" class="button" type="submit" value="Visualizar Perfil">
 		        		</form>
 	        		</div>

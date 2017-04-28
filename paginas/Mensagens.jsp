@@ -30,7 +30,7 @@
                             <footer style="padding: 0% 2% 2% 0%">
                                 <form style="width: 100%; margin-bottom: 0" method="post" action="front.do">
                                     <input type="hidden" name="id" value="${msg.id}">
-                                    <input class="btn btn-danger" type="submit" name="" value="Excluir" style="margin-left: 71.5%; width: 30%">
+                                    <input class="btn btn-danger" type="submit" name="" value="Excluir" style="margin-left: 71%; width: 30%">
                                     <input type="hidden" name="action" value="ExcluirMensagem">
                                 </form>
                             </footer>
