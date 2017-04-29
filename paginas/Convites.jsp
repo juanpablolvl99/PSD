@@ -7,7 +7,7 @@
 
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>Convites</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/search.css" rel="stylesheet">

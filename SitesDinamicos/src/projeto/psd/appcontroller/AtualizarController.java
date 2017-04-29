@@ -31,6 +31,7 @@ public class AtualizarController implements Command {
 
         GerenciadorUsuario ger = new GerenciadorUsuario();
         Usuario user = new Usuario();
+
         user.setLogin(retornaComEncode(login));
         user.setNome(retornaComEncode(req.getParameter("nome")));
         user.setApelido(retornaComEncode(req.getParameter("apelido")));
@@ -44,6 +45,15 @@ public class AtualizarController implements Command {
         user.setStatus(retornaComEncode(req.getParameter("status")));
         user.setSenha(retornaComEncode(req.getParameter("senha")));
 
+        String relacionamentoCom = req.getParameter("relacionado");
+        String status = null;
+        if(relacionamentoCom.equals("")){
+            user.setStatus(req.getParameter("status"));
+        } else {
+            status = req.getParameter("status") + " com: " + relacionamentoCom;
+            user.setStatus(retornaComEncode(status));
+        }        
+        
         String path = req.getServletContext().getRealPath("");
         List<Part> parts = (List) req.getParts();
         for (Part part : parts) {

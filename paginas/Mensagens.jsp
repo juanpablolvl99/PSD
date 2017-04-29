@@ -1,11 +1,11 @@
-<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="m" uri="RetornaMensagens"%>
 
 <m:msgs email="${emailUsuario}"/>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>Mensagens</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/search.css" rel="stylesheet">

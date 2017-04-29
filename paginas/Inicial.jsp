@@ -9,7 +9,7 @@
 
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>Profile page</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/profile.css" rel="stylesheet">
@@ -86,7 +86,7 @@
                                         <li class="list-group-item">Data de nascimento - ${dadosUsu.dataDeNascimento}</li>
                                         <li class="list-group-item">Mora em - ${dadosUsu.cidade}</li>
                                         <li class="list-group-item">Profissao - ${dadosUsu.profissao}</li>
-                                        <li class="list-group-item">Status - ${dadosUsu.status}</li>
+                                        <li class="list-group-item">${dadosUsu.status}</li>
                                         <li class="list-group-item">Altura - ${dadosUsu.altura}</li>
                                         <li class="list-group-item">Peso - ${dadosUsu.peso}</li>
                                         <li class="list-group-item">Cor do cabelo - ${dadosUsu.corDoCabelo}</li>

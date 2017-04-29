@@ -26,6 +26,7 @@ public class FrontController extends HttpServlet {
         String action = req.getParameter("action");
         try {
             req.setCharacterEncoding("UTF-8");
+            res.setCharacterEncoding("UTF-8");
             
             pw = res.getWriter();
 

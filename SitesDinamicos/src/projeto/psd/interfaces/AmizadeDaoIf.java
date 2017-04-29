@@ -13,6 +13,8 @@ public interface AmizadeDaoIf {
     public List<Amizade> listAll(String email) throws SQLException;
 
     public List<Amizade> listAll() throws SQLException;
+    
+    public List<Amizade> vrfAmizade(String email, String paraEmail) throws SQLException;
 
     public void closeConexao() throws SQLException;
 }

@@ -86,5 +86,27 @@ public class PedidoDao implements PedidoDaoIf {
 
         return lista;
     }
+    
+    @Override
+    public List<Pedido> vrfPedido(String email, String paraEmail) throws SQLException {
+        String sql = "SELECT * FROM pedidosAmizade WHERE userEmail = ? and userParaEmail = ? or userEmail = ? and userParaEmail = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, email);
+        stmt.setString(2, paraEmail);
+        stmt.setString(3, paraEmail);
+        stmt.setString(4, email);
+        List<Pedido> lista = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Pedido p = new Pedido();
+            p.setUserEmail(rs.getString(1));
+            p.setUserParaEmail(rs.getString(2));
+            lista.add(p);
+        }
+        stmt.close();
+        rs.close();
+
+        return lista;
+    }
 
 }
