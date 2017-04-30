@@ -14,7 +14,7 @@
     </head>
     <body>
         <%@include file="NavBar2.jsp"%>
-        <div class="container">
+        <div class="container main">
             <h3 style="text-align: center; margin-bottom: 3%">Mensagens enviadas para você</h3>
             <div id="separador"></div>
             <div class="row" style="padding: 2% 0% 5% 0%">

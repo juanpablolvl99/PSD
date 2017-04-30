@@ -11,30 +11,34 @@
     </head>
     <body>
         <%@include file="NavBar2.jsp"%>
-        <div class="container">
-        	<h1 id="textoCentral">Resultado da Busca</h1>
-        	<hr>
-        	<c:if test="${empty encontrados}">
-        		<h1 id="textoCentral">Nenhum usuário cadastrado com esse nome</h1>
-        	</c:if>
-        	<c:forEach var="busca" items="${encontrados}">
-	        	<div class="col-md-6">
-	        	<div id="separador"></div>
-	        		<div class="col-md-7">
-	        			<img id="foto" src="${busca.fotoPerfil}" style="width: 100%">
-	        		</div>
-	        		<div class="col-md-5" id="dados">
-		        		<br><br><br>
-		        		<p><strong>Nome:</strong> ${busca.nome}</p>
-		        		<p><strong>Cidade:</strong> ${busca.cidade}</p>
-		        		<p><strong>Status:</strong> ${busca.status}</p>
-		        		<form style="margin-left: 5%" id="formulario" method="POST" action="InformUsu.jsp">
-		        			<input name="email" type="hidden" value="${busca.email}">
-		        			<input style="margin-left: 10%" class="button" type="submit" value="Visualizar Perfil">
-		        		</form>
-	        		</div>
-	        	</div>
-        	</c:forEach>
+        <div class="container main">
+            <h1 id="textoCentral">Resultado da Busca</h1>
+            <hr>
+            <c:if test="${empty encontrados}">
+                <h1 id="textoCentral">Nenhum usuário cadastrado com esse nome</h1>
+            </c:if>
+            <div class="row">
+                <div class="col-md-8">
+                    <c:forEach var="busca" items="${encontrados}">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <img id="foto" src="${busca.fotoPerfil}" style="width: 75%">
+                            </div>
+                            <div class="col-md-5" id="dados">
+                                <br><br><br>
+                                <p><strong>Nome:</strong> ${busca.nome}</p>
+                                <p><strong>Cidade:</strong> ${busca.cidade}</p>
+                                <p><strong>Status:</strong> ${busca.status}</p>
+                                <form style="margin-left: 5%" id="formulario" method="POST" action="InformUsu.jsp">
+                                    <input name="email" type="hidden" value="${busca.email}">
+                                    <input style="margin-left: 10%" class="button" type="submit" value="Visualizar Perfil">
+                                </form>
+                            </div>
+                        </div>
+                        <div id="separador"></div>
+                    </c:forEach>
+                </div>
+            </div>
         </div>
     </body>
 <script src="js/jquery.min.js"></script>

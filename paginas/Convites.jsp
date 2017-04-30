@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <body>
         <%@include file="NavBar2.jsp"%>
-        <div class="container">
+        <div class="container main">
         	<div class="col-md-12">
 	        	<div class="col-md-6">
 	        		<h2 style="color: black; text-align: center;">Convites Feitos</h2><br>

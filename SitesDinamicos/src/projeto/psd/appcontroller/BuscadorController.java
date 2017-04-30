@@ -1,6 +1,7 @@
 package projeto.psd.appcontroller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -17,7 +18,7 @@ public class BuscadorController implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException, IOException,
             ServletException {
 
-        String nome = req.getParameter("busca");
+        String nome = retornaComEncode(req.getParameter("busca"));
         List<Usuario> lista;
 
         GerenciadorUsuario gu;
@@ -34,4 +35,7 @@ public class BuscadorController implements Command {
 
     }
 
+    private String retornaComEncode(String value) throws UnsupportedEncodingException {
+        return new String(value.getBytes(), "UTF-8");
+    }
 }

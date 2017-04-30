@@ -14,7 +14,7 @@
     <body>
         <%@include file="NavBar2.jsp"%>
         <f:friends email="${emailUsuario}"/>
-        <div class="container">
+        <div class="container main">
         	<h1 id="textoCentral">Seus amigos</h1>
         	<hr>
         	<c:if test="${empty amigos}">

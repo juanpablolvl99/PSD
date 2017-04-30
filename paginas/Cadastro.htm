@@ -21,20 +21,20 @@
           <div class="col-md-8">
 			<h3 id="centralizarTexto">Dados pessoais</h3>
 			<div class="col-md-6">
-		  	  <input type="text" name="nome" value="" placeholder="Seu nome" class="campo">
-			  <input type="email" name="email" value="" placeholder="Seu Email" class="campo">
-			  <input type="text" name="cidade" value="" placeholder="Cidade" class="campo">
-			  <input type="date" name="dataDeNascimento" value="" placeholder="Data de Nascimento" class="campo">
-			  <input type="text" name="apelido" value="" placeholder="Apelido" class="campo">
-			  <input type="text" name="profissao" value="" placeholder="Profissão" class="campo">
+		  	  <input type="text" name="nome" value="" placeholder="Seu nome" class="campo" required="required">
+			  <input type="email" name="email" value="" placeholder="Seu Email" class="campo" required="required">
+			  <input type="text" name="cidade" value="" placeholder="Cidade" class="campo" required="required">
+			  <input type="date" name="dataDeNascimento" value="" placeholder="Data de Nascimento" class="campo" required="required">
+			  <input type="text" name="apelido" value="" placeholder="Apelido" class="campo" required="required">
+			  <input type="text" name="profissao" value="" placeholder="Profissão" class="campo" required="required">
 			</div>
 			<div class="col-md-6">
-			  <input type="text" name="descricao" value="" placeholder="Breve Descrição" class="campo">
-			  <input name="status" type="hidden" value="Solteiro">
-			  <input type="number" min="0" max="3" step="0.01" name="altura" value="" placeholder="Sua Altura" class="campo">
-			  <input type="number" min="0" max="200" step="0.1" name="peso" value="" placeholder="Seu Peso" class="campo">
-			  <input type="text" name="corDoCabelo" value="" placeholder="Cor do Cabelo" class="campo">
-			  <input type="text" name="passatempos" value="" placeholder="Passatempos" class="campo">
+			  <input type="text" name="descricao" value="" placeholder="Breve Descrição" class="campo" required="required">
+			  <input name="status" type="hidden" value="Solteiro" required="required">
+			  <input type="number" min="0" max="3" step="0.01" name="altura" value="" placeholder="Sua Altura" class="campo" required="required">
+			  <input type="number" min="0" max="200" step="0.1" name="peso" value="" placeholder="Seu Peso" class="campo" required="required">
+			  <input type="text" name="corDoCabelo" value="" placeholder="Cor do Cabelo" class="campo" required="required">
+			  <input type="text" name="passatempos" value="" placeholder="Passatempos" class="campo" required="required">
 		    </div>
 			<input type="hidden" name="action" value="CadastroUsuario">
           </div>
@@ -44,6 +44,12 @@
         <br><br>
       </div>
       <script src="js/jquery.min.js"></script>
+      <script src="js/purl.js"></script>
+      <script type="text/javascript">
+        url = purl();
+        if(url.param("error") == 1)
+          alert("email ou login ja cadastrado");
+      </script>
       <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

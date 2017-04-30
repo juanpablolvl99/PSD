@@ -86,6 +86,7 @@
             <input type="submit" class="button" value="&#128270;"/>
 			<input type="hidden" name="action" value="Buscador"/>
         </form>
+        <button class="button" data-toggle="modal" data-target="#filtrarModal">Filtrar</button>
     </ul>
 	<ul class="nav navbar-nav navbar-right" style="margin-right:20px">
         <form action="front.do" method="POST" id="formSair" class="formpadrao">
@@ -94,4 +95,29 @@
         </form>
 	</ul>
 </nav>
+
+<div id="filtrarModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Busque por pessoas com as suas preferências</h4>
+            </div>
+            <form action="front.do" method="post">
+                <div class="modal-body">
+                    <label>Cor do cabelo:</label>
+                    <input type="text" class="form-control" name="corCabelo" placeholder="cor do cabelo" required="required">
+                    <label>Altura:</label>
+                    <input type="number" class="form-control" name="altura" placeholder="altura" required="required">
+                    <input type="hidden" name="action" value="">                                     
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-default">                 
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 

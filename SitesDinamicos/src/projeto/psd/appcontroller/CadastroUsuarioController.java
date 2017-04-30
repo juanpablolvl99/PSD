@@ -70,7 +70,7 @@ public class CadastroUsuarioController implements Command {
         boolean verificaUsu = true;
         if (!listaUsu.isEmpty()) {
             for (Usuario auxiliar : listaUsu) {
-                if (auxiliar.getLogin().equals(login) || auxiliar.getEmail().equals(req.getParameter("email"))) {
+                if (auxiliar.getLogin().equals(login) || auxiliar.getEmail().equals(usu.getEmail())) {
                     verificaUsu = false;
                     break;
                 }
@@ -82,8 +82,7 @@ public class CadastroUsuarioController implements Command {
             res.sendRedirect("Index.htm");
         } else {
             ger.closeConexao();
-            res.getWriter().print("<script>alert('Email ja cadastrado');</script>");
-            res.sendRedirect("Cadastro.htm");
+            res.sendRedirect("Cadastro.htm?error=1");
         }
 
     }
