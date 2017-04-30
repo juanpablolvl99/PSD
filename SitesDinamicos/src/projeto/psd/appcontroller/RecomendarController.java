@@ -77,7 +77,7 @@ public class RecomendarController implements Command {
                 res.sendRedirect("Inicial.jsp");
             }else{
                 gr.closeConexao();
-                //
+                res.sendError(333);
             }
         }else{
             res.sendRedirect("Inicial.jsp");            

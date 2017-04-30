@@ -70,19 +70,19 @@ public class CadastroUsuarioController implements Command {
         boolean verificaUsu = true;
         if (!listaUsu.isEmpty()) {
             for (Usuario auxiliar : listaUsu) {
-                if (auxiliar.getLogin().equals(login)) {
+                if (auxiliar.getLogin().equals(login) || auxiliar.getEmail().equals(req.getParameter("email"))) {
                     verificaUsu = false;
                     break;
                 }
             }
         }
         if (verificaUsu) {
-            if (ger.add(usu)) {
-                ger.closeConexao();
-                res.sendRedirect("Index.htm");
-            }
+            ger.add(usu);
+            ger.closeConexao();
+            res.sendRedirect("Index.htm");
         } else {
             ger.closeConexao();
+            res.getWriter().print("<script>alert('Email ja cadastrado');</script>");
             res.sendRedirect("Cadastro.htm");
         }
 
@@ -94,7 +94,7 @@ public class CadastroUsuarioController implements Command {
         }
     }
 
-    private String retornaComEncode(String value) throws UnsupportedEncodingException{
+    private String retornaComEncode(String value) throws UnsupportedEncodingException {
         return new String(value.getBytes(), "UTF-8");
     }
 }

@@ -25,7 +25,7 @@ public class ExcluirMensagemController implements Command{
         if(vrf){
             res.sendRedirect("Mensagens.jsp");
         }else{
-            //
+            res.sendError(333);
         }
     }
     

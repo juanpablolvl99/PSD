@@ -48,7 +48,7 @@ public class AdicionarFotoController implements Command {
             gg.add(email, AltFilePath, d);
             part.write(filePath);
         } else {
-            //decidir oq sera feito;
+            res.sendError(333);
         }
 
         gg.closeConexao();

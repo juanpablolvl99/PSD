@@ -23,7 +23,7 @@ public class ExcluirPedidoController implements Command{
             res.sendRedirect("Convites.jsp");
         } else {
             ger.closeConexao();
-            // Tratar o erro
+            res.sendError(333);
         }
     }
     

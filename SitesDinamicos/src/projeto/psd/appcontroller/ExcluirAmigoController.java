@@ -49,7 +49,7 @@ public class ExcluirAmigoController implements Command {
         } else {
             gm.closeConexao();
             ga.closeConexao();
-            //
+            res.sendError(333);
         }
 
     }

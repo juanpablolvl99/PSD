@@ -25,12 +25,12 @@ public class AceitarAmizadeController implements Command {
             } else {
                 ger.closeConexao();
                 ger2.closeConexao();
-                // Tratar erro
+                res.sendError(333);
             }
         } else {
             ger.closeConexao();
             ger2.closeConexao();
-            // Tratar erro
+            res.sendError(333);
         }
     }
 

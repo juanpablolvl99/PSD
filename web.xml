@@ -28,4 +28,10 @@
 		<servlet-name>frontcontrol</servlet-name>
 		<url-pattern>/front.do</url-pattern>
 	</servlet-mapping>
+
+	<error-page>
+	   <error-code>333</error-code> 
+	   <error-code>404</error-code>  
+	   <location>/Erro.html</location>  
+	</error-page>
 </web-app>
