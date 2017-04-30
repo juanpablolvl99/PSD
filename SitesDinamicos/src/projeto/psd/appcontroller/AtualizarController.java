@@ -80,7 +80,8 @@ public class AtualizarController implements Command {
             res.sendRedirect(res.encodeRedirectURL("Inicial.jsp"));
         } else {
             ger.closeConexao();
-            res.sendRedirect("AtualizarDados.jsp");
+//            res.sendRedirect("AtualizarDados.jsp");
+            res.sendError(333);
         }
 
     }

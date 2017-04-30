@@ -36,8 +36,8 @@ public class MensagemController implements Command {
             }
 
         } else {
-            //
-        };
+            res.sendError(333);
+        }
 
     }
 

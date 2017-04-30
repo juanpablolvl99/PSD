@@ -22,7 +22,7 @@ public class ExcluirRecoController implements Command{
             gr.closeConexao();
             res.sendRedirect("Inicial.jsp");
         }else{
-            //
+            res.sendError(333);
         }
         
     }

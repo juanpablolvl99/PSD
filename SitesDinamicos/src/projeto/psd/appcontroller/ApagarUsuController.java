@@ -29,7 +29,7 @@ public class ApagarUsuController implements Command {
             res.sendRedirect(url);
         } else {
             ger.closeConexao();
-            // Tratar o erro
+            res.sendError(333);
         }
 
     }

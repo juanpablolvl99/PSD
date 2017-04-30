@@ -23,7 +23,7 @@ public class ConviteController implements Command{
             res.sendRedirect("InformUsu.jsp?current="+paraUsu);
         } else {
             ger.closeConexao();
-            // Tratar erro
+            res.sendError(333);
         }
         
     }
