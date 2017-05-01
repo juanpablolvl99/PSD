@@ -17,6 +17,12 @@ public interface UsuarioDaoIf {
     public List<Usuario> listAll() throws SQLException;
 
     public Usuario readByEmail(String email) throws SQLException;
+    
+    public List<Usuario> filtroCor(String cor) throws SQLException;
+    
+    public List<Usuario> filtroStatus(String status) throws SQLException;
+    
+    public List<Usuario> filtroGeral(String cor, String status) throws SQLException;
 
     public void closeConexao() throws SQLException;
 }

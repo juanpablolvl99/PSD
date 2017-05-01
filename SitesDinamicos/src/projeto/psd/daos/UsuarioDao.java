@@ -50,21 +50,21 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setString(15, u.getFotoPerfil());
         int vrf = stmt.executeUpdate();
         stmt.close();
-        
+
         return vrf > 0;
     }
 
     @Override
     public boolean remove(String login, String senha) throws SQLException {
-        
+
         String sqlMain = "DELETE FROM usuario WHERE login = '" + login
                 + "' AND senha = '" + senha + "'";
-        
+
         PreparedStatement stmt = con.prepareStatement(sqlMain);
-        
+
         int vrf = stmt.executeUpdate();
         stmt.close();
-        
+
         return vrf > 0;
 
     }
@@ -94,11 +94,11 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setString(13, u.getPassatempos());
         stmt.setString(15, u.getLogin());
         stmt.setString(14, u.getFotoPerfil());
-        
+
         int vrf = stmt.executeUpdate();
-        
+
         stmt.close();
-        
+
         return vrf > 0;
 
     }
@@ -117,10 +117,10 @@ public class UsuarioDao implements UsuarioDaoIf {
             populaUser(u, rs);
             lista.add(u);
         }
-        
+
         stmt.close();
         rs.close();
-        
+
         return lista;
 
     }
@@ -134,16 +134,16 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setString(1, email);
 
         ResultSet rs = stmt.executeQuery();
-    
+
         Usuario u = new Usuario();
-        
+
         if (rs.next()) {
             populaUser(u, rs);
         }
-        
+
         return u;
     }
-    
+
     @Override
     public List<Usuario> readByNome(String nome) throws SQLException {
         String sql = "SELECT * FROM usuario where nome = ?";
@@ -159,13 +159,70 @@ public class UsuarioDao implements UsuarioDaoIf {
             populaUser(u, rs);
             lista.add(u);
         }
-        
+
         stmt.close();
         rs.close();
-        
+
+        return lista;
+    }
+
+    @Override
+    public List<Usuario> filtroCor(String cor) throws SQLException {
+        String sql = "SELECT * FROM usuario WHERE corDoCabelo = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, cor);
+        List<Usuario> lista = new ArrayList<>();;
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Usuario u = new Usuario();
+            populaUser(u, rs);
+            lista.add(u);
+        }
+        stmt.close();
+        rs.close();
+        return lista;
+    }
+
+    @Override
+    public List<Usuario> filtroStatus(String status) throws SQLException {
+        String sql = "SELECT * FROM usuario WHERE status ilike ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, status);
+        List<Usuario> lista = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Usuario u = new Usuario();
+            populaUser(u, rs);
+            lista.add(u);
+        }
+        stmt.close();
+        rs.close();
         return lista;
     }
     
+    @Override
+    public List<Usuario> filtroGeral(String cor, String status) throws SQLException {
+        String sql = "SELECT * FROM usuario WHERE corDoCabelo = ? AND status ilike ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, cor);
+        stmt.setString(2, status);
+        List<Usuario> lista = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Usuario u = new Usuario();
+            populaUser(u, rs);
+            lista.add(u);
+        }
+        stmt.close();
+        rs.close();
+        return lista;
+    }
+
+    @Override
+    public void closeConexao() throws SQLException {
+        this.con.close();
+    }
+
     public void populaUser(Usuario u, ResultSet rs) throws SQLException {
         u.setLogin(rs.getString(1));
         u.setSenha(rs.getString(2));
@@ -183,11 +240,5 @@ public class UsuarioDao implements UsuarioDaoIf {
         u.setPassatempos(rs.getString(14));
         u.setFotoPerfil(rs.getString(15));
     }
-
-    @Override
-    public void closeConexao() throws SQLException {
-        this.con.close();
-    }
-
 
 }

@@ -55,5 +55,23 @@ public class GerenciadorUsuario {
         return this.ifc.readByEmail(email);
 
     }
+    
+    public List<Usuario> filtroCor(String cor) throws SQLException {
+        
+        return this.ifc.filtroCor(cor);
+        
+    }
+    
+    public List<Usuario> filtroStatus(String status) throws SQLException {
+        
+        return this.ifc.filtroStatus(status);
+        
+    }
+    
+    public List<Usuario> filtroGeral(String cor, String status) throws SQLException {
+        
+        return this.ifc.filtroGeral(cor, status);
+        
+    }
 
 }

@@ -33,7 +33,15 @@
 			  <input name="status" type="hidden" value="Solteiro" required="required">
 			  <input type="number" min="0" max="3" step="0.01" name="altura" value="" placeholder="Sua Altura" class="campo" required="required">
 			  <input type="number" min="0" max="200" step="0.1" name="peso" value="" placeholder="Seu Peso" class="campo" required="required">
-			  <input type="text" name="corDoCabelo" value="" placeholder="Cor do Cabelo" class="campo" required="required">
+        <select required="required" class="form-control" name="corDoCabelo" style="height: 40px;">
+          <option>Preto</option>
+          <option>Castanho</option>
+          <option>Loiro</option>
+          <option>Platinado</option>
+          <option>Ruivo</option>
+        </select>
+        <br>
+			  <!-- <input type="text" name="corDoCabelo" value="" placeholder="Cor do Cabelo" class="campo" required="required"> -->
 			  <input type="text" name="passatempos" value="" placeholder="Passatempos" class="campo" required="required">
 		    </div>
 			<input type="hidden" name="action" value="CadastroUsuario">

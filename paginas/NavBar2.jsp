@@ -101,21 +101,61 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Busque por pessoas com as suas preferências</h4>
+                <h4 class="modal-title">Busque por pessoas com as suas preferências</h4>
             </div>
-            <form action="front.do" method="post">
-                <div class="modal-body">
-                    <label>Cor do cabelo:</label>
-                    <input type="text" class="form-control" name="corCabelo" placeholder="cor do cabelo" required="required">
-                    <label>Altura:</label>
-                    <input type="number" class="form-control" name="altura" placeholder="altura" required="required">
-                    <input type="hidden" name="action" value="">                                     
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-default">                 
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <form action="front.do" method="post">
+                <p style="text-align: center; font-weight: bold;">Filtrar pela cor do cabelo</p>
+                    <label style="margin-left: 2%">Cor do cabelo:</label>
+                    <select required="required" class="form-control" name="corDoCabelo">
+                      <option>Preto</option>
+                      <option>Castanho</option>
+                      <option>Loiro</option>
+                      <option>Platinado</option>
+                      <option>Ruivo</option>
+                    </select>
+                    <input type="hidden" name="action" value="FiltroCabelo"><br>
+                    <input type="submit" class="btn btn-default" value="Filtrar" style="margin-left: 86%">
+                </form>
+                <hr>
+                <form action="front.do" method="post">                
+                <p style="text-align: center; font-weight: bold;">Filtrar pelo status</p>
+                    <label style="margin-left: 2%">Status:</label>
+                    <select required="required" class="form-control" name="status">
+                      <option>Solteiro</option>
+                      <option>Namorando</option>
+                      <option>Viúvo</option>
+                      <option>Casado</option>
+                      <option>Divorciado</option>
+                    </select>
+                    <input type="hidden" name="action" value="FiltroStatus"><br>
+                    <input type="submit" class="btn btn-default" value="Filtrar" style="margin-left: 86%">
+                </form>
+                <form action="front.do" method="post">
+                <p style="text-align: center; font-weight: bold;">Filtrar pelos dois</p>
+                    <label style="margin-left: 2%">Cor do cabelo:</label>
+                    <select required="required" class="form-control" name="corDoCabelo">
+                      <option>Preto</option>
+                      <option>Castanho</option>
+                      <option>Loiro</option>
+                      <option>Platinado</option>
+                      <option>Ruivo</option>
+                    </select><br>
+                    <label style="margin-left: 2%">Status:</label>
+                    <select required="required" class="form-control" name="status">
+                      <option>Solteiro</option>
+                      <option>Namorando</option>
+                      <option>Viúvo</option>
+                      <option>Casado</option>
+                      <option>Divorciado</option>
+                    </select>
+                    <input type="hidden" name="action" value="FiltroGeral"><br>
+                    <input type="submit" class="btn btn-default" value="Filtrar" style="margin-left: 86%">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
         </div>
     </div>
 </div>
