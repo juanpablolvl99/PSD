@@ -34,7 +34,11 @@ public class FrontController extends HttpServlet {
             command.execute(req, res);
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | IOException
                 | ServletException ex) {
-            pw.print(ex);
+            try {
+                res.sendError(333);
+            } catch (IOException ex1) {
+                pw.print(ex1);
+            }
         }
 
     }

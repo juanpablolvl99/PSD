@@ -15,7 +15,7 @@
             <h1 id="textoCentral">Resultado da Busca</h1>
             <hr>
             <c:if test="${empty encontrados}">
-                <h1 id="textoCentral">Nenhum usuário cadastrado com esse nome</h1>
+                <h1 id="textoCentral">Nenhum usuário encontrado</h1>
             </c:if>
             <div class="row">
                 <div class="col-md-8">

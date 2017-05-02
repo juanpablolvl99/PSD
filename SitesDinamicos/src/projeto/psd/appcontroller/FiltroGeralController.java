@@ -2,6 +2,7 @@
 package projeto.psd.appcontroller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -17,14 +18,29 @@ public class FiltroGeralController implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException, IOException, ServletException {
         String cor = req.getParameter("corDoCabelo");
-        String status = req.getParameter("status");
-        String resultado = status + "%";
+        String status = retornaComEncode(req.getParameter("status"));
+        String resultado;
+        List<Usuario> lista;
+        
         GerenciadorUsuario ger = new GerenciadorUsuario();
-        List<Usuario> lista = ger.filtroGeral(cor, resultado);
-        req.setAttribute("filtro", lista);
+        
+        if(!status.equals("")){
+            resultado = status + "%";
+            if(!cor.equals(""))
+                lista = ger.filtroGeral(cor, resultado);
+            else
+                lista = ger.filtroStatus(resultado);
+        }else
+            lista = ger.filtroCor(cor);
+            
+        req.setAttribute("encontrados", lista);
         ger.closeConexao();
-        RequestDispatcher despachante = req.getRequestDispatcher("Filtro.jsp");
+        RequestDispatcher despachante = req.getRequestDispatcher("Busca.jsp");
         despachante.forward(req, res);
     }    
+    
+    private String retornaComEncode(String value) throws UnsupportedEncodingException {
+        return new String(value.getBytes(), "UTF-8");
+    }
     
 }

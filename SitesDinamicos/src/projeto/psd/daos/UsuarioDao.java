@@ -168,7 +168,7 @@ public class UsuarioDao implements UsuarioDaoIf {
 
     @Override
     public List<Usuario> filtroCor(String cor) throws SQLException {
-        String sql = "SELECT * FROM usuario WHERE corDoCabelo = ?";
+        String sql = "SELECT * FROM usuario WHERE corDoCabelo ilike ?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, cor);
         List<Usuario> lista = new ArrayList<>();;

@@ -105,36 +105,10 @@
             </div>
             <div class="modal-body">
                 <form action="front.do" method="post">
-                <p style="text-align: center; font-weight: bold;">Filtrar pela cor do cabelo</p>
-                    <label style="margin-left: 2%">Cor do cabelo:</label>
-                    <select required="required" class="form-control" name="corDoCabelo">
-                      <option>Preto</option>
-                      <option>Castanho</option>
-                      <option>Loiro</option>
-                      <option>Platinado</option>
-                      <option>Ruivo</option>
-                    </select>
-                    <input type="hidden" name="action" value="FiltroCabelo"><br>
-                    <input type="submit" class="btn btn-default" value="Filtrar" style="margin-left: 86%">
-                </form>
-                <hr>
-                <form action="front.do" method="post">                
-                <p style="text-align: center; font-weight: bold;">Filtrar pelo status</p>
-                    <label style="margin-left: 2%">Status:</label>
-                    <select required="required" class="form-control" name="status">
-                      <option>Solteiro</option>
-                      <option>Namorando</option>
-                      <option>Viúvo</option>
-                      <option>Casado</option>
-                      <option>Divorciado</option>
-                    </select>
-                    <input type="hidden" name="action" value="FiltroStatus"><br>
-                    <input type="submit" class="btn btn-default" value="Filtrar" style="margin-left: 86%">
-                </form>
-                <form action="front.do" method="post">
                 <p style="text-align: center; font-weight: bold;">Filtrar pelos dois</p>
                     <label style="margin-left: 2%">Cor do cabelo:</label>
-                    <select required="required" class="form-control" name="corDoCabelo">
+                    <select class="form-control" name="corDoCabelo">
+                      <option></option>
                       <option>Preto</option>
                       <option>Castanho</option>
                       <option>Loiro</option>
@@ -142,7 +116,8 @@
                       <option>Ruivo</option>
                     </select><br>
                     <label style="margin-left: 2%">Status:</label>
-                    <select required="required" class="form-control" name="status">
+                    <select class="form-control" name="status">
+                      <option></option>
                       <option>Solteiro</option>
                       <option>Namorando</option>
                       <option>Viúvo</option>
