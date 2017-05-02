@@ -27,8 +27,9 @@
                             <div class="col-md-5" id="dados">
                                 <br><br><br>
                                 <p><strong>Nome:</strong> ${busca.nome}</p>
+                                <p><strong>Apelido:</strong> ${busca.apelido}</p>
                                 <p><strong>Cidade:</strong> ${busca.cidade}</p>
-                                <p><strong>Status:</strong> ${busca.status}</p>
+                                <p><strong>Passatempos:</strong> ${busca.passatempos}</p>
                                 <form style="margin-left: 5%" id="formulario" method="POST" action="InformUsu.jsp">
                                     <input name="email" type="hidden" value="${busca.email}">
                                     <input style="margin-left: 10%" class="button" type="submit" value="Visualizar Perfil">

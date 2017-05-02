@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/daos/GaleriaDao.java</file>
-            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/servlets/FrontController.java</file>
-            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/appcontroller/AceitarAmizadeController.java</file>
+            <file>file:/C:/Users/Rodrigo%20Bento/Documents/Rodrigo/Projetos/Sites/Nova%20pasta/PSD/SitesDinamicos/src/projeto/psd/interfaces/PedidoDaoIf.java</file>
+            <file>file:/C:/Users/Rodrigo%20Bento/Documents/Rodrigo/Projetos/Sites/Nova%20pasta/PSD/SitesDinamicos/src/projeto/psd/gerenciadores/GerenciadorPedido.java</file>
+            <file>file:/C:/Users/Rodrigo%20Bento/Documents/Rodrigo/Projetos/Sites/Nova%20pasta/PSD/SitesDinamicos/src/projeto/psd/entidades/Pedido.java</file>
+            <file>file:/C:/Users/Rodrigo%20Bento/Documents/Rodrigo/Projetos/Sites/Nova%20pasta/PSD/SitesDinamicos/src/projeto/psd/entidades/Relacionamento.java</file>
+            <file>file:/C:/Users/Rodrigo%20Bento/Documents/Rodrigo/Projetos/Sites/Nova%20pasta/PSD/SitesDinamicos/src/projeto/psd/daos/PedidoDao.java</file>
+            <file>file:/C:/Users/Rodrigo%20Bento/Documents/Rodrigo/Projetos/Sites/Nova%20pasta/PSD/SitesDinamicos/src/projeto/psd/daos/RelacionamentoDao.java</file>
+            <file>file:/C:/Users/Rodrigo%20Bento/Documents/Rodrigo/Projetos/Sites/Nova%20pasta/PSD/SitesDinamicos/src/projeto/psd/appcontroller/PedidoRelacionamentoController.java</file>
         </group>
     </open-files>
 </project-private>

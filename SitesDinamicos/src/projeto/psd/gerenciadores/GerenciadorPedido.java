@@ -48,5 +48,29 @@ public class GerenciadorPedido {
         return this.ifc.listAll(email);
         
     }
+    
+    public boolean addRelacionamento(String userEmail, String userParaEmail, String status) throws SQLException {
+        
+        return this.ifc.addRelacionamento(userEmail, userParaEmail, status);
+        
+    }
+    
+    public boolean removeRelacionamento(String userEmail, String userParaEmail) throws SQLException {
+        
+        return this.ifc.removeRelacionamento(userEmail, userParaEmail);
+        
+    }
+    
+    public List<Pedido> listRelacionamento(String email) throws SQLException{
+        
+        return this.ifc.listRelacionamento(email);
+        
+    }
+    
+    public List<Pedido> listAllRelacionamento(String email) throws SQLException{
+        
+        return this.ifc.listAllRelacionamento(email);
+        
+    }
 
 }

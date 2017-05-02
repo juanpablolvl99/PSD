@@ -42,13 +42,13 @@
 				  <option>Divorciado (a)</option>
 			  </select>
         <br>
-        <label for="relacionado" id="lb" style="display: none;">Com:</label>
+        <!-- <label for="relacionado" id="lb" style="display: none;">Com:</label>
         <select name="relacionado" style="display: none" id="relacionado">
           <option></option>
           <c:forEach var="amigo" items="${amigos}">
             <option>${amigo.nome}</option>
           </c:forEach>
-        </select>
+        </select> -->
         <br>
 			  <input type="number" min="0" max="3" step="0.01" name="altura" value="${dadosUsu.altura}" placeholder="Sua Altura" class="campo">
 			  <input type="number" min="0" max="200" step="0.1" name="peso" value="${dadosUsu.peso}" placeholder="Seu Peso" class="campo">
@@ -64,7 +64,7 @@
       </div>
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
         $(document).ready(function(){
           $("#status").click(function(){
             $("#status").mouseleave(function(){
@@ -78,6 +78,6 @@
             });
           });
         });
-      </script>
+      </script> -->
   </body>
 </html>

@@ -16,5 +16,15 @@ public interface PedidoDaoIf {
 
     public List<Pedido> listAll(String email) throws SQLException;
     
+    // Pedido Relacionamento
+    
+    public boolean addRelacionamento(String userEmail, String userParaEmail, String status) throws SQLException;
+
+    public boolean removeRelacionamento(String userEmail, String userParaEmail) throws SQLException;
+
+    public List<Pedido> listRelacionamento(String email) throws SQLException;
+    
+    public List<Pedido> listAllRelacionamento(String email) throws SQLException;
+    
     public void closeConexao() throws SQLException;
 }

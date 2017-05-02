@@ -3,9 +3,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="df" uri="CarregaDF"%>
 <%@taglib prefix="rc" uri="RetornaRecom"%>
+<%@taglib prefix="pd" uri="RetornaPedidoRelacionamento"%>
+<%@taglib prefix="myUsu" uri="RetornaUsuEmail"%>
 
 <f:friends email="${emailUsuario}"/>
 <rc:recom email="${emailUsuario}"/>
+<pd:retornaPedido userEmail="${emailUsuario}"/>
 
 <html>
     <head>
@@ -86,7 +89,25 @@
                                         <li class="list-group-item">Data de nascimento - ${dadosUsu.dataDeNascimento}</li>
                                         <li class="list-group-item">Mora em - ${dadosUsu.cidade}</li>
                                         <li class="list-group-item">Profissao - ${dadosUsu.profissao}</li>
-                                        <li class="list-group-item">${dadosUsu.status}</li>
+                                        <c:choose>
+                                            <c:when test="${rlcExist eq 'false'}">
+                                                <li class="list-group-item">${relacionamento.status} com: 
+                                                <c:choose>
+                                                    <c:when test="${relacionamento.userEmail eq emailUsuario}">
+                                                    <myUsu:retornaUsu email="${relacionamento.userParaEmail}"/>
+                                                        <a href="InformUsu.jsp?email=${otherUser.email}">${otherUser.nome}</a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <myUsu:retornaUsu email="${relacionamento.userEmail}"/>
+                                                        <a href="InformUsu.jsp?email=${otherUser.email}">${otherUser.nome}</a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                </li>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <li class="list-group-item">${dadosUsu.status}</li>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <li class="list-group-item">Altura - ${dadosUsu.altura}</li>
                                         <li class="list-group-item">Peso - ${dadosUsu.peso}</li>
                                         <li class="list-group-item">Cor do cabelo - ${dadosUsu.corDoCabelo}</li>
@@ -162,6 +183,40 @@
                             </div>
                         </div>
                     </ul>
+                    <c:if test="${rlcExist}">
+                    <c:if test="${numPedidos > 0}">
+                    <ul class="list-group" style="margin: 0em;  width: 92%">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" href="#collapse3" style="text-decoration:none;">Pedidos de Relacionamento <span class="badge">${numPedidos}</span></a>
+                                </div>
+                                <div id="collapse3" class="panel-collapse collapse">
+                                    <ul class="list-group">
+                                        <c:forEach var="rlc" items="${relac}">
+                                            <li class="list-group-item">
+                                                <form style="margin: 0%; width: 47%; display: inline-block;" method="post" action="front.do">
+                                                    <input type="hidden" name="action" value="AceitarRelacionamento">
+                                                    <input type="hidden" name="email" value="${rlc.userEmail}">
+                                                    <input type="hidden" name="paraEmail" value="${rlc.userParaEmail}">
+                                                    <input type="hidden" name="status" value="${rlc.status}">
+                                                    <input type="submit" class="btn btn-link" value="${rlc.userEmail}" style="text-decoration: none;">
+                                                </form>
+                                                <form style="margin: 0%; width: 47%; display: inline-block;" method="post" action="front.do">
+                                                    <input type="hidden" name="email" value="${rlc.userEmail}">
+                                                    <input type="hidden" name="paraEmail" value="${rlc.userParaEmail}">
+                                                    <input type="hidden" name="action" value="ExcluirRelac">
+                                                    <input type="submit" class="btn btn-link" value="Excluir" style="text-decoration: none; color: red; margin-left: 60%">
+                                                </form>
+                                            </li>   
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                    </c:if>
+                    </c:if>
 				</div>
             </div>
             <div id="myModal" class="modal fade" role="dialog">
