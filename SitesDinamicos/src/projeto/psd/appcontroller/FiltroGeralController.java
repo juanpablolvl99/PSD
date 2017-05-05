@@ -30,9 +30,11 @@ public class FiltroGeralController implements Command {
                 lista = ger.filtroGeral(cor, resultado);
             else
                 lista = ger.filtroStatus(resultado);
-        }else
+        }else if(!cor.equals(""))
             lista = ger.filtroCor(cor);
-            
+            else
+                lista = ger.listAll();
+        
         req.setAttribute("encontrados", lista);
         ger.closeConexao();
         RequestDispatcher despachante = req.getRequestDispatcher("Busca.jsp");

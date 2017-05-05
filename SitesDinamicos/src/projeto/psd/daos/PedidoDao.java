@@ -109,4 +109,66 @@ public class PedidoDao implements PedidoDaoIf {
         return lista;
     }
 
+    @Override
+    public boolean addRelacionamento(String userEmail, String userParaEmail, String status) throws SQLException {
+        String sql = "INSERT INTO pedidosRelacionamento VALUES(?, ?, ?)";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, userEmail);
+        stmt.setString(2, userParaEmail);
+        stmt.setString(3, status);
+        int vrf = stmt.executeUpdate();
+        stmt.close();
+
+        return vrf > 0;
+    }
+
+    @Override
+    public boolean removeRelacionamento(String userEmail, String userParaEmail) throws SQLException {
+        String sql = "DELETE FROM pedidosRelacionamento WHERE userEmail = '" + userEmail + "' AND userParaEmail = '" + userParaEmail + "'";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        int vrf = stmt.executeUpdate();
+        stmt.close();
+
+        return vrf > 0;
+    }
+
+    @Override
+    public List<Pedido> listRelacionamento(String email) throws SQLException {
+        String sql = "SELECT * FROM pedidosRelacionamento WHERE userEmail = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, email);
+        List<Pedido> lista = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Pedido p = new Pedido();
+            p.setUserEmail(rs.getString(1));
+            p.setUserParaEmail(rs.getString(2));
+            p.setStatus(rs.getString(3));
+            lista.add(p);
+        }
+        stmt.close();
+        rs.close();
+
+        return lista;
+    }
+
+    @Override
+    public List<Pedido> listAllRelacionamento(String email) throws SQLException {
+            String sql = "SELECT * FROM pedidosRelacionamento where userParaEmail='"+email+"'";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        List<Pedido> lista = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Pedido p = new Pedido();
+            p.setUserEmail(rs.getString(1));
+            p.setUserParaEmail(rs.getString(2));
+            p.setStatus(rs.getString(3));
+            lista.add(p);
+        }
+        stmt.close();
+        rs.close();
+
+        return lista;
+    }
+    
 }

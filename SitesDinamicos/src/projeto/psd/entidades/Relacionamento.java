@@ -1,15 +1,15 @@
-
 package projeto.psd.entidades;
 
 import java.io.Serializable;
 
-public class Pedido implements Serializable{
+public class Relacionamento implements Serializable{
     
     private String userEmail;
     private String userParaEmail;
     private String status;
-    
-    public Pedido(){}; // "padrão" - nascimento, cap
+
+    public Relacionamento() {
+    }
 
     public String getUserEmail() {
         return userEmail;
@@ -34,7 +34,5 @@ public class Pedido implements Serializable{
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
     
 }
