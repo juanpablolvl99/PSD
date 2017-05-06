@@ -32,9 +32,13 @@ public class AceitarRelacionamentoController implements Command {
             ger2.removeRelacionamento(email, paraEmail);
             res.sendRedirect("Inicial.jsp");
             ger.closeConexao();
+            ger2.closeConexao();
+            ger3.closeConexao();
         } else {
             res.sendError(333);
             ger.closeConexao();
+            ger2.closeConexao();
+            ger3.closeConexao();
         }
     }
     
