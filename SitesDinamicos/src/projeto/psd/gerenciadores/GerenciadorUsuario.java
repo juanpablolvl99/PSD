@@ -73,5 +73,11 @@ public class GerenciadorUsuario {
         return this.ifc.filtroGeral(cor, status);
         
     }
+    
+    public boolean updateStatus(String email, String status) throws SQLException{
+        
+        return this.ifc.updateStatus(email, status);
+        
+    }
 
 }

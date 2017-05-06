@@ -24,5 +24,7 @@ public interface UsuarioDaoIf {
     
     public List<Usuario> filtroGeral(String cor, String status) throws SQLException;
 
+    public boolean updateStatus(String email, String status) throws SQLException;
+    
     public void closeConexao() throws SQLException;
 }

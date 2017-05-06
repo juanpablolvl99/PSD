@@ -240,5 +240,16 @@ public class UsuarioDao implements UsuarioDaoIf {
         u.setPassatempos(rs.getString(14));
         u.setFotoPerfil(rs.getString(15));
     }
+    
+    @Override
+    public boolean updateStatus(String email, String status) throws SQLException {
+        String sql = "UPDATE usuario SET status = ? WHERE email = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, status);
+        stmt.setString(2, email);
+        int vrf = stmt.executeUpdate();
+        stmt.close();
+        return vrf > 0;
+    }
 
 }

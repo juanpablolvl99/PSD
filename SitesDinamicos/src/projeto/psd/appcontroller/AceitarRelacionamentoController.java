@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import projeto.psd.entidades.Relacionamento;
 import projeto.psd.gerenciadores.GerenciadorPedido;
 import projeto.psd.gerenciadores.GerenciadorRelacionamento;
+import projeto.psd.gerenciadores.GerenciadorUsuario;
 import projeto.psd.interfaces.Command;
 
 public class AceitarRelacionamentoController implements Command {
@@ -24,6 +25,9 @@ public class AceitarRelacionamentoController implements Command {
         r.setStatus(status);
         GerenciadorRelacionamento ger = new GerenciadorRelacionamento();
         GerenciadorPedido ger2 = new GerenciadorPedido();
+        GerenciadorUsuario ger3 = new GerenciadorUsuario();
+        ger3.updateStatus(email, status);
+        ger3.updateStatus(paraEmail, status);
         if(ger.add(r)){
             ger2.removeRelacionamento(email, paraEmail);
             res.sendRedirect("Inicial.jsp");
