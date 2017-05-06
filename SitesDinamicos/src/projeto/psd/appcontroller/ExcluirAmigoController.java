@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import projeto.psd.entidades.Mensagem;
 import projeto.psd.gerenciadores.GerenciadorAmizade;
 import projeto.psd.gerenciadores.GerenciadorMensagem;
+import projeto.psd.gerenciadores.GerenciadorPedido;
 import projeto.psd.gerenciadores.GerenciadorRelacionamento;
 import projeto.psd.interfaces.Command;
 
@@ -24,7 +25,8 @@ public class ExcluirAmigoController implements Command {
 
         GerenciadorAmizade ga = new GerenciadorAmizade();
         GerenciadorMensagem gm = new GerenciadorMensagem();
-        GerenciadorRelacionamento gr = new GerenciadorRelacionamento(); 
+        GerenciadorRelacionamento gr = new GerenciadorRelacionamento();
+        GerenciadorPedido gp = new GerenciadorPedido();
 
         if (ga.remove(userEmail, amigoEmail)) {
 
@@ -45,6 +47,7 @@ public class ExcluirAmigoController implements Command {
             }
             
             gr.remove(userEmail, amigoEmail);
+            gp.removeRelacionamento(userEmail, amigoEmail);
             
             gr.closeConexao();
             gm.closeConexao();
