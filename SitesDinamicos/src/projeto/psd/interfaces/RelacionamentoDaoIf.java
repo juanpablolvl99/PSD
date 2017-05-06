@@ -12,6 +12,8 @@ public interface RelacionamentoDaoIf {
     
     public Relacionamento retornaRelac(String email) throws SQLException;
     
+    public boolean verificaRelacionamento(String email, String paraEmail) throws SQLException;
+    
     public void closeConexao() throws SQLException;
     
 }

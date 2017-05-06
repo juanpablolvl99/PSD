@@ -37,35 +37,19 @@ public class VerificarPedido extends SimpleTagSupport{
 //            boolean condPedidoRecebido = true;
 //            boolean amizade = true;
 //            boolean amizade2 = true;
-            boolean condicaoPedido = true;
-            boolean condicaoAmizade = true;
+            boolean condicaoPedido = false;
+            boolean condicaoAmizade = false;
             GerenciadorPedido ger = new GerenciadorPedido();
             List<Pedido> pedidos = ger.vrfPedido(deEmail, paraEmail);
             GerenciadorAmizade ger2 = new GerenciadorAmizade();
             List<Amizade> amizades = ger2.vrfAmizade(deEmail, paraEmail);
             if(!amizades.isEmpty()){
-                condicaoAmizade = false;
+                condicaoAmizade = true;
             }
             if(!pedidos.isEmpty()){
-                condicaoPedido = false;
+                condicaoPedido = true;
             }
             
-//            for(Pedido p: lista){
-//                if(deEmail.equals(p.getUserEmail()) && paraEmail.equals(p.getUserParaEmail())){
-//                    condPedidoEnviado = false;
-//                }
-//                if(paraEmail.equals(p.getUserEmail()) && deEmail.equals(p.getUserParaEmail())){
-//                    condPedidoRecebido = false;
-//                }
-//            }
-//            for(Amizade a: lista2){
-//                if(deEmail.equals(a.getUserEmail()) && paraEmail.equals(a.getAmigoEmail())){
-//                    amizade = false;
-//                }
-//                if(paraEmail.equals(a.getUserEmail()) && deEmail.equals(a.getAmigoEmail())){
-//                    amizade2 = false;
-//                }
-//            }
             
             ger.closeConexao();
             ger2.closeConexao();

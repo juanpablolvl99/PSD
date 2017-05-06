@@ -8,7 +8,7 @@
 
 <f:friends email="${emailUsuario}"/>
 <rc:recom email="${emailUsuario}"/>
-<pd:retornaPedido userEmail="${emailUsuario}"/>
+<pd:retornaPedido userEmail="${emailUsuario}" userParaEmail="${emailUsuario}"/>
 
 <html>
     <head>

@@ -35,6 +35,12 @@ public class GerenciadorRelacionamento {
         
     }
     
+    public boolean verificaRelacionamento(String email, String paraEmail) throws SQLException{
+        
+        return this.ifc.verificaRelacionamento(email, paraEmail);
+        
+    }
+    
     public void closeConexao() throws SQLException{
         
         this.ifc.closeConexao();

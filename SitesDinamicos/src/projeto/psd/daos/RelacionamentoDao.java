@@ -65,6 +65,23 @@ public class RelacionamentoDao implements RelacionamentoDaoIf {
         }
         return r;
     }
+    
+    @Override
+    public boolean verificaRelacionamento(String email, String paraEmail) throws SQLException {
+        String sql = "SELECT * FROM relacionamento WHERE userEmail = ? and userParaEmail = ? or userEmail = ? and userParaEmail = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, email);
+        stmt.setString(2, paraEmail);
+        stmt.setString(3, paraEmail);
+        stmt.setString(4, email);
+        ResultSet rs = stmt.executeQuery();
+        if(rs.next()){
+            return true;
+        }
+        stmt.close();
+        rs.close();
+        return false;
+    }
 
     @Override
     public void closeConexao() throws SQLException {

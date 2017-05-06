@@ -26,5 +26,7 @@ public interface PedidoDaoIf {
     
     public List<Pedido> listAllRelacionamento(String email) throws SQLException;
     
+    public boolean vrfPedidoFeito(String email, String paraEmail) throws SQLException;
+    
     public void closeConexao() throws SQLException;
 }

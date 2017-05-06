@@ -72,5 +72,11 @@ public class GerenciadorPedido {
         return this.ifc.listAllRelacionamento(email);
         
     }
+    
+    public boolean vrfPedidoFeito(String email, String paraEmail) throws SQLException {
+        
+        return this.ifc.vrfPedidoFeito(email, paraEmail);
+        
+    }
 
 }

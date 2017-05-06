@@ -15,7 +15,6 @@
 <df:carregaDF email="${otherUser.email}" retorna="fotos"/>
 <df:carregaDF email="${otherUser.email}" retorna="datas"/>
 
-
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -52,7 +51,7 @@
                                         <li class="list-group-item">Peso - ${otherUser.peso}</li>
                                         <li class="list-group-item">Cor do cabelo - ${otherUser.corDoCabelo}</li>
                                         <li class="list-group-item">Passatempos - ${otherUser.passatempos}</li>
-                                        <pd:retornaPedido userEmail="${otherUser.email}"/>
+                                        <pd:retornaPedido userEmail="${otherUser.email}" userParaEmail="${emailUsuario}"/>
                                         <c:choose>
                                             <c:when test="${rlcExist}">
                                                 <li class="list-group-item">Status - ${otherUser.status}
@@ -93,8 +92,8 @@
                     <div> 
                         <myTags:verificaPedido deEmail="${dadosUsu.email}" paraEmail="${otherUser.email}"/>
                         <!--style="padding: 4% 19.2% 4% 19.2%"-->
-                        <c:if test="${condicaoPedido}">
-                            <c:if test="${condicaoAmizade}">
+                        <c:if test="${not condicaoPedido}">
+                            <c:if test="${not condicaoAmizade}">
                                 <form id="formulario" method="POST" style="margin-top: 2%" action="front.do">
                                     <input type="hidden" name="deUsuario" value="${dadosUsu.email}">
                                     <input type="hidden" name="paraUsuario" value="${otherUser.email}">
@@ -103,40 +102,50 @@
                                 </form>
                             </c:if>
                         </c:if>
-                        <pd:retornaPedido userEmail="${emailUsuario}"/>
-                        <c:if test="${condicaoAmizade == 'false'}">
+                        <pd:retornaPedido userEmail="${emailUsuario}" userParaEmail="${otherUser.email}"/>
+                        <!-- Existe amizade -->
+                        <c:if test="${condicaoAmizade}">
+                            <!-- Um usuario so pode fazer uma solicitacao de relacionamento -->
                             <c:if test="${numPedidosFeitos <= 0}">
+                                <!-- Estou em um relacionamento -->
                                 <c:if test="${rlcExist}">
-                                    <button style=" margin-top: 2%" class="btn btn-primary" data-toggle="modal" data-target="#filtrarModal2">Relacionamento</button>
-                                    <div id="filtrarModal2" class="modal fade" role="dialog">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title">Pedido de alteração de relacionamento</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="front.do" method="post">                
-                                                        <label style="margin-left: 2%">Sua relação com essa pessoa:</label>
-                                                        <select required="required" class="form-control" name="status">
-                                                            <option>Namorando</option>
-                                                            <option>Casado</option>
-                                                        </select>
-                                                        <input type="hidden" name="userEmail" value="${dadosUsu.email}">
-                                                        <input type="hidden" name="userParaEmail" value="${otherUser.email}">
-                                                        <input type="hidden" name="action" value="PedidoRelacionamento"><br>
-                                                        <input type="submit" class="btn btn-default" value="Mandar Pedido" style="margin-left: 77%">
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <!-- Essa pessoa ja te enviou um pedido de relacionamento -->
+                                    <c:if test="${not pddExist}">
+                                    <!-- A outra pessoa esta em um relacionamento -->
+                                        <c:if test="${rlcOutroExist}">
+                                            <button style=" margin-top: 2%" class="btn btn-primary" data-toggle="modal" data-target="#filtrarModal2">Relacionamento</button>
+                                            <div id="filtrarModal2" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Pedido de alteração de relacionamento</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="front.do" method="post">
+                                                                <label style="margin-left: 2%">Sua relação com essa pessoa:</label>
+                                                                <select required="required" class="form-control" name="status">
+                                                                    <option>Namorando</option>
+                                                                    <option>Casado</option>
+                                                                </select>
+                                                                <input type="hidden" name="userEmail" value="${dadosUsu.email}">
+                                                                <input type="hidden" name="userParaEmail" value="${otherUser.email}">
+                                                                <input type="hidden" name="action" value="PedidoRelacionamento"><br>
+                                                                <input type="submit" class="btn btn-default" value="Mandar Pedido" style="margin-left: 77%">
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </c:if>
+                                    </c:if>
                                 </c:if>
                             </c:if>
-                            <c:if test="${not rlcExist}">
+
+                            <c:if test="${excRlc}">
                                 <form method="post" action="ExcluirRelacionamento">
                                     <input type="hidden" name="user" value="${emailUsuario}">
                                     <input type="hidden" name="other" value="${otherUser.email}">

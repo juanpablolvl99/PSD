@@ -65,11 +65,6 @@ public class PedidoDao implements PedidoDaoIf {
     }
 
     @Override
-    public void closeConexao() throws SQLException {
-        con.close();
-    }
-
-    @Override
     public List<Pedido> listAll(String email) throws SQLException {
             String sql = "SELECT * FROM pedidosAmizade where userParaEmail='"+email+"'";
         PreparedStatement stmt = con.prepareStatement(sql);
@@ -169,6 +164,26 @@ public class PedidoDao implements PedidoDaoIf {
         rs.close();
 
         return lista;
+    }
+    
+    @Override
+    public boolean vrfPedidoFeito(String email, String paraEmail) throws SQLException {
+        String sql = "SELECT * FROM pedidosRelacionamento WHERE userEmail = ? and userParaEmail = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, email);
+        stmt.setString(2, paraEmail);
+        ResultSet rs = stmt.executeQuery();
+        if(rs.next()){
+            return true;
+        }
+        stmt.close();
+        rs.close();
+        return false;
+    }
+    
+    @Override
+    public void closeConexao() throws SQLException {
+        con.close();
     }
     
 }
