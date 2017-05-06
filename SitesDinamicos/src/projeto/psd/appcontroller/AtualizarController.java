@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import projeto.psd.entidades.Usuario;
+import projeto.psd.gerenciadores.GerenciadorRelacionamento;
 import projeto.psd.gerenciadores.GerenciadorUsuario;
 import projeto.psd.interfaces.Command;
 
@@ -45,6 +46,9 @@ public class AtualizarController implements Command {
         user.setStatus(retornaComEncode(req.getParameter("status")));
         user.setSenha(retornaComEncode(req.getParameter("senha")));
                
+        GerenciadorRelacionamento gr = new GerenciadorRelacionamento();
+        
+        gr.remove2(req.getParameter("email"));
         
         String path = req.getServletContext().getRealPath("");
         List<Part> parts = (List) req.getParts();
