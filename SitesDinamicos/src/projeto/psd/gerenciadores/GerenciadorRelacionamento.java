@@ -29,6 +29,12 @@ public class GerenciadorRelacionamento {
         
     }
     
+    public boolean remove2(String emailUser) throws SQLException{
+        
+        return this.ifc.remove2(emailUser);
+        
+    }
+    
     public Relacionamento retornaRelac(String email) throws SQLException{
         
         return this.ifc.retornaRelac(email);

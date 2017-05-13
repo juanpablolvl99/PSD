@@ -146,9 +146,10 @@
                             </c:if>
 
                             <c:if test="${excRlc}">
-                                <form method="post" action="ExcluirRelacionamento">
-                                    <input type="hidden" name="user" value="${emailUsuario}">
-                                    <input type="hidden" name="other" value="${otherUser.email}">
+                                <form method="post" action="front.do">
+                                    <input type="hidden" name="action" value="ExcluirRelacionamento">
+                                    <input type="hidden" name="email" value="${emailUsuario}">
+                                    <input type="hidden" name="paraEmail" value="${otherUser.email}">
                                     <input type="submit" class="btn btn-primary" value="Excluir Relacionamento">
                                 </form>
                             </c:if>

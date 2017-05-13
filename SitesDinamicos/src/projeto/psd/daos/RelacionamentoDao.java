@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import projeto.psd.entidades.Relacionamento;
 import projeto.psd.factorys.ConFactory;
 import projeto.psd.interfaces.RelacionamentoDaoIf;
@@ -56,7 +54,17 @@ public class RelacionamentoDao implements RelacionamentoDaoIf {
         
         stmt.close();
         return vrf > 0;
-
+    }
+    
+    @Override
+    public boolean remove2(String userEmail) throws SQLException {
+        String sql = "DELETE FROM relacionamento WHERE userEmail = ? OR userParaEmail = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, userEmail);
+         stmt.setString(2, userEmail);
+        int vrf = stmt.executeUpdate();
+        stmt.close();
+        return vrf > 0;
     }
 
     @Override
