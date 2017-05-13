@@ -44,7 +44,7 @@ public class LoginController implements Command {
             }
             ger.closeConexao();
             String url = res.encodeRedirectURL("Inicial.jsp");
-            res.sendRedirect(url);
+            req.getRequestDispatcher(url).forward(req, res);
         } else {
             ger.closeConexao();
             res.sendRedirect("Index.htm");

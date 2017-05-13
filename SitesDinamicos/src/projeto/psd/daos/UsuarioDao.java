@@ -74,7 +74,7 @@ public class UsuarioDao implements UsuarioDaoIf {
 
         String sql = "UPDATE usuario SET senha = ?, nome = ?, "
                 + "apelido = ?, dataNascimento = ?, cidade = ?, email = ?, "
-                + "profissao = ?, descricao = ?, status = ?, altura = ?, peso = ?, "
+                + "profissao = ?, descricao = ?, altura = ?, peso = ?, "
                 + "cordocabelo = ?, passatempos = ?, fotoperfil = ? WHERE login = ?";
         PreparedStatement stmt;
 
@@ -87,13 +87,12 @@ public class UsuarioDao implements UsuarioDaoIf {
         stmt.setString(6, u.getEmail());
         stmt.setString(7, u.getProfissao());
         stmt.setString(8, u.getDescricao());
-        stmt.setString(9, u.getStatus());
-        stmt.setDouble(10, u.getAltura());
-        stmt.setDouble(11, u.getPeso());
-        stmt.setString(12, u.getCorDoCabelo());
-        stmt.setString(13, u.getPassatempos());
-        stmt.setString(15, u.getLogin());
-        stmt.setString(14, u.getFotoPerfil());
+        stmt.setDouble(9, u.getAltura());
+        stmt.setDouble(10, u.getPeso());
+        stmt.setString(11, u.getCorDoCabelo());
+        stmt.setString(12, u.getPassatempos());
+        stmt.setString(14, u.getLogin());
+        stmt.setString(13, u.getFotoPerfil());
 
         int vrf = stmt.executeUpdate();
 

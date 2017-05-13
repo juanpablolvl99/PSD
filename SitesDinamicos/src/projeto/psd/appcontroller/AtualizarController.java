@@ -42,7 +42,6 @@ public class AtualizarController implements Command {
         user.setEmail(retornaComEncode(req.getParameter("email")));
         user.setPassatempos(retornaComEncode(req.getParameter("passatempos")));
         user.setProfissao(retornaComEncode(req.getParameter("profissao")));
-        user.setStatus(retornaComEncode(req.getParameter("status")));
         user.setSenha(retornaComEncode(req.getParameter("senha")));
                
         
@@ -67,6 +66,7 @@ public class AtualizarController implements Command {
         if (ger.update(user)) {
             synchronized (session) {
                 session.setAttribute("dadosUsu", user);
+                session.setAttribute("emailUsuario", user.getEmail());
             }
             ger.closeConexao();
             res.sendRedirect(res.encodeRedirectURL("Inicial.jsp"));

@@ -45,6 +45,15 @@ public class RelacionamentoDao implements RelacionamentoDaoIf {
         stmt.setString(3, userPara);
         stmt.setString(4, userEmail);
         int vrf = stmt.executeUpdate();
+        
+        sql = "update usuario set status = 'Solteiro' where email = ?";
+        stmt = con.prepareStatement(sql);
+        stmt.setString(1, userEmail);
+        stmt.executeUpdate();
+        
+        stmt.setString(1, userPara);
+        stmt.executeUpdate();
+        
         stmt.close();
         return vrf > 0;
 
