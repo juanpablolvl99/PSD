@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="num" uri="NumDados"%>
@@ -105,7 +106,7 @@
             </div>
             <div class="modal-body">
                 <form action="front.do" method="post">
-                <p style="text-align: center; font-weight: bold;">Filtrar pelos dois</p>
+                <p style="text-align: center; font-weight: bold;">Busque um perfil</p>
                     <label style="margin-left: 2%">Cor do cabelo:</label>
                     <select class="form-control" name="corDoCabelo">
                       <option></option>

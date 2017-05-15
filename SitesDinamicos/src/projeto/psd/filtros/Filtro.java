@@ -22,11 +22,9 @@ public class Filtro implements Filter{
         HttpServletRequest req = (HttpServletRequest) sr;
         HttpServletResponse res = (HttpServletResponse) srp;
         
-        HttpSession session = req.getSession(true);
+        HttpSession session = req.getSession(false);
         
-        Object login = session.getAttribute("emailUsuario");
-        
-        if(login != null)
+        if(session != null)
             fc.doFilter(sr, srp);
         else
             res.sendRedirect("Index.htm");

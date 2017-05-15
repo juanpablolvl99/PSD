@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Pagina de Busca</title>
+        <title>Filtro</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/search.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">

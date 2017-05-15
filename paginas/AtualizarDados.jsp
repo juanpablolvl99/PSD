@@ -31,28 +31,21 @@
 			  <input type="date" name="dataDeNascimento" placeholder="Data de Nascimento" class="campo" value="${dadosUsu.dataDeNascimento}">
 			  <input type="text" name="apelido" placeholder="Apelido" class="campo" value="${dadosUsu.apelido}">
 			  <input type="text" name="profissao" placeholder="Profissão" class="campo" value="${dadosUsu.profissao}">
+        <input name="status" type="hidden" value="Solteiro" required="required">
 			</div>
 			<div class="col-md-6">
-			  <input type="text" name="descricao" placeholder="Breve Descrição" class="campo" value="${dadosUsu.descricao}">
-			  <select name="status" id="status" value="${dadosUsu.status}">
-				  <option>Solteiro (a)</option>
-				  <option>Namorando</option>
-				  <option>Casado (a)</option>
-				  <option>Viúvo (a)</option>
-				  <option>Divorciado (a)</option>
-			  </select>
-        <br>
-        <!-- <label for="relacionado" id="lb" style="display: none;">Com:</label>
-        <select name="relacionado" style="display: none" id="relacionado">
-          <option></option>
-          <c:forEach var="amigo" items="${amigos}">
-            <option>${amigo.nome}</option>
-          </c:forEach>
-        </select> -->
-        <br>
+			  <input type="text" name="descricao" placeholder="Descrição" class="campo" value="${dadosUsu.descricao}">
 			  <input type="number" min="0" max="3" step="0.01" name="altura" value="${dadosUsu.altura}" placeholder="Sua Altura" class="campo">
 			  <input type="number" min="0" max="200" step="0.1" name="peso" value="${dadosUsu.peso}" placeholder="Seu Peso" class="campo">
-			  <input type="text" name="corDoCabelo" value="${dadosUsu.corDoCabelo}" placeholder="Cor do Cabelo" class="campo">
+			  <br>
+			  <select required="required" class="form-control" name="corDoCabelo" style="height: 40px;">
+			    <option>Preto</option>
+			    <option>Castanho</option>
+			    <option>Loiro</option>
+			    <option>Platinado</option>
+			    <option>Ruivo</option>
+			  </select>
+			  <br>
 			  <input type="text" name="passatempos" value="${dadosUsu.passatempos}" placeholder="Passatempos" class="campo">
 		    </div>
 			<input type="hidden" name="action" value="Atualizar">

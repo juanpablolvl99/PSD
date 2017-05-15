@@ -18,7 +18,7 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Pagina de Busca</title>
+        <title>Info User</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/profile.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -147,9 +147,9 @@
 
                             <c:if test="${excRlc}">
                                 <form method="post" action="front.do">
-                                    <input type="hidden" name="action" value="ExcluirRelacionamento">
-                                    <input type="hidden" name="email" value="${emailUsuario}">
-                                    <input type="hidden" name="paraEmail" value="${otherUser.email}">
+									<input type="hidden" name="action" value="ExcluirRelacionamento">
+                                    <input type="hidden" name="user" value="${emailUsuario}">
+                                    <input type="hidden" name="other" value="${otherUser.email}">
                                     <input type="submit" class="btn btn-primary" value="Excluir Relacionamento">
                                 </form>
                             </c:if>

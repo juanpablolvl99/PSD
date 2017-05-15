@@ -128,7 +128,19 @@ public class PedidoDao implements PedidoDaoIf {
 
         return vrf > 0;
     }
+    
+    @Override
+    public boolean removerMeuPedidos(String email) throws SQLException {
+        String sql = "delete from pedidosRelacionamento where userEmail = ? or userParaEmail = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, email);
+        stmt.setString(2, email);
+        int vrf = stmt.executeUpdate();
+        stmt.close();
 
+        return vrf > 0;
+    }
+    
     @Override
     public List<Pedido> listRelacionamento(String email) throws SQLException {
         String sql = "SELECT * FROM pedidosRelacionamento WHERE userEmail = ?";

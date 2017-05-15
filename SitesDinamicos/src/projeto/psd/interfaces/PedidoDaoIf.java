@@ -18,6 +18,8 @@ public interface PedidoDaoIf {
     
     // Pedido Relacionamento
     
+    public boolean removerMeuPedidos(String email) throws SQLException;
+    
     public boolean addRelacionamento(String userEmail, String userParaEmail, String status) throws SQLException;
 
     public boolean removeRelacionamento(String userEmail, String userParaEmail) throws SQLException;

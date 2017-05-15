@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/appcontroller/LoginController.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/appcontroller/CadastroUsuarioController.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/daos/AmizadeDao.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/daos/UsuarioDao.java</file>
             <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/filtros/Filtro.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/servlets/FrontController.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/appcontroller/AceitarAmizadeController.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/factorys/ConFactory.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/factorys/DaoFactory.java</file>
+            <file>file:/C:/facul/periodo4/PSD/projetopsd/SitesDinamicos/src/projeto/psd/factorys/DaoFactoryDB.java</file>
         </group>
     </open-files>
 </project-private>

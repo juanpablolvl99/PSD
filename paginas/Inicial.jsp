@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Profile page</title>
+        <title>Pagina Inicial</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/profile.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -50,6 +50,7 @@
 
 		.file-return {
 		  margin: 0;
+          word-break: break-all;
 		}
 		.file-return:not(:empty) {
 		  margin: 1em 0;
@@ -149,7 +150,7 @@
 				<div class="col-md-3">
 					<form action="front.do" method="post" enctype="multipart/form-data">
 					    <div class="input-file-container" style="display:inline-block">  
-						    <input class="input-file" id="my-file" name="foto" type="file"/>
+						    <input class="input-file" id="my-file" name="foto" type="file" required="required" />
 						    <label tabindex="0" for="my-file" class="input-file-trigger" style="padding-left:22%">Publique uma foto</label>
 					    </div>
 						<input type="hidden" name="action" value="AdicionarFoto"/>

@@ -1,4 +1,3 @@
-
 package projeto.psd.appcontroller;
 
 import java.io.IOException;
@@ -28,18 +27,19 @@ public class AceitarRelacionamentoController implements Command {
         GerenciadorUsuario ger3 = new GerenciadorUsuario();
         ger3.updateStatus(email, status);
         ger3.updateStatus(paraEmail, status);
-        if(ger.add(r)){
-            ger2.removeRelacionamento(email, paraEmail);
+        if (ger.add(r)) {
+            //ger2.removeRelacionamento(email, paraEmail);
+            ger2.removerMeuPedidos(email);
             res.sendRedirect("Inicial.jsp");
             ger.closeConexao();
             ger2.closeConexao();
             ger3.closeConexao();
         } else {
-            res.sendError(333);
             ger.closeConexao();
             ger2.closeConexao();
             ger3.closeConexao();
+            res.sendError(333);
         }
     }
-    
+
 }

@@ -78,5 +78,11 @@ public class GerenciadorPedido {
         return this.ifc.vrfPedidoFeito(email, paraEmail);
         
     }
+    
+    public boolean removerMeuPedidos(String email) throws SQLException {
+        
+        return this.ifc.removerMeuPedidos(email);
+        
+    }
 
 }
